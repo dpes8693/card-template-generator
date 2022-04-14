@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+  </head>
+
+  <body>
+    <div id="app">
+      <v-app>
+        <v-app-bar app color="primary" dense dark>
+          <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
+          <v-toolbar-title>{{webTitle}}</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-menu transition="scale-transition">
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn icon v-bind="attrs" v-on="on">
+                <v-icon>mdi-dots-vertical</v-icon>
+                <!-- mdi-magnify 放大鏡 -->
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item v-for="n in menuList" :key="n" @click="() => {}">
+                <v-list-item-title>{{ n }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </v-app-bar>
+        <!-- main start -->
+        <v-main>
+          <v-container fluid>
+            <v-data-table
+              :headers="headers"
+              :items="cards"
+              :items-per-page="10"
+              class="elevation-1"
+            >
+            </v-data-table>
+            
+          </v-container>
+        </v-main>
+        <!-- main end -->
+      </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script> -->
+    <script src="./js/vuetify.js"></script>
+    <script src="./js/data.js"></script>
+    <script>
+      
+      new Vue({
+        el: "#app",
+        vuetify: new Vuetify(),
+
+        data: () => ({
+          //i18n
+          webTitle: "Axie Infinity Origin Cards",
+          menuList: ["Cards", "Calculator"],
+          //data
+          headers: (this.headers = headers),
+          cards: (this.cards = cards),
+
+          right: null,
+        }),
+
+        computed: {},
+
+        watch: {},
+
+        methods: {
+
+        },
+      }).$mount("#app");
+      // new Vue()
+    </script>
+  </body>
+</html>

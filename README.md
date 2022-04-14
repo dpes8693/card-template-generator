@@ -2,6 +2,10 @@
 
 製作卡牌圖鑑模板格式
 
+## 採坑 
+### 0414抓不到資料
+headers: (this.headers = headers),
+
 ```js
 
 0413 update
