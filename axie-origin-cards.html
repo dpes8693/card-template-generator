@@ -108,12 +108,17 @@
                       <v-icon>mdi-close</v-icon>
                     </v-btn>
                     <v-card-title>
-                      <v-row>
-                        <v-col cols="6" sm="4"> {{cardTitle}} </v-col>
-                        </v-col>
-                      </v-row>
+                      {{card.title}}
                     </v-card-title>
-                    <v-card-text> {{cardDetail}} </v-card-text>
+                    <v-card-text> 
+                      <!-- {{cardDetail}}  -->
+                      <v-list-item>
+                        <v-list-item-content>
+                          <v-list-item-subtitle>{{card.name}}</v-list-item-subtitle>
+                          <v-list-item-subtitle>{{card.attack}}</v-list-item-subtitle>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-card-text>
                   </v-card>
                 </v-dialog>
               </div>
@@ -150,11 +155,10 @@
           searchPlaceHolder: "Name, Part, Tag, Keyword",
           itemsPage: 15,
           noData: "No data available",
-          //pop,
+          //pop dialog,
           dialogWidth: 600,
           dialog: false,
-          cardTitle: "",
-          cardDetail: "",
+          card:{},
           //filter
           items: in_cardClass,
           value: in_cardClass,
@@ -162,8 +166,6 @@
           //window
           windowWidth: null,
         }),
-
-        computed: {},
 
         watch: {
           windowWidth(value) {
@@ -203,9 +205,9 @@
             this.cards = this.multiFilter(array, filters)
           },
           open(item) {
+            //open dialog
             this.dialog = true
-            this.cardDetail = item
-            this.cardTitle = item.name
+            this.card = item
           },
           multiFilter(array, filters) {
             const filterKeys = Object.keys(filters)
