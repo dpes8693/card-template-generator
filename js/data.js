@@ -1,40 +1,52 @@
-const headers = [
-    {
-      text: "Dessert (100g serving)",
-      align: "start",
-      sortable: false,
-      value: "name",
-    },
-    { text: "Calories", value: "calories" },
-    { text: "Fat (g)", value: "fat" },
-    { text: "Carbs (g)", value: "carbs" },
-    { text: "Protein (g)", value: "protein" },
-    { text: "Iron (%)", value: "iron" },
-  ];
+const in_headers = [
+  {
+    text: "Card Name",
+    align: "start",
+    sortable: false,
+    value: "name",
+    filterable: true,
+  },
+  { text: "Card Class", value: "class", filterable: false },
+  { text: "Axie Part", value: "part", filterable: false },
+  { text: "Cost", value: "cost", filterable: false },
+  { text: "Attack", value: "attack", filterable: false },
+  { text: "Shield", value: "shield", filterable: false },
+  { text: "Heal", value: "heal", filterable: false },
+  { text: "Card Tag", value: "tag", filterable: false },
+];
 
-  const cards = [
-    {
-      name: "Frozen Yogurt",
-      calories: 159,
-      fat: 6.0,
-      carbs: 24,
-      protein: 4.0,
-      iron: "1%",
-    },
-    {
-      name: "Donut",
-      calories: 452,
-      fat: 25.0,
-      carbs: 51,
-      protein: 4.9,
-      iron: "22%",
-    },
-    {
-      name: "KitKat",
-      calories: 518,
-      fat: 26.0,
-      carbs: 65,
-      protein: 7,
-      iron: "6%",
-    },
-  ];
+const in_cards = [
+  {
+    name: "Frozen Yogurt",
+    class: "1%",
+    part: "aa",
+    cost: 24,
+    attack: 159,
+    shield: 4.0,
+    heal: 6.0,
+    tag: 0.2,
+  },
+  {
+    name: "Donut",
+    class: "22%",
+    part: "aa",
+    cost: 51,
+    attack: 452,
+    shield: 4.9,
+    heal: 25.0,
+    tag: 0.2,
+  },
+  {
+    name: "KitKat",
+    class: "6%",
+    part: "aa",
+    cost: 65,
+    attack: 518,
+    shield: 7,
+    heal: 26.0,
+    tag: 0.2,
+  },
+];
+
+const in_cardClass = [];
+const in_cardClass2 = [];

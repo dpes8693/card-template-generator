@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link
-      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
-      rel="stylesheet"
-    />
-
+    <!-- import vuetify-css + font -->
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"  rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"/>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
@@ -19,15 +13,14 @@
   <body>
     <div id="app">
       <v-app>
+        <!-- header start -->
         <v-app-bar app color="primary" dense dark>
-          <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
           <v-toolbar-title>{{webTitle}}</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-menu transition="scale-transition">
             <template v-slot:activator="{ on, attrs }">
               <v-btn icon v-bind="attrs" v-on="on">
                 <v-icon>mdi-dots-vertical</v-icon>
-                <!-- mdi-magnify 放大鏡 -->
               </v-btn>
             </template>
             <v-list>
@@ -37,53 +30,167 @@
             </v-list>
           </v-menu>
         </v-app-bar>
+        <!-- header end -->
         <!-- main start -->
         <v-main>
-          <v-container fluid>
-            <v-data-table
-              :headers="headers"
-              :items="cards"
-              :items-per-page="10"
-              class="elevation-1"
-            >
-            </v-data-table>
-            
+          <v-container>
+            <!-- select class start -->
+            <v-row >
+              <v-col cols="12" sm="8">
+                <v-select
+                  v-model="value"
+                  :items="items"
+                  chips
+                  label="Class"
+                  :height="selectHeight"
+                  deletable-chips
+                  small-chips
+                  multiple
+                  outlined
+                  clearable
+                ></v-select>
+              </v-col>
+            </v-row>
+            <!-- select class end  -->
+            <!-- table-card start -->
+            <template>
+              <v-card>
+                <v-card-title>
+                  <v-row>
+                    <v-col cols="12" sm="6"> {{tableTitle}} </v-col>
+                    <v-spacer></v-spacer>
+                    <v-col cols="12" sm="4">
+                      <v-text-field
+                        v-model="search"
+                        append-icon="mdi-magnify"
+                        single-line
+                        hide-details
+                        :placeholder="searchPlaceHolder"
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+                </v-card-title>
+                <v-data-table
+                  :headers="headers"
+                  :items="cards"
+                  :search="search"
+                  :items-per-page="10"
+                  :footer-props="{
+                    'items-per-page-text':' ',
+                  }"
+                >
+                  <!-- click name start-->
+                  <template v-slot:item.name="props">
+                    <v-edit-dialog
+                      :return-value.sync="props.item.name"
+                      @open="open(props.item)"
+                    >
+                      <span class="primary--text text-decoration-underline">{{ props.item.name }}</span>
+                    </v-edit-dialog>
+                  </template>
+                  <!-- click name end-->
+                </v-data-table>
+              </v-card>
+            </template>
+            <!-- table-card end -->
+            <!-- dialog-card start -->
+            <template>
+              <div class="text-center">
+                <v-dialog v-model="dialog" :width="dialogWidth" persistent>
+                  <v-card>
+                    <v-btn icon @click="dialog = false" class="float-right">
+                      <v-icon>mdi-close</v-icon>
+                    </v-btn>
+                    <v-card-title>
+                      <v-row>
+                        <v-col cols="6" sm="4"> {{cardTitle}} </v-col>
+                        </v-col>
+                      </v-row>
+                    </v-card-title>
+                    <v-card-text> {{cardDetail}} </v-card-text>
+                  </v-card>
+                </v-dialog>
+              </div>
+            </template>
+            <!-- dialog-card end -->
           </v-container>
         </v-main>
         <!-- main end -->
       </v-app>
     </div>
 
+    <!-- import vue2 + vuetify.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script> -->
     <script src="./js/vuetify.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script> -->
+    <!-- import data -->
     <script src="./js/data.js"></script>
+
     <script>
-      
       new Vue({
         el: "#app",
         vuetify: new Vuetify(),
 
         data: () => ({
-          //i18n
+          //header
           webTitle: "Axie Infinity Origin Cards",
           menuList: ["Cards", "Calculator"],
-          //data
-          headers: (this.headers = headers),
-          cards: (this.cards = cards),
-
-          right: null,
+          //import data
+          headers: in_headers,
+          cards: in_cards,
+          //table
+          tableTitle: "Origin Cards",
+          search: "",
+          searchPlaceHolder: "Name, Tag, Keyword",
+          //pop,
+          dialogWidth: 600,
+          dialog: false,
+          cardTitle: "",
+          cardDetail: "",
+          //filter
+          items: ["foo", "bar", "fizz", "buzz", "buzz1", "buzz2"],
+          value: ["foo", "bar", "fizz", "buzz", "buzz1", "buzz2"],
+          selectHeight: null,
+          //window
+          windowWidth: null,
         }),
 
         computed: {},
 
-        watch: {},
-
-        methods: {
-
+        watch: {
+          windowWidth(value) {
+            const tableChangeWidth = 600
+            this.setSelectorHeight(value,tableChangeWidth)
+            this.setTableItem(value,tableChangeWidth)
+          },
         },
-      }).$mount("#app");
-      // new Vue()
+
+        mounted() {
+          this.getWindowWidth()
+        },
+        methods: {
+          getWindowWidth() {
+            this.windowWidth = window.innerWidth
+            window.onresize = () => {
+              this.windowWidth = window.innerWidth
+            };
+          },
+          setSelectorHeight(now,targetWidth){
+            const bigger = 75
+            const smaller = 56
+            this.selectHeight = (now <= targetWidth) ? bigger : smaller
+          },
+          setTableItem(now,targetWidth){
+            // in = import data
+            this.headers = (now <= targetWidth) ? [in_headers[0]] : in_headers
+          },
+          open(item) {
+            this.dialog = true
+            this.cardDetail = item
+            this.cardTitle = item.name
+          },
+        },
+      }).$mount("#app")
     </script>
   </body>
 </html>
