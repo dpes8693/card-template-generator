@@ -36,7 +36,7 @@
           <v-container>
             <!-- select class start -->
             <v-row >
-              <v-col cols="12" sm="8">
+              <v-col cols="12" md="9">
                 <v-select
                   v-model="value"
                   :items="items"
@@ -48,6 +48,7 @@
                   multiple
                   outlined
                   clearable
+                  @change="tableFilter(value)"
                 ></v-select>
               </v-col>
             </v-row>
@@ -74,7 +75,7 @@
                   :headers="headers"
                   :items="cards"
                   :search="search"
-                  :items-per-page="10"
+                  :items-per-page="itemsPage"
                   :footer-props="{
                     'items-per-page-text':' ',
                   }"
@@ -89,6 +90,11 @@
                     </v-edit-dialog>
                   </template>
                   <!-- click name end-->
+                  <!-- nodata start -->
+                  <template v-slot:no-data>
+                    <span class="primary--text">{{noData}}</span>
+                  </template>
+                  <!-- nodata end -->
                 </v-data-table>
               </v-card>
             </template>
@@ -141,15 +147,17 @@
           //table
           tableTitle: "Origin Cards",
           search: "",
-          searchPlaceHolder: "Name, Tag, Keyword",
+          searchPlaceHolder: "Name, Part, Tag, Keyword",
+          itemsPage: 15,
+          noData: "No data available",
           //pop,
           dialogWidth: 600,
           dialog: false,
           cardTitle: "",
           cardDetail: "",
           //filter
-          items: ["foo", "bar", "fizz", "buzz", "buzz1", "buzz2"],
-          value: ["foo", "bar", "fizz", "buzz", "buzz1", "buzz2"],
+          items: in_cardClass,
+          value: in_cardClass,
           selectHeight: null,
           //window
           windowWidth: null,
@@ -160,14 +168,16 @@
         watch: {
           windowWidth(value) {
             const tableChangeWidth = 600
-            this.setSelectorHeight(value,tableChangeWidth)
-            this.setTableItem(value,tableChangeWidth)
+            const selectChangeWidth = 870
+            this.setTableHeader(value,tableChangeWidth)
+            this.setSelectorHeight(value,selectChangeWidth)
           },
         },
 
         mounted() {
           this.getWindowWidth()
         },
+
         methods: {
           getWindowWidth() {
             this.windowWidth = window.innerWidth
@@ -180,14 +190,34 @@
             const smaller = 56
             this.selectHeight = (now <= targetWidth) ? bigger : smaller
           },
-          setTableItem(now,targetWidth){
+          setTableHeader(now,targetWidth){
             // in = import data
             this.headers = (now <= targetWidth) ? [in_headers[0]] : in_headers
+          },
+          tableFilter(filArr){
+             // in = import data
+            let array = in_cards
+            let filters = {
+                class: filArr
+            }
+            this.cards = this.multiFilter(array, filters)
           },
           open(item) {
             this.dialog = true
             this.cardDetail = item
             this.cardTitle = item.name
+          },
+          multiFilter(array, filters) {
+            const filterKeys = Object.keys(filters)
+            // filters all elements passing the criteria
+            return array.filter((item) => {
+              // dynamically validate all filter criteria
+              return filterKeys.every(key => {
+                  //ignore when the filter is empty Anne
+                if(!filters[key].length) return true
+                return !!~filters[key].indexOf(item[key])
+              })
+            })
           },
         },
       }).$mount("#app")
