@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+  </head>
+
+  <body>
+    <div id="app">
+      <v-app>
+        <v-app-bar app color="primary" dense dark>
+          <v-toolbar-title>{{webTitle}}</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-menu transition="scale-transition">
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn icon v-bind="attrs" v-on="on">
+                <v-icon>mdi-dots-vertical</v-icon>
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item v-for="n in menuList" :key="n" @click="() => {}">
+                <v-list-item-title>{{ n }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </v-app-bar>
+        <!-- main start -->
+        <v-main>
+          <v-container>
+            <!-- table-card start -->
+            <template>
+              <v-card>
+                <v-card-title>
+                  <v-row>
+                    <v-col cols="12" sm="6"> Cards </v-col>
+                    <v-spacer></v-spacer>
+                    <v-col cols="12" sm="4">
+                      <v-text-field
+                        v-model="search"
+                        append-icon="mdi-magnify"
+                        label="Search"
+                        single-line
+                        hide-details
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+                </v-card-title>
+                <v-data-table
+                  :headers="headers"
+                  :items="cards"
+                  :search="search"
+                  :items-per-page="10"
+                  class="elevation-0"
+                >
+                  <!-- click name start-->
+                  <template v-slot:item.name="props">
+                    <v-edit-dialog
+                      :return-value.sync="props.item.name"
+                      @open="open(props.item)"
+                    >
+                      {{ props.item.name }}
+                    </v-edit-dialog>
+                  </template>
+                  <!-- click name end-->
+                </v-data-table>
+              </v-card>
+            </template>
+            <!-- table-card end -->
+            <!-- dialog-card start -->
+            <template>
+              <div class="text-center">
+                <v-dialog v-model="dialog" :width="dialogWidth" persistent>
+                  <v-card>
+                    <v-card-title>
+                      <v-row>
+                        <v-col cols="12" sm="6"> {{cardTitle}} </v-col>
+                        <v-spacer></v-spacer>
+                        <v-btn icon @click="dialog = false" right>
+                          <v-icon>mdi-close</v-icon>
+                        </v-btn>
+                      </v-row>
+                    </v-card-title>
+                    <v-card-text> {{cardDetail}} </v-card-text>
+                  </v-card>
+                </v-dialog>
+              </div>
+            </template>
+            <!-- dialog-card end -->
+          </v-container>
+        </v-main>
+        <!-- main end -->
+      </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script> -->
+    <script src="./js/vuetify.js"></script>
+    <script src="./js/data.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        vuetify: new Vuetify(),
+
+        data: () => ({
+          //header
+          webTitle: "Axie Infinity Origin Cards",
+          menuList: ["Cards", "Calculator"],
+          //data
+          headers: (this.headers = headers),
+          cards: (this.cards = cards),
+          //table
+          search: "",
+          //pop,
+          dialogWidth: 600,
+          dialog: false,
+          cardTitle: "",
+          cardDetail: "",
+        }),
+
+        computed: {},
+
+        watch: {},
+
+        methods: {
+          open(item) {
+            this.dialog = true;
+            this.cardDetail = item;
+            this.cardTitle = item.name;
+          },
+        },
+      }).$mount("#app");
+    </script>
+  </body>
+</html>
