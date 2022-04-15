@@ -8,6 +8,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
     />
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
   </head>
 
   <body>
@@ -15,7 +20,7 @@
       <v-app>
         <!-- header start -->
         <v-app-bar app color="primary" dense dark>
-          <v-toolbar-title>{{webTitle}}</v-toolbar-title>
+          <v-toolbar-title v-cloak>{{webTitle}}</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-menu transition="scale-transition">
             <template v-slot:activator="{ on, attrs }">
@@ -25,7 +30,7 @@
             </template>
             <v-list>
               <v-list-item v-for="n in menuList" :key="n" @click="() => {}">
-                <v-list-item-title>{{ n }}</v-list-item-title>
+                <v-list-item-title v-cloak>{{ n }}</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
@@ -58,7 +63,7 @@
               <v-card>
                 <v-card-title>
                   <v-row>
-                    <v-col cols="12" sm="6"> {{tableTitle}} </v-col>
+                    <v-col cols="12" sm="6" v-cloak> {{tableTitle}} </v-col>
                     <v-spacer></v-spacer>
                     <v-col cols="12" sm="4">
                       <v-text-field
@@ -86,13 +91,13 @@
                       :return-value.sync="props.item.name"
                       @open="open(props.item)"
                     >
-                      <span class="primary--text text-decoration-underline">{{ props.item.name }}</span>
+                      <span class="primary--text text-decoration-underline" v-cloak>{{ props.item.name }}</span>
                     </v-edit-dialog>
                   </template>
                   <!-- click name end-->
                   <!-- nodata start -->
                   <template v-slot:no-data>
-                    <span class="primary--text">{{noData}}</span>
+                    <span class="primary--text" v-cloak>{{noData}}</span>
                   </template>
                   <!-- nodata end -->
                 </v-data-table>
