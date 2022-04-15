@@ -1,4 +1,6 @@
 const template = {
+  img: [],
+  keyword: [],
   tag: [
     "Attack",
     "Skill",
@@ -33,14 +35,14 @@ const in_headers = [
     filterable: true,
     width: "20%",
   },
-  { text: "Card Class", value: "Class", filterable: true },
   { text: "Cost", value: "Cost", filterable: true },
   { text: "Attack", value: "Attack", filterable: false },
   { text: "Shield", value: "Shield", filterable: false },
   { text: "Heal", value: "Heal", filterable: false },
-  { text: "Card Tag", value: "Tag", filterable: true },
+  // { text: "Card Tag", value: "Tag", filterable: true },
   //   { text: "Axie Part", value: "Part", filterable: false },
   //   { text: "Card Effect", value: "CardEffect", filterable: false },
+  { text: "Card Class", value: "Class", filterable: true },
 ];
 
 const in_cardClass = [
@@ -54,8 +56,7 @@ const in_cardClass = [
   "Dawn",
   "Dusk",
 ];
-
-let in_cards = [
+let Aquatic = [
   {
     Name: "Anemone",
     Part: "Horn",
@@ -411,6 +412,8 @@ let in_cards = [
     Class: "Beast",
     Tag: "Attack",
   },
+];
+let Beast = [
   {
     Name: "Acro",
     Part: "Horn",
@@ -848,6 +851,8 @@ let in_cards = [
     Class: "Beast",
     Tag: "Attack",
   },
+];
+let Bird = [
   {
     Name: "Balloon",
     Part: "Back",
@@ -1284,6 +1289,8 @@ let in_cards = [
     Class: "Beast",
     Tag: "Attack",
   },
+];
+let Bug = [
   {
     Name: "Ant",
     Part: "Tail",
@@ -1714,6 +1721,8 @@ let in_cards = [
     Class: "Beast",
     Tag: "Attack",
   },
+];
+let Plant = [
   {
     Name: "Bambooo Shoot",
     Part: "Horn",
@@ -2186,6 +2195,8 @@ let in_cards = [
     Class: "Beast",
     Tag: "Attack",
   },
+];
+let Reptile = [
   {
     Name: "Bone Sail",
     Part: "Back",
@@ -2624,3 +2635,5 @@ let in_cards = [
     Tag: "Attack",
   },
 ];
+//all
+let in_cards = [...Aquatic, ...Beast, ...Bird, ...Bug, ...Plant, ...Reptile];
