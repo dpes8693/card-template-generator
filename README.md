@@ -103,3 +103,6 @@ developed by Vietnamese studio Sky Mavis,known for its in-game economy
 
             "class": ["Beast", "Bug", "Bird", "Plant", "Aquatic", "Reptile", ],
             "Mech", "Dawn", "Dusk"
+
+卡名分六批
+            
