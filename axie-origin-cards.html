@@ -34,6 +34,15 @@
         background: #303031;
         border-radius: 5px;
       }
+
+      .fixed-card {
+        /* display: flex; */
+        /* flex-direction: row; */
+        position: absolute;
+        /* margin: 0 auto; */
+        margin-right: 300px;
+        /* margin-bottom: 100px; */
+      }
     </style>
   </head>
 
@@ -75,7 +84,7 @@
           <v-container>
             <!-- select class start -->
             <v-row>
-              <v-col cols="12" md="9">
+              <v-col cols="12">
                 <v-select
                   v-model="value"
                   :items="items"
@@ -121,11 +130,27 @@
                 >
                   <!-- click name start-->
                   <template v-slot:item.name="{ item }">
-                    <v-edit-dialog @open="open(item)">
-                      <span class="primary--text text-decoration-underline"
-                        >{{ item.name }}</span
-                      >
-                    </v-edit-dialog>
+                    <v-hover v-slot="{ hover }">
+                      <v-row>
+                        <v-col>
+                          <v-edit-dialog @open="open(item)">
+                            <span
+                              class="primary--text text-decoration-underline"
+                              width="50"
+                              >{{ item.name }}</span
+                            >
+                          </v-edit-dialog>
+                        </v-col>
+                        <v-col v-if="hover && phoneHover">
+                          <v-img
+                            class="fixed-card"
+                            max-width="175"
+                            :src="item.img"
+                          >
+                          </v-img>
+                        </v-col>
+                      </v-row>
+                    </v-hover>
                   </template>
                   <template v-slot:item.part="{ item }">
                     <span class="d-none"></span>
@@ -143,8 +168,8 @@
             <!-- dialog-card start -->
             <template>
               <div class="text-center">
-                <!-- <v-dialog v-model="dialog" :width="dialogWidth" persistent> -->
-                <v-dialog v-model="dialog" :width="dialogWidth">
+                <v-dialog v-model="dialog" :width="dialogWidth" persistent>
+                  <!-- <v-dialog v-model="dialog" :width="dialogWidth"> -->
                   <v-card :height="dialogHeight">
                     <v-btn
                       icon
@@ -164,10 +189,9 @@
                           <v-list-item>
                             <v-list-item-content>
                               <v-list-item-subtitle
-                                >{{card.name}}</v-list-item-subtitle
-                              >
-                              <v-list-item-subtitle
-                                >{{card.cardEffect}}</v-list-item-subtitle
+                                v-for="(item,i) in card"
+                                :key="item.name"
+                                >{{i}}: {{item}}</v-list-item-subtitle
                               >
                             </v-list-item-content>
                           </v-list-item>
@@ -178,6 +202,7 @@
                 </v-dialog>
               </div>
             </template>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
             <!-- dialog-card end -->
           </v-container>
         </v-main>
@@ -200,7 +225,7 @@
           tableTitle: "Origin Cards",
           search: "",
           searchPlaceHolder: "Name, Cost, Part, Tag, Keyword",
-          itemsPage: 10,
+          itemsPage: 20,
           noData: "No data available",
           //pop dialog,
           dialogWidth: null,
@@ -213,16 +238,15 @@
           selectHeight: null,
           //window
           windowWidth: null,
+          phoneHover: false,
         }),
 
         watch: {
           windowWidth(value) {
-            const tableChangeWidth = 600;
-            const selectChangeWidth = 870;
-            const dialogChangeWidth = 800;
-            this.setTableHeader(value, tableChangeWidth);
-            this.setSelectorHeight(value, selectChangeWidth);
-            this.setDialogWidth(value, dialogChangeWidth);
+            this.setTableHeader(value, 603);
+            this.setSelectorHeight(value, 870);
+            this.setDialogWidth(value, 800);
+            this.setHover(value, 603);
           },
         },
 
@@ -237,10 +261,14 @@
               this.windowWidth = window.innerWidth;
             };
           },
+
           setDialogWidth(now, targetWidth) {
             const fixed = 600;
             const per = "75%";
             this.dialogWidth = now <= targetWidth ? fixed : per;
+          },
+          setHover(now, targetWidth) {
+            this.phoneHover = now <= targetWidth ? false : true;
           },
           setSelectorHeight(now, targetWidth) {
             const bigger = 75;
