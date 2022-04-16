@@ -2,8 +2,14 @@
 <html>
   <head>
     <!-- import vuetify-css + font -->
-    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"  rel="stylesheet"/>
-    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"/>
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
@@ -16,7 +22,20 @@
   </head>
 
   <body>
+    <!-- import vue2 + vuetify.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="./js/vuetify.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script> -->
+    <!-- import data -->
+    <script src="./js/Aquatic.js"></script>
+    <script src="./js/Beast.js"></script>
+    <script src="./js/Bird.js"></script>
+    <script src="./js/Bug.js"></script>
+    <script src="./js/Plant.js"></script>
+    <script src="./js/Reptile.js"></script>
+    <script src="./js/data.js"></script>
     <div id="app">
+      <!-- {{cards}} -->
       <v-app>
         <!-- header start -->
         <v-app-bar app color="primary" dense dark>
@@ -40,7 +59,7 @@
         <v-main>
           <v-container>
             <!-- select class start -->
-            <v-row >
+            <v-row>
               <v-col cols="12" md="9">
                 <v-select
                   v-model="value"
@@ -52,8 +71,8 @@
                   small-chips
                   multiple
                   outlined
-                  clearable
                   @change="tableFilter(value)"
+                  clearable
                 ></v-select>
               </v-col>
             </v-row>
@@ -91,7 +110,11 @@
                       :return-value.sync="props.item.name"
                       @open="open(props.item)"
                     >
-                      <span class="primary--text text-decoration-underline" v-cloak>{{ props.item.name }}</span>
+                      <span
+                        class="primary--text text-decoration-underline"
+                        v-cloak
+                        >{{ props.item.name }}</span
+                      >
                     </v-edit-dialog>
                   </template>
                   <!-- click name end-->
@@ -112,15 +135,21 @@
                     <v-btn icon @click="dialog = false" class="float-right">
                       <v-icon>mdi-close</v-icon>
                     </v-btn>
-                    <v-card-title>
-                      {{card.title}}
-                    </v-card-title>
-                    <v-card-text> 
-                      <!-- {{cardDetail}}  -->
+                    <v-card-title> {{card.title}} </v-card-title>
+                    <v-card-text>
+                      <v-img
+                        lazy-src=""
+                        max-width="360"
+                        :src="card.img"
+                      ></v-img>
                       <v-list-item>
                         <v-list-item-content>
-                          <v-list-item-subtitle>{{card.name}}</v-list-item-subtitle>
-                          <v-list-item-subtitle>{{card.attack}}</v-list-item-subtitle>
+                          <v-list-item-subtitle
+                            >{{card.name}}</v-list-item-subtitle
+                          >
+                          <v-list-item-subtitle
+                            >{{card.cardEffect}}</v-list-item-subtitle
+                          >
                         </v-list-item-content>
                       </v-list-item>
                     </v-card-text>
@@ -134,14 +163,6 @@
         <!-- main end -->
       </v-app>
     </div>
-
-    <!-- import vue2 + vuetify.js -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-    <script src="./js/vuetify.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script> -->
-    <!-- import data -->
-    <script src="./js/data.js"></script>
-
     <script>
       new Vue({
         el: "#app",
@@ -161,9 +182,9 @@
           itemsPage: 10,
           noData: "No data available",
           //pop dialog,
-          dialogWidth: 600,
+          dialogWidth: "80%",
           dialog: false,
-          card:{},
+          card: {},
           //filter
           items: in_cardClass,
           value: in_cardClass,
@@ -174,60 +195,61 @@
 
         watch: {
           windowWidth(value) {
-            const tableChangeWidth = 600
-            const selectChangeWidth = 870
-            this.setTableHeader(value,tableChangeWidth)
-            this.setSelectorHeight(value,selectChangeWidth)
+            const tableChangeWidth = 600;
+            const selectChangeWidth = 870;
+            this.setTableHeader(value, tableChangeWidth);
+            this.setSelectorHeight(value, selectChangeWidth);
           },
         },
 
         mounted() {
-          this.getWindowWidth()
+          this.getWindowWidth();
         },
 
         methods: {
           getWindowWidth() {
-            this.windowWidth = window.innerWidth
+            this.windowWidth = window.innerWidth;
             window.onresize = () => {
-              this.windowWidth = window.innerWidth
+              this.windowWidth = window.innerWidth;
             };
           },
-          setSelectorHeight(now,targetWidth){
-            const bigger = 75
-            const smaller = 56
-            this.selectHeight = (now <= targetWidth) ? bigger : smaller
+          setSelectorHeight(now, targetWidth) {
+            const bigger = 75;
+            const smaller = 56;
+            this.selectHeight = now <= targetWidth ? bigger : smaller;
           },
-          setTableHeader(now,targetWidth){
+          setTableHeader(now, targetWidth) {
             // in = import data
-            this.headers = (now <= targetWidth) ? [in_headers[0]] : in_headers
+            this.headers = now <= targetWidth ? [in_headers[0]] : in_headers;
           },
-          tableFilter(filArr){
-             // in = import data
-            let array = in_cards
+          tableFilter(filArr) {
+            // in = import data
+            let array = in_cards;
             let filters = {
-                class: filArr
-            }
-            this.cards = this.multiFilter(array, filters)
+              class: filArr,
+            };
+            this.cards = this.multiFilter(array, filters);
           },
           open(item) {
             //open dialog
-            this.dialog = true
-            this.card = item
+            this.dialog = true;
+            this.card = item;
           },
           multiFilter(array, filters) {
-            const filterKeys = Object.keys(filters)
+            if (filters.class.length === 0) return [];
+            const filterKeys = Object.keys(filters);
             // filters all elements passing the criteria
             return array.filter((item) => {
               // dynamically validate all filter criteria
-              return filterKeys.every(key => {
-                  //ignore when the filter is empty Anne
-                if(!filters[key].length) return true
-                return !!~filters[key].indexOf(item[key])
-              })
-            })
+              return filterKeys.every((key) => {
+                //ignore when the filter is empty Anne
+                if (!filters[key].length) return true;
+                return !!~filters[key].indexOf(item[key]);
+              });
+            });
           },
         },
-      }).$mount("#app")
+      }).$mount("#app");
     </script>
   </body>
 </html>
