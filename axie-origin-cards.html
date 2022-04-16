@@ -120,17 +120,15 @@
                   }"
                 >
                   <!-- click name start-->
-                  <template v-slot:item.name="props">
-                    <v-edit-dialog
-                      :return-value.sync="props.item.name"
-                      @open="open(props.item)"
-                    >
-                      <span
-                        class="primary--text text-decoration-underline"
-                        v-cloak
-                        >{{ props.item.name }}</span
+                  <template v-slot:item.name="{ item }">
+                    <v-edit-dialog @open="open(item)">
+                      <span class="primary--text text-decoration-underline"
+                        >{{ item.name }}</span
                       >
                     </v-edit-dialog>
+                  </template>
+                  <template v-slot:item.part="{ item }">
+                    <span class="d-none"></span>
                   </template>
                   <!-- click name end-->
                   <!-- nodata start -->
@@ -148,7 +146,12 @@
                 <!-- <v-dialog v-model="dialog" :width="dialogWidth" persistent> -->
                 <v-dialog v-model="dialog" :width="dialogWidth">
                   <v-card :height="dialogHeight">
-                    <v-btn icon x-large  @click="dialog = false" class="float-right">
+                    <v-btn
+                      icon
+                      x-large
+                      @click="dialog = false"
+                      class="float-right"
+                    >
                       <v-icon>mdi-close</v-icon>
                     </v-btn>
                     <v-card-title> {{card.title}} </v-card-title>

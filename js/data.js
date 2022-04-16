@@ -54,7 +54,7 @@ const in_headers = [
   { text: "Shield", value: "shield", filterable: false },
   { text: "Heal", value: "heal", filterable: false },
   // { text: "Card Tag", value: "tag", filterable: true },
-  //   { text: "Axie Part", value: "part", filterable: false },
+  { text: "", value: "part", filterable: true, sortable: false }, //Axie Part
   //   { text: "Card Effect", value: "cardEffect", filterable: false },
   { text: "Card Class", value: "class", filterable: true },
 ];
