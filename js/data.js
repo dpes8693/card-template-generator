@@ -47,16 +47,16 @@ const in_headers = [
     sortable: false,
     value: "name",
     filterable: true,
-    width: "15%",
+    width: "12%",
   },
-  { text: "Cost", value: "cost", filterable: true, width: "" },
-  { text: "Attack", value: "attack", filterable: false, width: "" },
-  { text: "Shield", value: "shield", filterable: false, width: "" },
-  { text: "Heal", value: "heal", filterable: false, width: "" },
+  { text: "Cost", value: "cost", filterable: true, width: "10%" },
+  { text: "ATK", value: "attack", filterable: false, width: "10%" },
+  { text: "Shield", value: "shield", filterable: false, width: "11%" },
+  { text: "Heal", value: "heal", filterable: false, width: "10%" },
   // { text: "Card Tag", value: "tag", filterable: true },
-  { text: "", value: "part", filterable: true, sortable: false ,width: "1%"}, //Axie Part
-  { text: "Effect", value: "cardEffect", filterable: true, width: "35%" },
-  { text: "Class", value: "class", filterable: true, width: "" },
+  { text: "", value: "part", filterable: true, sortable: false ,width: "1"}, //Axie Part
+  { text: "Effect", value: "cardEffect", filterable: true, width: "28%" },
+  { text: "Class", value: "class", filterable: true, width: "10%" },
 ];
 
 iterator(Aquatic);
