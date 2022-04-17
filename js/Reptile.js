@@ -1,8 +1,8 @@
-//35
+//35 2022/04/17
 //多3張
 //o 29
-//x 6
-//null 
+//x 6 [Chemical Fang,Hidden Ears,Poison Tube,Punky Tiny Dino m ,Venom Nail]
+//null 0
 let Reptile = [
   {
     name: "Bone Sail",

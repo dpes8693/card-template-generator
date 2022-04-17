@@ -1,8 +1,8 @@
-//38
+//38 2022/04/17
 //多4張
-//o
-//x
-//null Risky Trunk-1,Succulent-21,
+//o 28
+//x 10 [Beetroot,Death Shroom,Forest Hero,Mandarine,Mystery Seed,Persimmon,Shield Shroom,Shitake,Sprout,Tropical Guardian]
+//缺 2 [Risky Trunk-1,Succulent-21,]
 let Plant = [
   {
     name: "Bamboo Shoot",
@@ -84,9 +84,8 @@ let Plant = [
   //   cardEffect: " If Initial, deal 15 more DMG.",
   //   class: "Plant",
   //   tag: "",
-  //   img: "o",
+  //   img: "",
   //   keyword: "-",
-  //   id: 1,
   // },
   {
     name: "Carrot",
@@ -126,9 +125,8 @@ let Plant = [
   //   cardEffect: " Summon 1 Clover.",
   //   class: "Plant",
   //   tag: "",
-  //   img: "o",
+  //   img: "",
   //   keyword: "-",
-  //   id: 1,
   // },
   {
     name: "Confusion",
@@ -211,24 +209,22 @@ let Plant = [
   //   cardEffect: " If Initial, heal 15 HP.",
   //   class: "Plant",
   //   tag: "",
+  //   img: "",
+  //   keyword: "-",
+  // },
+  // {
+  //   name: "Hollow",
+  //   part: "Ear",
+  //   cost: 0,
+  //   attack: "-",
+  //   shield: "-",
+  //   heal: "-",
+  //   cardEffect: " This Axie loses 75 HP. Summon a Trunk.",
+  //   class: "Plant",
+  //   tag: "",
   //   img: "o",
   //   keyword: "-",
-  //   id: 1,
   // },
-  {
-    name: "Hollow",
-    part: "Ear",
-    cost: 0,
-    attack: "-",
-    shield: "-",
-    heal: "-",
-    cardEffect: " This Axie loses 75 HP. Summon a Trunk.",
-    class: "Plant",
-    tag: "",
-    img: "o",
-    keyword: "-",
-    id: 1,
-  },
   {
     name: "Hot Butt",
     part: "Tail",
@@ -446,20 +442,19 @@ let Plant = [
     keyword: "-",
     id: 33,
   },
-  {
-    name: "Shitake",
-    part: "Back",
-    cost: 1,
-    attack: "-",
-    shield: "-",
-    heal: "-",
-    cardEffect: " Summon a Mushroom.",
-    class: "Plant",
-    tag: "",
-    img: "x",
-    keyword: "-",
-    id: 1,
-  },
+  // {
+  //   name: "Shitake",
+  //   part: "Back",
+  //   cost: 1,
+  //   attack: "-",
+  //   shield: "-",
+  //   heal: "-",
+  //   cardEffect: " Summon a Mushroom.",
+  //   class: "Plant",
+  //   tag: "",
+  //   img: "x",
+  //   keyword: "-",
+  // },
   {
     name: "Silence Whisper",
     part: "Mouth",
@@ -512,9 +507,8 @@ let Plant = [
   //   cardEffect: " Banish.",
   //   class: "Plant",
   //   tag: "",
-  //   img: "o",
+  //   img: "",
   //   keyword: "-",
-  //   id: 1,
   // },
   {
     name: "Tropical Guardian",
