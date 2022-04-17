@@ -22,26 +22,23 @@
       ::-webkit-scrollbar {
         width: 5.5px;
       }
-
       /* Track */
       ::-webkit-scrollbar-track {
         box-shadow: inset 0 0 5px grey;
         border-radius: 5px;
       }
-
       /* Handle */
       ::-webkit-scrollbar-thumb {
         background: #303031;
         border-radius: 5px;
       }
-
-      .fixed-card {
-        /* display: flex; */
-        /* flex-direction: row; */
+      .flex-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .absolute-card {
         position: absolute;
-        /* margin: 0 auto; */
-        margin-right: 300px;
-        /* margin-bottom: 100px; */
       }
     </style>
   </head>
@@ -87,7 +84,7 @@
               <v-col cols="12">
                 <v-select
                   v-model="value"
-                  :items="items"
+                  :items="cardClass"
                   chips
                   label="Class"
                   :height="selectHeight"
@@ -141,9 +138,9 @@
                             >
                           </v-edit-dialog>
                         </v-col>
-                        <v-col v-if="hover && phoneHover">
+                        <v-col v-if="hover && tableHover">
                           <v-img
-                            class="fixed-card"
+                            class="absolute-card"
                             max-width="175"
                             :src="item.img"
                           >
@@ -167,42 +164,87 @@
             <!-- table-card end -->
             <!-- dialog-card start -->
             <template>
-              <div class="text-center">
-                <v-dialog v-model="dialog" :width="dialogWidth" persistent>
-                  <!-- <v-dialog v-model="dialog" :width="dialogWidth"> -->
-                  <v-card :height="dialogHeight">
-                    <v-btn
-                      icon
-                      x-large
-                      @click="dialog = false"
-                      class="float-right"
-                    >
-                      <v-icon>mdi-close</v-icon>
-                    </v-btn>
-                    <v-card-title> {{card.title}} </v-card-title>
-                    <v-card-text>
-                      <v-row>
-                        <v-col cols="12" sm="5">
-                          <v-img lazy-src="" :src="card.img"></v-img>
-                        </v-col>
-                        <v-col cols="12" sm="7">
-                          <v-list-item>
-                            <v-list-item-content>
-                              <v-list-item-subtitle
-                                v-for="(item,i) in card"
-                                :key="item.name"
-                                >{{i}}: {{item}}</v-list-item-subtitle
-                              >
-                            </v-list-item-content>
-                          </v-list-item>
-                        </v-col>
-                      </v-row>
-                    </v-card-text>
-                  </v-card>
-                </v-dialog>
-              </div>
+              <v-dialog v-model="dialog" :width="dialogWidth" persistent>
+                <v-card :height="dialogHeight">
+                  <!-- close X -->
+                  <v-btn
+                    icon
+                    x-large
+                    @click="dialog = false"
+                    class="float-right"
+                  >
+                    <v-icon>mdi-close</v-icon>
+                  </v-btn>
+                  <v-card-title> {{card.title}} </v-card-title>
+                  <!-- card text start -->
+                  <v-card-text>
+                    <v-row class="flex-card">
+                      <!-- left arrow -->
+                      <v-col cols="6" sm="1" v-if="!dialogArrow">
+                        <v-btn
+                          icon
+                          x-large
+                          color="primary"
+                          dark
+                          @click="changeCard(card,-1)"
+                        >
+                          <v-icon>mdi-arrow-left-drop-circle</v-icon>
+                        </v-btn>
+                      </v-col>
+                      <!-- content -->
+                      <v-col cols="12" sm="5">
+                        <v-img lazy-src="" :src="card.img"></v-img>
+                      </v-col>
+                      <v-col cols="12" sm="5">
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-subtitle
+                              v-for="(item,i) in card"
+                              :key="item.name"
+                              >{{i}}: {{item}}</v-list-item-subtitle
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-col>
+                      <!-- right arrow -->
+                      <v-col cols="6" sm="1" v-if="!dialogArrow">
+                        <v-btn
+                          icon
+                          x-large
+                          color="primary"
+                          dark
+                          @click="changeCard(card,1)"
+                        >
+                          <v-icon>mdi-arrow-right-drop-circle</v-icon>
+                        </v-btn>
+                      </v-col>
+                    </v-row>
+                    <!-- phone arrows -->
+                    <v-row v-if="dialogArrow">
+                      <v-btn
+                        icon
+                        color="primary"
+                        dark
+                        @click="changeCard(card,-1)"
+                      >
+                        <v-icon>mdi-arrow-left-drop-circle</v-icon>
+                      </v-btn>
+                      <v-spacer></v-spacer>
+                      <v-btn
+                        icon
+                        color="primary"
+                        dark
+                        @click="changeCard(card,1)"
+                      >
+                        <v-icon>mdi-arrow-right-drop-circle</v-icon>
+                      </v-btn>
+                    </v-row>
+                  </v-card-text>
+                  <!-- card text end -->
+                </v-card>
+              </v-dialog>
             </template>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br />
             <!-- dialog-card end -->
           </v-container>
         </v-main>
@@ -215,43 +257,45 @@
         vuetify: new Vuetify(),
 
         data: () => ({
+          card: {},
           //header
           webTitle: "Axie Infinity Origin Cards",
           menuList: ["Cards", "Calculator"],
           //import data
           headers: in_headers,
           cards: in_cards,
+          cardsNum: 0,
           //table
           tableTitle: "Origin Cards",
           search: "",
           searchPlaceHolder: "Name, Cost, Part, Tag, Keyword",
-          itemsPage: 20,
+          itemsPage: 15,
           noData: "No data available",
           //pop dialog,
           dialogWidth: null,
           dialogHeight: "100%",
           dialog: false,
-          card: {},
           //filter
-          items: in_cardClass,
+          cardClass: in_cardClass,
           value: in_cardClass,
           selectHeight: null,
           //window
           windowWidth: null,
-          phoneHover: false,
+          tableHover: false,
+          dialogArrow: false,
         }),
 
         watch: {
           windowWidth(value) {
-            this.setTableHeader(value, 603);
             this.setSelectorHeight(value, 870);
             this.setDialogWidth(value, 800);
-            this.setHover(value, 603);
+            this.setPhoneWindow(value, 603);
           },
         },
 
         mounted() {
           this.getWindowWidth();
+          this.setIndex();
         },
 
         methods: {
@@ -261,23 +305,23 @@
               this.windowWidth = window.innerWidth;
             };
           },
-
           setDialogWidth(now, targetWidth) {
             const fixed = 600;
             const per = "75%";
             this.dialogWidth = now <= targetWidth ? fixed : per;
-          },
-          setHover(now, targetWidth) {
-            this.phoneHover = now <= targetWidth ? false : true;
           },
           setSelectorHeight(now, targetWidth) {
             const bigger = 75;
             const smaller = 56;
             this.selectHeight = now <= targetWidth ? bigger : smaller;
           },
-          setTableHeader(now, targetWidth) {
+          setPhoneWindow(now, targetWidth) {
             // in = import data
+            //table
             this.headers = now <= targetWidth ? [in_headers[0]] : in_headers;
+            this.tableHover = now <= targetWidth ? false : true;
+            //dialog
+            this.dialogArrow = now <= targetWidth ? true : false;
           },
           tableFilter(filArr) {
             // in = import data
@@ -286,11 +330,24 @@
               class: filArr,
             };
             this.cards = this.multiFilter(array, filters);
+            this.setIndex();
+          },
+          setIndex() {
+            // [obj,obj...]
+            this.cards = this.cards.map((items, index) => ({
+              ...items,
+              index: index,
+            }));
+          },
+          changeCard(obj, move) {
+            let len = this.cards.length;
+            let targetIndex = (obj.index + move + len) % len;
+            this.card = this.cards[targetIndex];
           },
           open(item) {
             //open dialog
-            this.dialog = true;
             this.card = item;
+            this.dialog = true;
           },
           multiFilter(array, filters) {
             if (filters.class.length === 0) return [];
