@@ -93,7 +93,6 @@
                   deletable-chips
                   small-chips
                   multiple
-                  outlined
                   @change="tableFilter(value)"
                   clearable
                 ></v-select>
@@ -174,6 +173,26 @@
                   <!-- card text start -->
                   <v-card-text>
                     <v-row class="flex-card">
+                      <!-- phone arrows -->
+                      <v-row v-if="dialogArrow">
+                        <v-btn
+                          icon
+                          color="primary"
+                          dark
+                          @click="changeCard(card,-1)"
+                        >
+                          <v-icon>mdi-arrow-left-drop-circle</v-icon>
+                        </v-btn>
+                        <!-- <v-spacer></v-spacer> -->
+                        <v-btn
+                          icon
+                          color="primary"
+                          dark
+                          @click="changeCard(card,1)"
+                        >
+                          <v-icon>mdi-arrow-right-drop-circle</v-icon>
+                        </v-btn>
+                      </v-row>
                       <!-- left arrow -->
                       <v-col cols="6" sm="1" v-if="!dialogArrow">
                         <v-btn
@@ -213,26 +232,6 @@
                           <v-icon>mdi-arrow-right-drop-circle</v-icon>
                         </v-btn>
                       </v-col>
-                    </v-row>
-                    <!-- phone arrows -->
-                    <v-row v-if="dialogArrow">
-                      <v-btn
-                        icon
-                        color="primary"
-                        dark
-                        @click="changeCard(card,-1)"
-                      >
-                        <v-icon>mdi-arrow-left-drop-circle</v-icon>
-                      </v-btn>
-                      <v-spacer></v-spacer>
-                      <v-btn
-                        icon
-                        color="primary"
-                        dark
-                        @click="changeCard(card,1)"
-                      >
-                        <v-icon>mdi-arrow-right-drop-circle</v-icon>
-                      </v-btn>
                     </v-row>
                   </v-card-text>
                   <!-- card text end -->
@@ -282,7 +281,6 @@
 
         watch: {
           windowWidth(value) {
-            this.setSelectorHeight(value, 870);
             this.setDialogWidth(value, 800);
             this.setPhoneWindow(value, 603);
           },
@@ -305,15 +303,9 @@
             const per = "75%";
             this.dialogWidth = now <= targetWidth ? fixed : per;
           },
-          setSelectorHeight(now, targetWidth) {
-            const bigger = 75;
-            const smaller = 56;
-            this.selectHeight = now <= targetWidth ? bigger : smaller;
-          },
           setPhoneWindow(now, targetWidth) {
-            // in = import data
             //table
-            this.headers = now <= targetWidth ? [in_headers[0]] : in_headers;
+            // this.headers = now <= targetWidth ? [in_headers[0]] : in_headers;
             this.tableHover = now <= targetWidth ? false : true;
             //dialog
             this.dialogArrow = now <= targetWidth ? true : false;

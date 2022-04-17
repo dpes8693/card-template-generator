@@ -48,6 +48,7 @@ const in_headers = [
     value: "name",
     filterable: true,
     width: "12%",
+    align: "",
   },
   {
     text: "Effect",
@@ -73,14 +74,16 @@ const in_headers = [
   },
   { text: "Heal", value: "heal", filterable: false, width: "10%", align: "" },
   // { text: "Card Tag", value: "tag", filterable: true },
+  { text: "Class", value: "class", filterable: true, width: "10%", align: "" },
   {
     text: "",
     value: "part",
     filterable: true,
-    sortable: true,
-    align: "d-none",
-  }, //Axie Part
-  { text: "Class", value: "class", filterable: true, width: "10%", align: "" },
+    sortable: false,
+    width: "1",
+    align: "",
+  },
+  
 ];
 
 iterator(Aquatic);
