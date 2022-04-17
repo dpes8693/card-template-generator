@@ -44,19 +44,43 @@ const in_headers = [
   {
     text: "Card Name",
     align: "start",
-    sortable: false,
+    sortable: true,
     value: "name",
     filterable: true,
     width: "12%",
   },
-  { text: "Cost", value: "cost", filterable: true, width: "10%" },
-  { text: "ATK", value: "attack", filterable: false, width: "10%" },
-  { text: "Shield", value: "shield", filterable: false, width: "11%" },
-  { text: "Heal", value: "heal", filterable: false, width: "10%" },
+  {
+    text: "Effect",
+    value: "cardEffect",
+    filterable: true,
+    width: "35%",
+    align: "",
+  },
+  { text: "Cost", value: "cost", filterable: true, width: "10%", align: "" },
+  {
+    text: "Attack",
+    value: "attack",
+    filterable: false,
+    width: "11%",
+    align: "",
+  },
+  {
+    text: "Shield",
+    value: "shield",
+    filterable: false,
+    width: "11%",
+    align: "",
+  },
+  { text: "Heal", value: "heal", filterable: false, width: "10%", align: "" },
   // { text: "Card Tag", value: "tag", filterable: true },
-  { text: "", value: "part", filterable: true, sortable: false ,width: "1"}, //Axie Part
-  { text: "Effect", value: "cardEffect", filterable: true, width: "28%" },
-  { text: "Class", value: "class", filterable: true, width: "10%" },
+  {
+    text: "",
+    value: "part",
+    filterable: true,
+    sortable: true,
+    align: "d-none",
+  }, //Axie Part
+  { text: "Class", value: "class", filterable: true, width: "10%", align: "" },
 ];
 
 iterator(Aquatic);
@@ -70,11 +94,11 @@ let in_cards = [...Beast, ...Aquatic, ...Plant, ...Bird, ...Bug, ...Reptile];
 
 function iterator(arr) {
   arr.forEach((el) => {
-    if(el.img[0] === 'x'){
+    if (el.img[0] === "x") {
       el.img = `${baseUrl}/no card${format}`;
-    }else{
+    } else {
       el.img = `${baseUrl}/${el.class.toLowerCase()}/${el.name.toLowerCase()}${format}`;
     }
-    el.keyword = "-";
+    el.id = el.name + el.id;
   });
 }

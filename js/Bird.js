@@ -1,7 +1,7 @@
 //32張 2022/04/17
 //null 7
-//o 25
-//x 7 [Concentrate,Passion,Feather Dagger,Big Sister,Paper Wing,Rubber Duckling,Pigeon Post]
+//o 24
+//x 8 [Concentrate,Passion,Feather Dagger,Big Sister,Paper Wing,Rubber Duckling,Pigeon Post,Lil Bro]
 //id沒有按官方順序
 let Bird = [
   {
@@ -212,7 +212,7 @@ let Bird = [
       " Innate. Randomly deal 2 hits. Discard 1 copy of Feather Dagger per Enemy hit.",
     class: "Bird",
     tag: "",
-    img: "o",
+    img: "x",
     keyword: "-",
     id:12
   },
