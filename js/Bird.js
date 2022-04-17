@@ -2,7 +2,7 @@
 //null 7
 //o 25
 //x 7 [Concentrate,Passion,Feather Dagger,Big Sister,Paper Wing,Rubber Duckling,Pigeon Post]
-
+//id沒有按官方順序
 let Bird = [
   {
     name: "Balloon",
