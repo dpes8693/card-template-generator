@@ -37,8 +37,10 @@
         justify-content: center;
         align-items: center;
       }
-      .absolute-card {
+      .absolute-card-img {
         position: absolute;
+        margin: 10px 0 0 20px;
+        max-width: 180px;
       }
     </style>
   </head>
@@ -128,25 +130,36 @@
                   <!-- click name start-->
                   <template v-slot:item.name="{ item }">
                     <v-hover v-slot="{ hover }">
-                      <v-row>
+                      <div>
+                        <v-edit-dialog @open="open(item)">
+                          <pre class="primary--text text-decoration-underline">
+{{ item.name }}</pre
+                          >
+                        </v-edit-dialog>
+                        <img
+                          class="absolute-card-img"
+                          v-if="hover && tableHover"
+                          :src="item.img"
+                        />
+                      </div>
+                      <!-- <v-row>
                         <v-col>
                           <v-edit-dialog @open="open(item)">
-                            <span
+                            <pre
                               class="primary--text text-decoration-underline"
-                              width="50"
-                              >{{ item.name }}</span
+                              >{{ item.name }}</pre
                             >
                           </v-edit-dialog>
                         </v-col>
                         <v-col v-if="hover && tableHover">
                           <v-img
-                            class="absolute-card"
-                            max-width="175"
+                            class="absolute-card-img"
+                            max-width="162"
                             :src="item.img"
                           >
                           </v-img>
                         </v-col>
-                      </v-row>
+                      </v-row> -->
                     </v-hover>
                   </template>
                   <template v-slot:item.part="{ item }">
@@ -244,7 +257,7 @@
                 </v-card>
               </v-dialog>
             </template>
-            <br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
             <!-- dialog-card end -->
           </v-container>
         </v-main>
