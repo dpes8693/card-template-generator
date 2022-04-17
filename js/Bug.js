@@ -1,6 +1,6 @@
-//
-//
-//
+//null 4
+//o 27
+//x 7 [Termite,Centipede,Shield Crusher,Leaf Bug t,Brimstone,Ladybug Goggles]
 let Bug = [
   {
     name: "Ant",
@@ -12,35 +12,36 @@ let Bug = [
     cardEffect: " Apply Taunt to this Axie for 4 turns.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:27
   },
-  {
-    name: "Antenna",
-    part: "Horn",
-    cost: 1,
-    attack: "-",
-    shield: "-",
-    heal: "-",
-    cardEffect: " Scry 4 cards. Banish.",
-    class: "Bug",
-    tag: "",
-    img: "",
-    keyword: "-",
-  },
-  {
-    name: "Beetle Spike",
-    part: "Ear",
-    cost: 1,
-    attack: 45,
-    shield: "-",
-    heal: "-",
-    cardEffect: " Deal pure DMG. Apply Bleed for 4 turns.",
-    class: "Bug",
-    tag: "",
-    img: "",
-    keyword: "-",
-  },
+  // {
+  //   name: "Antenna",
+  //   part: "Horn",
+  //   cost: 1,
+  //   attack: "-",
+  //   shield: "-",
+  //   heal: "-",
+  //   cardEffect: " Scry 4 cards. Banish.",
+  //   class: "Bug",
+  //   tag: "",
+  //   img: "o",
+  //   keyword: "-",
+  // },
+  // {
+  //   name: "Beetle Spike",
+  //   part: "Ear",
+  //   cost: 1,
+  //   attack: 45,
+  //   shield: "-",
+  //   heal: "-",
+  //   cardEffect: " Deal pure DMG. Apply Bleed for 4 turns.",
+  //   class: "Bug",
+  //   tag: "",
+  //   img: "o",
+  //   keyword: "-",
+  // },
   {
     name: "Bookworm",
     part: "Eyes",
@@ -52,22 +53,9 @@ let Bug = [
       " Take 1 Bug card from your draw pile and add it to your hand.Banish.",
     class: "Bug",
     tag: "",
-    img: " ",
+    img: "o",
     keyword: "-",
-  },
-  {
-    name: "Brimstone",
-    part: "Ears",
-    cost: 1,
-    attack: "-",
-    shield: "-",
-    heal: "-",
-    cardEffect:
-      " Retain. Next turn, draw 3 random 0 Energy cards from your deck into your hand.",
-    class: "Bug",
-    tag: "",
-    img: "",
-    keyword: "-",
+    id:2
   },
   {
     name: "Buzz Buzz",
@@ -80,8 +68,9 @@ let Bug = [
       " attack all enemies. Shuffle 1 Daze into your opponent's discard pile.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:22
   },
   {
     name: "Caterpillars",
@@ -93,22 +82,9 @@ let Bug = [
     cardEffect: " Apply Fear for 4 turns.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
-  },
-  {
-    name: "Centipede",
-    part: "Tail",
-    cost: 0,
-    attack: "-",
-    shield: "-",
-    heal: "-",
-    cardEffect:
-      " Apply 3 Poison. Add a copy of this card to your discard pile when used.",
-    class: "Bug",
-    tag: "",
-    img: "",
-    keyword: "-",
+    id:34
   },
   {
     name: "Cute Bunny",
@@ -120,22 +96,9 @@ let Bug = [
     cardEffect: " Apply Fear for 4 turns.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
-  },
-  {
-    name: "Ear Breathing",
-    part: "Ear",
-    cost: 2,
-    attack: 30,
-    shield: "-",
-    heal: "-",
-    cardEffect:
-      " Randomly Deal 4 hits. Shuffle 1 Goo per enemy hit into opponent's discard pile.",
-    class: "Bug",
-    tag: "",
-    img: "",
-    keyword: "-",
+    id:14
   },
   {
     name: "Earwing",
@@ -147,8 +110,9 @@ let Bug = [
     cardEffect: " attack all enemies. Deal 3 bonus DMG per card on your hand.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:11
   },
   {
     name: "Fish Snack",
@@ -161,8 +125,9 @@ let Bug = [
       " Target any ally. Next turn, after the target is attacked. apply Weak to the attacker for 4 turns.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:31
   },
   {
     name: "Garish Worm",
@@ -174,8 +139,9 @@ let Bug = [
     cardEffect: " Apply 2 Poison per attack card played this turn.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:21
   },
   {
     name: "Gravel Ant",
@@ -188,8 +154,9 @@ let Bug = [
       " Target any ally. Next turn, after the target is attacked, apply Fear to the attacker for 4 turns.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:32
   },
   {
     name: "Kotaro",
@@ -201,21 +168,9 @@ let Bug = [
     cardEffect: " attack 1 random enemy and apply Death Mark for 4 turns.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
-  },
-  {
-    name: "Ladybug Googles",
-    part: "Eyes",
-    cost: 2,
-    attack: "-",
-    shield: "-",
-    heal: "-",
-    cardEffect: " Each turn, if any Enemy has shield, draw 2 additional cards.",
-    class: "Bug",
-    tag: "",
-    img: "",
-    keyword: "-",
+    id:5
   },
   {
     name: "Lagging",
@@ -227,61 +182,51 @@ let Bug = [
     cardEffect: " Apply Weak for 4 turns.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:15
   },
+  // {
+  //   name: "Larva",
+  //   part: "Ear",
+  //   cost: 0,
+  //   attack: "-",
+  //   shield: "-",
+  //   heal: "-",
+  //   cardEffect:
+  //     " Scry 2 cards. Gain 1 Energy if discard 1 skill card upon scrying.",
+  //   class: "Bug",
+  //   tag: "",
+  //   img: "",
+  //   keyword: "-",
+  // },
   {
-    name: "Larva",
-    part: "Ear",
-    cost: 0,
-    attack: "-",
-    shield: "-",
-    heal: "-",
-    cardEffect:
-      " Scry 2 cards. Gain 1 Energy if discard 1 skill card upon scrying.",
-    class: "Bug",
-    tag: "",
-    img: "",
-    keyword: "-",
-  },
-  {
-    name: "Leaf Bug",
+    name: "Leaf Bug h",
     part: "Horn",
     cost: 1,
     attack: "-",
-    shield: 45,
+    shield: 55,
     heal: "-",
     cardEffect: " Whenever this is drawn, gain 30 shield.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:19
   },
   {
-    name: "Leaf Bug",
+    name: "Leaf Bug e",
     part: "Ear",
     cost: 1,
     attack: "-",
-    shield: 45,
+    shield: 55,
     heal: "-",
     cardEffect: " Whenever this is drawn, gain 30 shield.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
-  },
-  {
-    name: "Leaf Bug",
-    part: "Tail",
-    cost: 1,
-    attack: "-",
-    shield: "-",
-    heal: 45,
-    cardEffect: " Whenever this is drawn, gain 30 shield.",
-    class: "Bug",
-    tag: "",
-    img: "",
-    keyword: "-",
+    id:9
   },
   {
     name: "Mosquito",
@@ -293,8 +238,9 @@ let Bug = [
     cardEffect: " heal HP equal to 50% of unblocked DMG.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:12
   },
   {
     name: "Neo",
@@ -307,8 +253,9 @@ let Bug = [
       " Look at the top 4 cards of your opponent's draw pile. Banish.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:3
   },
   {
     name: "Nerdy",
@@ -320,8 +267,9 @@ let Bug = [
     cardEffect: " Discard up to 2 cards then draw that many. Banish.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:4
   },
   {
     name: "Parasite",
@@ -333,8 +281,9 @@ let Bug = [
     cardEffect: " Look at the top 2 cards of your opponent's draw pile.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:18
   },
   {
     name: "Pincer",
@@ -346,8 +295,9 @@ let Bug = [
     cardEffect: " Apply Bleed for 4 turns.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:13
   },
   {
     name: "Pliers",
@@ -359,8 +309,9 @@ let Bug = [
     cardEffect: " Deal 25% more DMG to shield.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:17
   },
   {
     name: "Pupae",
@@ -373,8 +324,9 @@ let Bug = [
       " Target any ally. Next turn, after the target is attacked, it gains 2 Damage Boost.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:33
   },
   {
     name: "Sandal",
@@ -387,8 +339,9 @@ let Bug = [
       " Apply Fear for 2 turns. If target previously has Fear, deal 50% more DMG.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:23
   },
   {
     name: "Scarab",
@@ -400,21 +353,9 @@ let Bug = [
     cardEffect: " Gain 30 shield. Apply Doubt for 4 turns.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
-  },
-  {
-    name: "shield Crusher",
-    part: "Tail",
-    cost: 1,
-    attack: 65,
-    shield: "-",
-    heal: "-",
-    cardEffect: " Deal 25% more DMG to shield.",
-    class: "Bug",
-    tag: "",
-    img: "",
-    keyword: "-",
+    id:24
   },
   {
     name: "Snail Shell",
@@ -427,8 +368,9 @@ let Bug = [
       " Target any ally. Next turn, after the target is attacked, shuffle 1 Goo into your opponent's discard pile.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:20
   },
   {
     name: "Spiky Wing",
@@ -440,22 +382,23 @@ let Bug = [
     cardEffect: " Deal 25% more DMG to shield.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:25
   },
-  {
-    name: "Square Teeth",
-    part: "Mouth",
-    cost: 0,
-    attack: 25,
-    shield: "-",
-    heal: "-",
-    cardEffect: " If Initial, deal bonus DMG equal to current shield.",
-    class: "Bug",
-    tag: "",
-    img: "",
-    keyword: "-",
-  },
+  // {
+  //   name: "Square Teeth",
+  //   part: "Mouth",
+  //   cost: 0,
+  //   attack: 25,
+  //   shield: "-",
+  //   heal: "-",
+  //   cardEffect: " If Initial, deal bonus DMG equal to current shield.",
+  //   class: "Bug",
+  //   tag: "",
+  //   img: "",
+  //   keyword: "-",
+  // },
   {
     name: "Tassels",
     part: "Ear",
@@ -466,22 +409,9 @@ let Bug = [
     cardEffect: " heal your team. heal for 4 bonus HP per Card on your hand.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
-  },
-  {
-    name: "Termite",
-    part: "Ears",
-    cost: 0,
-    attack: "-",
-    shield: "-",
-    heal: "-",
-    cardEffect:
-      " Innate. Remove 30% of all Enemies' shield. Applies Fragile for 4 turns.",
-    class: "Bug",
-    tag: "",
-    img: "",
-    keyword: "-",
+    id:10
   },
   {
     name: "Thorny Caterpillar",
@@ -493,8 +423,9 @@ let Bug = [
     cardEffect: " Deal 50% more DMG against debuffed enemy.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:16
   },
   {
     name: "Twin Tail",
@@ -506,10 +437,99 @@ let Bug = [
     cardEffect: " Deal 2 hits.",
     class: "Bug",
     tag: "",
-    img: "",
+    img: "o",
     keyword: "-",
+    id:29
   },
   //
+  {
+    name: "Termite",
+    part: "Ears",
+    cost: 0,
+    attack: "-",
+    shield: "-",
+    heal: "-",
+    cardEffect:
+      " Innate. Remove 30% of all Enemies' shield. Applies Fragile for 4 turns.",
+    class: "Bug",
+    tag: "",
+    img: "x",
+    keyword: "-",
+    id:6
+  },
+  {
+    name: "Centipede",
+    part: "Tail",
+    cost: 0,
+    attack: "-",
+    shield: "-",
+    heal: "-",
+    cardEffect:
+      " Apply 3 Poison. Add a copy of this card to your discard pile when used.",
+    class: "Bug",
+    tag: "",
+    img: "x",
+    keyword: "-",
+    id:26
+  },
+  {
+    name: "Shield Crusher",
+    part: "Tail",
+    cost: 1,
+    attack: 65,
+    shield: "-",
+    heal: "-",
+    cardEffect: " Deal 25% more DMG to shield.",
+    class: "Bug",
+    tag: "",
+    img: "x",
+    keyword: "-",
+    id:28
+  },
+  {
+    name: "Leaf Bug t",
+    part: "Tail",
+    cost: 1,
+    attack: "-",
+    shield: "-",
+    heal: 45,
+    cardEffect: " Whenever this is drawn, gain 30 shield.",
+    class: "Bug",
+    tag: "",
+    img: "x",
+    keyword: "-",
+    id:30
+  },
+  {
+    name: "Brimstone",
+    part: "Ears",
+    cost: 1,
+    attack: "-",
+    shield: "-",
+    heal: "-",
+    cardEffect:
+      " Retain. Next turn, draw 3 random 0 Energy cards from your deck into your hand.",
+    class: "Bug",
+    tag: "",
+    img: "x",
+    keyword: "-",
+    id:7
+  },
+  {
+    name: "Ear Breathing",
+    part: "Ear",
+    cost: 2,
+    attack: 30,
+    shield: "-",
+    heal: "-",
+    cardEffect:
+      " Randomly Deal 4 hits. Shuffle 1 Goo per enemy hit into opponent's discard pile.",
+    class: "Bug",
+    tag: "",
+    img: "x",
+    keyword: "-",
+    id:8
+  },
   {
     name: "Ladybug Goggles",
     part: "Eyes",
@@ -522,5 +542,6 @@ let Bug = [
     tag: "Power",
     img: "x",
     keyword: "-",
+    id:1
   },
 ];
