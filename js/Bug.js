@@ -1,3 +1,6 @@
+//
+//
+//
 let Bug = [
   {
     name: "Ant",
@@ -8,8 +11,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Apply Taunt to this Axie for 4 turns.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -21,8 +24,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Scry 4 cards. Banish.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -34,8 +37,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Deal pure DMG. Apply Bleed for 4 turns.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -45,10 +48,11 @@ let Bug = [
     attack: "-",
     shield: "-",
     heal: "-",
-    cardEffect: " Put 1 Bug card from your draw pile into your hand. Banish",
+    cardEffect:
+      " Take 1 Bug card from your draw pile and add it to your hand.Banish.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: " ",
     keyword: "-",
   },
   {
@@ -61,8 +65,8 @@ let Bug = [
     cardEffect:
       " Retain. Next turn, draw 3 random 0 Energy cards from your deck into your hand.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -75,8 +79,8 @@ let Bug = [
     cardEffect:
       " attack all enemies. Shuffle 1 Daze into your opponent's discard pile.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -88,8 +92,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Apply Fear for 4 turns.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -102,8 +106,8 @@ let Bug = [
     cardEffect:
       " Apply 3 Poison. Add a copy of this card to your discard pile when used.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -115,8 +119,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Apply Fear for 4 turns.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -129,8 +133,8 @@ let Bug = [
     cardEffect:
       " Randomly Deal 4 hits. Shuffle 1 Goo per enemy hit into opponent's discard pile.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -142,8 +146,8 @@ let Bug = [
     heal: "-",
     cardEffect: " attack all enemies. Deal 3 bonus DMG per card on your hand.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -156,8 +160,8 @@ let Bug = [
     cardEffect:
       " Target any ally. Next turn, after the target is attacked. apply Weak to the attacker for 4 turns.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -169,8 +173,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Apply 2 Poison per attack card played this turn.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -183,8 +187,8 @@ let Bug = [
     cardEffect:
       " Target any ally. Next turn, after the target is attacked, apply Fear to the attacker for 4 turns.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -196,8 +200,8 @@ let Bug = [
     heal: "-",
     cardEffect: " attack 1 random enemy and apply Death Mark for 4 turns.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -209,8 +213,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Each turn, if any Enemy has shield, draw 2 additional cards.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -222,8 +226,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Apply Weak for 4 turns.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -236,8 +240,8 @@ let Bug = [
     cardEffect:
       " Scry 2 cards. Gain 1 Energy if discard 1 skill card upon scrying.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -249,8 +253,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Whenever this is drawn, gain 30 shield.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -262,8 +266,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Whenever this is drawn, gain 30 shield.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -275,8 +279,8 @@ let Bug = [
     heal: 45,
     cardEffect: " Whenever this is drawn, gain 30 shield.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -288,8 +292,8 @@ let Bug = [
     heal: "-",
     cardEffect: " heal HP equal to 50% of unblocked DMG.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -302,8 +306,8 @@ let Bug = [
     cardEffect:
       " Look at the top 4 cards of your opponent's draw pile. Banish.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -315,8 +319,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Discard up to 2 cards then draw that many. Banish.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -328,8 +332,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Look at the top 2 cards of your opponent's draw pile.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -341,8 +345,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Apply Bleed for 4 turns.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -354,8 +358,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Deal 25% more DMG to shield.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -368,8 +372,8 @@ let Bug = [
     cardEffect:
       " Target any ally. Next turn, after the target is attacked, it gains 2 Damage Boost.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -382,8 +386,8 @@ let Bug = [
     cardEffect:
       " Apply Fear for 2 turns. If target previously has Fear, deal 50% more DMG.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -395,8 +399,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Gain 30 shield. Apply Doubt for 4 turns.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -408,8 +412,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Deal 25% more DMG to shield.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -422,8 +426,8 @@ let Bug = [
     cardEffect:
       " Target any ally. Next turn, after the target is attacked, shuffle 1 Goo into your opponent's discard pile.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -435,8 +439,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Deal 25% more DMG to shield.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -448,8 +452,8 @@ let Bug = [
     heal: "-",
     cardEffect: " If Initial, deal bonus DMG equal to current shield.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -461,8 +465,8 @@ let Bug = [
     heal: 10,
     cardEffect: " heal your team. heal for 4 bonus HP per Card on your hand.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -475,8 +479,8 @@ let Bug = [
     cardEffect:
       " Innate. Remove 30% of all Enemies' shield. Applies Fragile for 4 turns.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -488,8 +492,8 @@ let Bug = [
     heal: "-",
     cardEffect: " Deal 50% more DMG against debuffed enemy.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
     keyword: "-",
   },
   {
@@ -501,8 +505,22 @@ let Bug = [
     heal: "-",
     cardEffect: " Deal 2 hits.",
     class: "Bug",
-    tag: "attack",
-    img:"",
+    tag: "",
+    img: "",
+    keyword: "-",
+  },
+  //
+  {
+    name: "Ladybug Goggles",
+    part: "Eyes",
+    cost: 2,
+    attack: "-",
+    shield: "-",
+    heal: "-",
+    cardEffect: " Each turn, if any Enemy has Shield,draw 2 additional Cards.",
+    class: "Bug",
+    tag: "Power",
+    img: "x",
     keyword: "-",
   },
 ];

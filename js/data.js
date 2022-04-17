@@ -70,7 +70,11 @@ let in_cards = [...Beast, ...Aquatic, ...Plant, ...Bird, ...Bug, ...Reptile];
 
 function iterator(arr) {
   arr.forEach((el) => {
-    el.img = `${baseUrl}/${el.class.toLowerCase()}/${el.name.toLowerCase()}${format}`;
+    if(el.img[0] === 'x'){
+      el.img = `${baseUrl}/no card${format}`;
+    }else{
+      el.img = `${baseUrl}/${el.class.toLowerCase()}/${el.name.toLowerCase()}${format}`;
+    }
     el.keyword = "-";
   });
 }
