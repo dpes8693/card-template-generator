@@ -1,7 +1,6 @@
 //36張 2022/04/17
-//少1張
 //null
-//9 x [Puppy,Sparky,Puff,Boomerang,Buba Brush,Foxy,Lump,Platypus,Sobby]
+//10 x [Puppy,Sparky,Puff,Boomerang,Buba Brush,Foxy e,Foxy m,Lump,Platypus,Sobby]
 //26 o
 let Beast = [
   {
@@ -16,6 +15,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 25,
   },
   {
     name: "Axie Kiss",
@@ -30,6 +30,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 17,
   },
   {
     name: "Belieber",
@@ -43,6 +44,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 11,
   },
 
   {
@@ -57,6 +59,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 6,
   },
   // {
   //   name: "Confident",
@@ -83,6 +86,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 32,
   },
   {
     name: "Dual Blade",
@@ -96,6 +100,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 24,
   },
 
   {
@@ -110,6 +115,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 31,
   },
   // {
   //   name: "Gerbil",
@@ -136,6 +142,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 15,
   },
   // {
   //   name: "Hare",
@@ -162,6 +169,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 27,
   },
   {
     name: "Imp",
@@ -175,6 +183,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 20,
   },
   {
     name: "Innocent Lamb",
@@ -189,6 +198,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 10,
   },
   {
     name: "Jaguar",
@@ -202,6 +212,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 28,
   },
   {
     name: "Little Branch",
@@ -215,6 +226,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 18,
   },
   {
     name: "Little Peas",
@@ -228,6 +240,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 3,
   },
 
   {
@@ -242,6 +255,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 22,
   },
   {
     name: "Nut Cracker e",
@@ -255,6 +269,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 9,
   },
   {
     name: "Nut Cracker t",
@@ -268,6 +283,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 36,
   },
   {
     name: "Nut Cracker m",
@@ -281,6 +297,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 13,
   },
   {
     name: "Nyan",
@@ -294,6 +311,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 7,
   },
   {
     name: "Pocky",
@@ -307,6 +325,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 23,
   },
 
   // {
@@ -335,6 +354,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 34,
   },
   {
     name: "Risky Beast",
@@ -348,6 +368,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 29,
   },
   {
     name: "Ronin",
@@ -361,6 +382,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 26,
   },
   {
     name: "Shiba",
@@ -374,6 +396,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 35,
   },
   {
     name: "Timber",
@@ -388,6 +411,7 @@ let Beast = [
     tag: "",
     img: "o",
     keyword: "-",
+    id: 30,
   },
   {
     name: "Zeal",
@@ -401,6 +425,7 @@ let Beast = [
     tag: "Skill",
     img: "o",
     keyword: "-",
+    id: 1,
   },
   // {
   //   name: "Zen",
@@ -428,7 +453,9 @@ let Beast = [
     tag: "",
     img: "xOld",
     keyword: "-",
+    id: 5,
   },
+  //
   {
     name: "Sparky",
     part: "Eyes",
@@ -441,6 +468,7 @@ let Beast = [
     tag: "Skill",
     img: "x",
     keyword: "-",
+    id: 2,
   },
   {
     name: "Puff",
@@ -454,6 +482,7 @@ let Beast = [
     tag: "",
     img: "x",
     keyword: "-",
+    id: 14,
   },
   {
     name: "Boomerang",
@@ -468,6 +497,7 @@ let Beast = [
     tag: "",
     img: "x",
     keyword: "-",
+    id: 19,
   },
   {
     name: "Buba Brush",
@@ -481,9 +511,24 @@ let Beast = [
     tag: "",
     img: "x",
     keyword: "-",
+    id: 33,
   },
   {
-    name: "Foxy",
+    name: "Foxy e",
+    part: "Ear",
+    cost: 1,
+    attack: 60,
+    shield: "-",
+    heal: "-",
+    cardEffect: " Target the furthest enemy.",
+    class: "Beast",
+    tag: "",
+    img: "x",
+    keyword: "-",
+    id: 8,
+  },
+  {
+    name: "Foxy m",
     part: "Mouth",
     cost: 1,
     attack: 65,
@@ -495,6 +540,7 @@ let Beast = [
     tag: "",
     img: "x",
     keyword: "-",
+    id: 12,
   },
   {
     name: "Lump",
@@ -508,6 +554,7 @@ let Beast = [
     tag: "",
     img: "x",
     keyword: "-",
+    id: 21,
   },
   {
     name: "Platypus",
@@ -522,6 +569,7 @@ let Beast = [
     tag: "",
     img: "x",
     keyword: "-",
+    id: 16,
   },
   {
     name: "Sobby",
@@ -535,5 +583,6 @@ let Beast = [
     tag: "",
     img: "x",
     keyword: "-",
+    id: 4,
   },
 ];
