@@ -47,7 +47,7 @@ const in_headers = [
     sortable: false,
     value: "name",
     filterable: true,
-    width: "21%",
+    width: "15%",
   },
   { text: "Cost", value: "cost", filterable: true, width: "7%" },
   { text: "Attack", value: "attack", filterable: false, width: "7%" },
