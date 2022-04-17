@@ -1,4 +1,6 @@
-//27 o
+//30張 2022/04/17
+//5 null 
+//26 o
 //4 x [Nimo t,Baby,Little Crab,Puff]
 let Aquatic = [
   {
@@ -13,6 +15,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:19
   },
   {
     name: "Anemone b",
@@ -26,6 +29,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:24
   },
   {
     name: "Babylonia",
@@ -39,6 +43,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:16
   },
   {
     name: "Blue Moon",
@@ -52,6 +57,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:22
   },
   {
     name: "Bubblemaker",
@@ -65,6 +71,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:9
   },
   {
     name: "Catfish",
@@ -78,6 +85,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:13
   },
   {
     name: "Clamshell",
@@ -91,6 +99,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:18
   },
   {
     name: "Clear",
@@ -104,6 +113,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:3
   },
   {
     name: "Gero",
@@ -117,6 +127,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:4
   },
   {
     name: "Gill",
@@ -130,20 +141,21 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:11
   },
-  {
-    name: "Goldfish",
-    part: "Back",
-    cost: 1,
-    attack: 65,
-    shield: "-",
-    heal: "-",
-    cardEffect: " If Initial, draw 1 card.",
-    class: "Aquatic",
-    tag: "",
-    img: "",
-    keyword: "-",
-  },
+  // {
+  //   name: "Goldfish",
+  //   part: "Back",
+  //   cost: 1,
+  //   attack: 65,
+  //   shield: "-",
+  //   heal: "-",
+  //   cardEffect: " If Initial, draw 1 card.",
+  //   class: "Aquatic",
+  //   tag: "",
+  //   img: "",
+  //   keyword: "-",
+  // },
   {
     name: "Hermit",
     part: "Back",
@@ -156,6 +168,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:21
   },
   {
     name: "Inkling",
@@ -169,6 +182,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:10
   },
   {
     name: "Koi",
@@ -182,6 +196,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:27
   },
   {
     name: "Lam",
@@ -195,20 +210,21 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:12
   },
-  {
-    name: "Navaga",
-    part: "Tail",
-    cost: 1,
-    attack: 70,
-    shield: "-",
-    heal: "-",
-    cardEffect: " If Initial, deal 15 more DMG.",
-    class: "Aquatic",
-    tag: "",
-    img: "",
-    keyword: "-",
-  },
+  // {
+  //   name: "Navaga",
+  //   part: "Tail",
+  //   cost: 1,
+  //   attack: 70,
+  //   shield: "-",
+  //   heal: "-",
+  //   cardEffect: " If Initial, deal 15 more DMG.",
+  //   class: "Aquatic",
+  //   tag: "",
+  //   img: "",
+  //   keyword: "-",
+  // },
   {
     name: "Nimo e",
     part: "Ear",
@@ -221,6 +237,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:7
   },
   {
     name: "Nimo t",
@@ -234,20 +251,21 @@ let Aquatic = [
     tag: "",
     img: "xWrongPNG",
     keyword: "-",
+    id:28
   },
-  {
-    name: "Oranda",
-    part: "Horn",
-    cost: 2,
-    attack: 120,
-    shield: "-",
-    heal: "-",
-    cardEffect: " Dispel up to 2 buffs on target.",
-    class: "Aquatic",
-    tag: "",
-    img: "",
-    keyword: "-",
-  },
+  // {
+  //   name: "Oranda",
+  //   part: "Horn",
+  //   cost: 2,
+  //   attack: 120,
+  //   shield: "-",
+  //   heal: "-",
+  //   cardEffect: " Dispel up to 2 buffs on target.",
+  //   class: "Aquatic",
+  //   tag: "",
+  //   img: "",
+  //   keyword: "-",
+  // },
   {
     name: "Perch",
     part: "Back",
@@ -260,6 +278,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:25
   },
   {
     name: "Piranha",
@@ -273,6 +292,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:15
   },
   {
     name: "Ranchu",
@@ -286,6 +306,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:30
   },
   {
     name: "Risky Fish",
@@ -299,20 +320,21 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:14
   },
-  {
-    name: "Seaslug",
-    part: "Ear",
-    cost: 2,
-    attack: 110,
-    shield: "-",
-    heal: "-",
-    cardEffect: " Cleanse 2 debuffs. Gain 2 Cleanser.",
-    class: "Aquatic",
-    tag: "",
-    img: "",
-    keyword: "-",
-  },
+  // {
+  //   name: "Seaslug",
+  //   part: "Ear",
+  //   cost: 2,
+  //   attack: 110,
+  //   shield: "-",
+  //   heal: "-",
+  //   cardEffect: " Cleanse 2 debuffs. Gain 2 Cleanser.",
+  //   class: "Aquatic",
+  //   tag: "",
+  //   img: "",
+  //   keyword: "-",
+  // },
   {
     name: "Shoal Star",
     part: "Horn",
@@ -325,20 +347,21 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:20
   },
-  {
-    name: "Shrimp",
-    part: "Tail",
-    cost: 1,
-    attack: 70,
-    shield: "-",
-    heal: "-",
-    cardEffect: " If Initial, this attack targets the furthest enemy.",
-    class: "Aquatic",
-    tag: "",
-    img: "",
-    keyword: "-",
-  },
+  // {
+  //   name: "Shrimp",
+  //   part: "Tail",
+  //   cost: 1,
+  //   attack: 70,
+  //   shield: "-",
+  //   heal: "-",
+  //   cardEffect: " If Initial, this attack targets the furthest enemy.",
+  //   class: "Aquatic",
+  //   tag: "",
+  //   img: "",
+  //   keyword: "-",
+  // },
   {
     name: "Sleepless",
     part: "Eyes",
@@ -351,6 +374,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:2
   },
   {
     name: "Sponge",
@@ -365,6 +389,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:23
   },
   {
     name: "Tadpole",
@@ -378,6 +403,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:29
   },
   {
     name: "Teal Shell",
@@ -392,6 +418,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:17
   },
   {
     name: "Telescope",
@@ -406,6 +433,7 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:5
   },
   {
     name: "Tiny Fan",
@@ -419,8 +447,8 @@ let Aquatic = [
     tag: "",
     img: "o",
     keyword: "-",
+    id:8
   },
-
   {
     name: "Baby",
     part: "Eyes",
@@ -433,6 +461,7 @@ let Aquatic = [
     tag: "Power",
     img: "x",
     keyword: "-",
+    id:1
   },
   {
     name: "Little Crab",
@@ -446,6 +475,7 @@ let Aquatic = [
     tag: "",
     img: "x",
     keyword: "-",
+    id:6
   },
   {
     name: "Puff",
@@ -459,5 +489,6 @@ let Aquatic = [
     tag: "",
     img: "x",
     keyword: "-",
+    id:26
   },
 ];

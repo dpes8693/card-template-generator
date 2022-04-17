@@ -1,3 +1,4 @@
+//32張 2022/04/17
 //null 7
 //o 25
 //x 7 [Concentrate,Passion,Feather Dagger,Big Sister,Paper Wing,Rubber Duckling,Pigeon Post]

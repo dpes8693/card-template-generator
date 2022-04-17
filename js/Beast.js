@@ -1,4 +1,6 @@
-//
+//36張 2022/04/17
+//少1張
+//null
 //9 x [Puppy,Sparky,Puff,Boomerang,Buba Brush,Foxy,Lump,Platypus,Sobby]
 //26 o
 let Beast = [

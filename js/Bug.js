@@ -1,3 +1,4 @@
+//34張 2022/04/17
 //null 4
 //o 27
 //x 7 [Termite,Centipede,Shield Crusher,Leaf Bug t,Brimstone,Ladybug Goggles]
