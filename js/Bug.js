@@ -1,7 +1,8 @@
 //34張 2022/04/17
-//null 4
-//o 27
-//x 7 [Termite,Centipede,Shield Crusher,Leaf Bug t,Brimstone,Ladybug Goggles]
+//4 not in
+//37 o 
+//1 x [Ladybug Goggles]
+//38 all 
 let Bug = [
   {
     name: "Ant",
@@ -17,32 +18,6 @@ let Bug = [
     keyword: "-",
     id:27
   },
-  // {
-  //   name: "Antenna",
-  //   part: "Horn",
-  //   cost: 1,
-  //   attack: "-",
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " Scry 4 cards. Banish.",
-  //   class: "Bug",
-  //   tag: "",
-  //   img: "o",
-  //   keyword: "-",
-  // },
-  // {
-  //   name: "Beetle Spike",
-  //   part: "Ear",
-  //   cost: 1,
-  //   attack: 45,
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " Deal pure DMG. Apply Bleed for 4 turns.",
-  //   class: "Bug",
-  //   tag: "",
-  //   img: "o",
-  //   keyword: "-",
-  // },
   {
     name: "Bookworm",
     part: "Eyes",
@@ -187,20 +162,6 @@ let Bug = [
     keyword: "-",
     id:15
   },
-  // {
-  //   name: "Larva",
-  //   part: "Ear",
-  //   cost: 0,
-  //   attack: "-",
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect:
-  //     " Scry 2 cards. Gain 1 Energy if discard 1 skill card upon scrying.",
-  //   class: "Bug",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
   {
     name: "Leaf Bug h",
     part: "Horn",
@@ -387,19 +348,6 @@ let Bug = [
     keyword: "-",
     id:25
   },
-  // {
-  //   name: "Square Teeth",
-  //   part: "Mouth",
-  //   cost: 0,
-  //   attack: 25,
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " If Initial, deal bonus DMG equal to current shield.",
-  //   class: "Bug",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
   {
     name: "Tassels",
     part: "Ear",
@@ -454,7 +402,7 @@ let Bug = [
       " Innate. Remove 30% of all Enemies' shield. Applies Fragile for 4 turns.",
     class: "Bug",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:6
   },
@@ -469,7 +417,7 @@ let Bug = [
       " Apply 3 Poison. Add a copy of this card to your discard pile when used.",
     class: "Bug",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:26
   },
@@ -483,7 +431,7 @@ let Bug = [
     cardEffect: " Deal 25% more DMG to shield.",
     class: "Bug",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:28
   },
@@ -497,7 +445,7 @@ let Bug = [
     cardEffect: " Whenever this is drawn, gain 30 shield.",
     class: "Bug",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:30
   },
@@ -512,7 +460,7 @@ let Bug = [
       " Retain. Next turn, draw 3 random 0 Energy cards from your deck into your hand.",
     class: "Bug",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:7
   },
@@ -527,10 +475,11 @@ let Bug = [
       " Randomly Deal 4 hits. Shuffle 1 Goo per enemy hit into opponent's discard pile.",
     class: "Bug",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:8
   },
+  //x
   {
     name: "Ladybug Goggles",
     part: "Eyes",
@@ -543,6 +492,64 @@ let Bug = [
     tag: "Power",
     img: "x",
     keyword: "-",
-    id:1
+    id:1,
+  },
+  // not in 350~380 x4
+  {
+    name: "Antenna",
+    part: "Horn",
+    cost: 1,
+    attack: "-",
+    shield: "-",
+    heal: "-",
+    cardEffect: " Scry 4 cards. Banish.",
+    class: "Bug",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:350
+  },
+  {
+    name: "Beetle Spike",
+    part: "Ear",
+    cost: 1,
+    attack: 45,
+    shield: "-",
+    heal: "-",
+    cardEffect: " Deal pure DMG. Apply Bleed for 4 turns.",
+    class: "Bug",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:360
+  },
+  {
+    name: "Larva",
+    part: "Ear",
+    cost: 0,
+    attack: "-",
+    shield: "-",
+    heal: "-",
+    cardEffect:
+      " Scry 2 cards. Gain 1 Energy if discard 1 skill card upon scrying.",
+    class: "Bug",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:370
+  },
+  {
+    name: "Square Teeth",
+    part: "Mouth",
+    cost: 0,
+    attack: 25,
+    shield: "-",
+    heal: "-",
+    cardEffect: " If Initial, deal bonus DMG equal to current shield.",
+    class: "Bug",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:380
   },
 ];

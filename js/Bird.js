@@ -1,8 +1,9 @@
 //32張 2022/04/17
 //null 7
-//o 24
-//x 8 [Concentrate,Passion,Feather Dagger,Big Sister,Paper Wing,Rubber Duckling,Pigeon Post,Lil Bro]
+//o 39
+//x 0 [Concentrate,Passion,Feather Dagger,Big Sister,Paper Wing,Rubber Duckling,Lil Bro]
 //id沒有按官方順序
+//39 all
 let Bird = [
   {
     name: "Balloon",
@@ -90,32 +91,6 @@ let Bird = [
     keyword: "-",
     id:6
   },
-  // {
-  //   name: "Early Bird",
-  //   part: "Ear",
-  //   cost: 1,
-  //   attack: 65,
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " If Initial, draw 1 card.",
-  //   class: "Bird",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
-  // {
-  //   name: "Eggshell",
-  //   part: "Horn",
-  //   cost: 1,
-  //   attack: 75,
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " Apply Taunt to this Axie for 2 turns.",
-  //   class: "Bird",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
   {
     name: "Feather Fan",
     part: "Tail",
@@ -159,19 +134,6 @@ let Bird = [
     keyword: "-",
     id:9
   },
-  // {
-  //   name: "Hungry Bird",
-  //   part: "Mouth",
-  //   cost: 1,
-  //   attack: 65,
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " If Initial, heal 15 HP.",
-  //   class: "Bird",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
   {
     name: "Kestrel",
     part: "Horn",
@@ -212,7 +174,7 @@ let Bird = [
       " Innate. Randomly deal 2 hits. Discard 1 copy of Feather Dagger per Enemy hit.",
     class: "Bird",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:12
   },
@@ -272,19 +234,6 @@ let Bird = [
     keyword: "-",
     id:16
   },
-  // {
-  //   name: "Mavis",
-  //   part: "Eyes",
-  //   cost: 1,
-  //   attack: "-",
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " Summon 1 Mavis.",
-  //   class: "Bird",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
   {
     name: "Peace Maker e",
     part: "Ear",
@@ -372,32 +321,6 @@ let Bird = [
     keyword: "-",
     id:22
   },
-  // {
-  //   name: "Robin",
-  //   part: "Eyes",
-  //   cost: 1,
-  //   attack: "-",
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " Summon a Little Robin.",
-  //   class: "Bird",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
-  // {
-  //   name: "Swallow",
-  //   part: "Tail",
-  //   cost: 1,
-  //   attack: 70,
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " If Initial, deal 15 more DMG.",
-  //   class: "Bird",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
   {
     name: "The Last One",
     part: "Tail",
@@ -440,19 +363,6 @@ let Bird = [
     keyword: "-",
     id:25
   },
-  // {
-  //   name: "Wing Horn",
-  //   part: "Horn",
-  //   cost: 1,
-  //   attack: 65,
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " If Initial, this attack targets the second frontmost enemy.",
-  //   class: "Bird",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
 //
   {
     name: "Concentrate",
@@ -463,8 +373,8 @@ let Bird = [
     heal: "-",
     cardEffect: " All Multihit attack cards of this Axie gain +18 DMG.",
     class: "Bird",
-    tag: "",
-    img: "x",
+    tag: "Power",
+    img: "o",
     keyword: "-",
     id:26
   },
@@ -478,7 +388,7 @@ let Bird = [
     cardEffect: " Innate. Draw 2 cards. Banish.",
     class: "Bird",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:27
   },
@@ -492,7 +402,7 @@ let Bird = [
     cardEffect: " Deal 2 hits.",
     class: "Bird",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:28
   },
@@ -506,7 +416,7 @@ let Bird = [
     cardEffect: " Discard 1 copy of Lil Bro.",
     class: "Bird",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:29
   },
@@ -520,7 +430,7 @@ let Bird = [
     cardEffect: " Retain. Deal 9 bonus DMG per card in your hand.",
     class: "Bird",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:30
   },
@@ -535,7 +445,7 @@ let Bird = [
       " Retain. heal any Ally. Gain 1 Energy. If retained, +15 heal Bonus (up to +45). Banish.",
     class: "Bird",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:31
   },
@@ -549,8 +459,107 @@ let Bird = [
     cardEffect: " Add 1 Blackmail to Opponent's hand.",
     class: "Bird",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:32
-  }
+  },
+  // not in 330~390 x7
+  {
+    name: "Early Bird",
+    part: "Ear",
+    cost: 1,
+    attack: 65,
+    shield: "-",
+    heal: "-",
+    cardEffect: " If Initial, draw 1 card.",
+    class: "Bird",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:330
+  },
+  {
+    name: "Eggshell",
+    part: "Horn",
+    cost: 1,
+    attack: 75,
+    shield: "-",
+    heal: "-",
+    cardEffect: " Apply Taunt to this Axie for 2 turns.",
+    class: "Bird",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:340
+  },
+  {
+    name: "Hungry Bird",
+    part: "Mouth",
+    cost: 1,
+    attack: 65,
+    shield: "-",
+    heal: "-",
+    cardEffect: " If Initial, heal 15 HP.",
+    class: "Bird",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:350
+  },
+  {
+    name: "Mavis",
+    part: "Eyes",
+    cost: 1,
+    attack: "-",
+    shield: "-",
+    heal: "-",
+    cardEffect: " Summon 1 Mavis.",
+    class: "Bird",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:360
+  },
+  {
+    name: "Robin",
+    part: "Eyes",
+    cost: 1,
+    attack: "-",
+    shield: "-",
+    heal: "-",
+    cardEffect: " Summon a Little Robin.",
+    class: "Bird",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:370
+  },
+  {
+    name: "Swallow",
+    part: "Tail",
+    cost: 1,
+    attack: 70,
+    shield: "-",
+    heal: "-",
+    cardEffect: " If Initial, deal 15 more DMG.",
+    class: "Bird",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:380
+  },
+  {
+    name: "Wing Horn",
+    part: "Horn",
+    cost: 1,
+    attack: 65,
+    shield: "-",
+    heal: "-",
+    cardEffect: " If Initial, this attack targets the second frontmost enemy.",
+    class: "Bird",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:390
+  },
 ];

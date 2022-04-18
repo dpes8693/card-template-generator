@@ -1,7 +1,8 @@
 //30張 2022/04/17
-//5 null 
-//26 o
-//4 x [Nimo t,Baby,Little Crab,Puff]
+//5 not in
+//31 o
+//4 x [Nimo t, Baby, Little Crab, Puff]
+//35 all 
 let Aquatic = [
   {
     name: "Anemone h",
@@ -143,19 +144,6 @@ let Aquatic = [
     keyword: "-",
     id:11
   },
-  // {
-  //   name: "Goldfish",
-  //   part: "Back",
-  //   cost: 1,
-  //   attack: 65,
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " If Initial, draw 1 card.",
-  //   class: "Aquatic",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
   {
     name: "Hermit",
     part: "Back",
@@ -212,19 +200,6 @@ let Aquatic = [
     keyword: "-",
     id:12
   },
-  // {
-  //   name: "Navaga",
-  //   part: "Tail",
-  //   cost: 1,
-  //   attack: 70,
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " If Initial, deal 15 more DMG.",
-  //   class: "Aquatic",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
   {
     name: "Nimo e",
     part: "Ear",
@@ -239,33 +214,6 @@ let Aquatic = [
     keyword: "-",
     id:7
   },
-  {
-    name: "Nimo t",
-    part: "Tail",
-    cost: 0,
-    attack: "-",
-    shield: "-",
-    heal: 15,
-    cardEffect: " Gain 1 Energy. Banish.",
-    class: "Aquatic",
-    tag: "",
-    img: "xWrongPNG",
-    keyword: "-",
-    id:28
-  },
-  // {
-  //   name: "Oranda",
-  //   part: "Horn",
-  //   cost: 2,
-  //   attack: 120,
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " Dispel up to 2 buffs on target.",
-  //   class: "Aquatic",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
   {
     name: "Perch",
     part: "Back",
@@ -322,19 +270,6 @@ let Aquatic = [
     keyword: "-",
     id:14
   },
-  // {
-  //   name: "Seaslug",
-  //   part: "Ear",
-  //   cost: 2,
-  //   attack: 110,
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " Cleanse 2 debuffs. Gain 2 Cleanser.",
-  //   class: "Aquatic",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
   {
     name: "Shoal Star",
     part: "Horn",
@@ -349,19 +284,6 @@ let Aquatic = [
     keyword: "-",
     id:20
   },
-  // {
-  //   name: "Shrimp",
-  //   part: "Tail",
-  //   cost: 1,
-  //   attack: 70,
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " If Initial, this attack targets the furthest enemy.",
-  //   class: "Aquatic",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  // },
   {
     name: "Sleepless",
     part: "Eyes",
@@ -490,5 +412,91 @@ let Aquatic = [
     img: "x",
     keyword: "-",
     id:26
+  },
+  //xWrongPNG
+  {
+    name: "Nimo t",
+    part: "Tail",
+    cost: 0,
+    attack: "-",
+    shield: "-",
+    heal: 15,
+    cardEffect: " Gain 1 Energy. Banish.",
+    class: "Aquatic",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:28
+  },
+  //not in collection 310~350
+  {
+    name: "Goldfish",
+    part: "Back",
+    cost: 1,
+    attack: 65,
+    shield: "-",
+    heal: "-",
+    cardEffect: " If Initial, draw 1 card.",
+    class: "Aquatic",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:310
+  },
+  {
+    name: "Navaga",
+    part: "Tail",
+    cost: 1,
+    attack: 70,
+    shield: "-",
+    heal: "-",
+    cardEffect: " If Initial, deal 15 more DMG.",
+    class: "Aquatic",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:320
+  },
+  {
+    name: "Oranda",
+    part: "Horn",
+    cost: 2,
+    attack: 120,
+    shield: "-",
+    heal: "-",
+    cardEffect: " Dispel up to 2 buffs on target.",
+    class: "Aquatic",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:330
+  },
+  {
+    name: "Seaslug",
+    part: "Ear",
+    cost: 2,
+    attack: 110,
+    shield: "-",
+    heal: "-",
+    cardEffect: " Cleanse 2 debuffs. Gain 2 Cleanser.",
+    class: "Aquatic",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:340
+  },
+  {
+    name: "Shrimp",
+    part: "Tail",
+    cost: 1,
+    attack: 70,
+    shield: "-",
+    heal: "-",
+    cardEffect: " If Initial, this attack targets the furthest enemy.",
+    class: "Aquatic",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id:350
   },
 ];
