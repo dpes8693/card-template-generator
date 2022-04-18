@@ -79,7 +79,7 @@
         </v-app-bar>
         <!-- header end -->
         <!-- main start -->
-        <v-main>
+        <v-main class="secondary">
           <v-container>
             <!-- select class start -->
             <v-row>
@@ -131,7 +131,9 @@
                     <v-hover v-slot="{ hover }">
                       <div>
                         <v-edit-dialog @open="open(item)">
-                          <pre class="primary--text text-decoration-underline">
+                          <pre
+                            class="primary--text text-decoration-underline font-weight-bold"
+                          >
 {{ item.name }}</pre
                           >
                         </v-edit-dialog>
@@ -248,7 +250,16 @@
     <script>
       new Vue({
         el: "#app",
-        vuetify: new Vuetify(),
+        vuetify: new Vuetify({
+          theme: {
+            themes: {
+              light: {
+                primary: "#3E2723",
+                secondary: "#D7CCC8",
+              },
+            },
+          },
+        }),
 
         data: () => ({
           card: {},
