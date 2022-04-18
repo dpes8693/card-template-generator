@@ -254,9 +254,39 @@
             </template>
             <br /><br /><br /><br /><br /><br /><br /><br /><br />
             <!-- dialog-card end -->
+            <!-- back to top -->
           </v-container>
+          <!-- scroll to btn -->
+          <v-btn
+            middle
+            bottom
+            class="mb-16"
+            dark
+            color="primary"
+            icon
+            fixed
+            small
+            @click="scrollWindow('up')"
+            v-show="scrollY > 200"
+          >
+            <v-icon>mdi-arrow-up-thick</v-icon>
+          </v-btn>
+          <v-btn
+            middle
+            bottom
+            class="mb-5"
+            dark
+            color="primary"
+            icon
+            fixed
+            small
+            @click="scrollWindow('down')"
+          >
+            <v-icon>mdi-arrow-down-thick</v-icon>
+          </v-btn>
         </v-main>
         <!-- main end -->
+
         <!-- footer start-->
         <template>
           <v-footer padless>
@@ -298,7 +328,7 @@
         data: () => ({
           card: {},
           //
-          iconUrl: './icon-baby.png',
+          iconUrl: "./icon-baby.png",
           //header
           webTitle: "Axie Infinity Origin Cards",
           menuList: ["Cards", "Tips"],
@@ -324,6 +354,8 @@
           windowWidth: null,
           tableHover: false,
           dialogArrow: false,
+          scTimer: 0,
+          scrollY: 0,
           //footer
           footerText:
             "| All images are the property of Sky Mavis. They are displayed for broadcast and entertainment purposes only. |",
@@ -335,13 +367,14 @@
             this.setPhoneWindow(value, 603);
           },
         },
-
         mounted() {
           this.getWindowWidth();
           this.setIndex();
+          window.addEventListener("scroll", this.handleScroll);
         },
 
         methods: {
+          //window
           getWindowWidth() {
             this.windowWidth = window.innerWidth;
             window.onresize = () => {
@@ -360,6 +393,22 @@
             //dialog
             this.dialogArrow = now <= targetWidth ? true : false;
           },
+          handleScroll() {
+            //Debounce & Throttle
+            if (this.scTimer) return;
+            this.scTimer = setTimeout(() => {
+              this.scrollY = window.scrollY;
+              clearTimeout(this.scTimer);
+              this.scTimer = 0;
+            }, 250);
+          },
+          scrollWindow(mode) {
+            let obj = { top: 0, left: 0, behavior: "smooth" };
+            let windowHeight = document.body.scrollHeight; //全部高
+            obj.top = mode === "down" ? windowHeight : 0;
+            window.scrollTo(obj);
+          },
+          //content
           tableFilter(filArr) {
             // in = import data
             let array = in_cards;
@@ -385,6 +434,7 @@
             //open dialog
             this.card = item;
             this.dialog = true;
+            // console.log(window.scrollY)
           },
           setClassColor(item, mode) {
             if (mode === "class") return `${item.toLowerCase()}--text`;
@@ -392,6 +442,7 @@
               return `text-decoration-underline  font-weight-bold ${item.toLowerCase()}--text`;
             return primary;
           },
+
           multiFilter(array, filters) {
             if (filters.class.length === 0) return [];
             const filterKeys = Object.keys(filters);

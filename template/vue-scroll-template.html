@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      {{show}}
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>{{show}}<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      {{show}}
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        // delimiters: ["${", "}"],
+        data: {
+          show: null
+        },
+        mounted() {
+          this.$nextTick(() => {
+            // 进入nexTick
+            const body = document.getElementById("app"); // 获取滚动条的dom
+            // 获取距离顶部的距离
+            const scrollTop = body.scrollTop;
+            // 获取可视区的高度
+            const windowHeight = body.clientHeight;
+            // 获取滚动条的总高度
+            const scrollHeight = body.scrollHeight;
+            if (scrollTop + windowHeight >= scrollHeight) {
+              // 把距离顶部的距离加上可视区域的高度 等于或者大于滚动条的总高度就是到达底部
+              this.show = true;
+            } else {
+              this.show = false;
+              // 滚动事件
+              body.onscroll = () => {
+                console.log(
+                  "距顶部" +
+                    scrollTop +
+                    "可视区高度" +
+                    windowHeight +
+                    "滚动条总高度" +
+                    scrollHeight
+                );
+                if (scrollTop + windowHeight >= scrollHeight) {
+                  // 把距离顶部的距离加上可视区域的高度 等于或者大于滚动条的总高度就是到达底部
+                  this.show = true;
+                }
+              };
+            }
+            console.log(
+              "距顶部" +
+                scrollTop +
+                "可视区高度" +
+                windowHeight +
+                "滚动条总高度" +
+                scrollHeight
+            );
+          });
+        },
+      });
+    </script>
+  </body>
+</html>
