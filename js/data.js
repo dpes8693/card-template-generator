@@ -47,7 +47,7 @@ const in_headers = [
     sortable: true,
     value: "name",
     filterable: true,
-    width: "12%",
+    width: "15%",
     align: "",
   },
   {
@@ -62,29 +62,29 @@ const in_headers = [
     text: "Attack",
     value: "attack",
     filterable: false,
-    width: "11%",
+    width: "9%",
     align: "",
   },
   {
     text: "Shield",
     value: "shield",
     filterable: false,
-    width: "11%",
+    width: "9%",
     align: "",
   },
-  { text: "Heal", value: "heal", filterable: false, width: "10%", align: "" },
+  { text: "Heal", value: "heal", filterable: false, width: "9%", align: "" },
   // { text: "Card Tag", value: "tag", filterable: true },
-  { text: "Class", value: "class", filterable: true, width: "10%", align: "" },
+  { text: "Class", value: "class", filterable: true, width: "11%", align: "" },
   {
     text: "",
     value: "part",
     filterable: true,
     sortable: false,
-    width: "1",
+    width: "1%",
     align: "",
   },
-  
 ];
+
 
 iterator(Aquatic);
 iterator(Beast);

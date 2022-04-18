@@ -95,7 +95,16 @@
                   multiple
                   @change="tableFilter(value)"
                   clearable
-                ></v-select>
+                >
+                  <template #selection="{ item }">
+                    <v-chip
+                      color="primary"
+                      dark
+                      >{{ item }}</v-chip
+                    >
+                  </template>
+              </v-select>
+              </v-select>
               </v-col>
             </v-row>
             <!-- select class end  -->
@@ -104,7 +113,9 @@
               <v-card>
                 <v-card-title>
                   <v-row>
-                    <v-col cols="12" sm="6" v-cloak> {{tableTitle}} </v-col>
+                    <v-col cols="12" sm="6" class="primary--text">
+                      <h4>{{tableTitle}}</h4>
+                    </v-col>
                     <v-spacer></v-spacer>
                     <v-col cols="12" sm="4">
                       <v-text-field
@@ -132,7 +143,7 @@
                       <div>
                         <v-edit-dialog @open="open(item)">
                           <pre
-                            class="primary--text text-decoration-underline font-weight-bold"
+                            :class="setClassColor(item.class,'name')"
                           >
 {{ item.name }}</pre
                           >
@@ -144,6 +155,11 @@
                         />
                       </div>
                     </v-hover>
+                  </template>
+                  <template v-slot:item.class="{ item }">
+                    <v-col :class="setClassColor(item.class,'class')" >
+                        {{ item.class }}
+                    </v-col>
                   </template>
                   <template v-slot:item.part="{ item }">
                     <span class="d-none"></span>
@@ -245,6 +261,19 @@
           </v-container>
         </v-main>
         <!-- main end -->
+        <!-- footer start-->
+        <template>
+          <v-footer padless>
+            <v-col
+              class="text-center"
+              cols="12"
+            >
+              
+              <h5><a href="mailto:dpes8693@gmail.com">dpes8693@gmail.com</a></h5>
+            <h6>{{ new Date().getFullYear() }} | All images are the property of Sky Mavis. They are displayed for broadcast and entertainment purposes only. |</h6>
+            </v-col>
+          </v-footer>
+        </template>
       </v-app>
     </div>
     <script>
@@ -256,8 +285,18 @@
               light: {
                 primary: "#3E2723",
                 secondary: "#D7CCC8",
-              },
-            },
+                //class
+                beast: "#984718",
+                bug: "#7D102B",
+                bird: "#AF3558",
+                plant: "#517105",
+                aquatic: "#26A5BD",
+                reptile: "#6A3C96",
+                mech: "#565562",
+                dawn: "#3E4A7A",
+                dusk: "#195089",
+              }
+            }
           },
         }),
 
@@ -346,6 +385,11 @@
             //open dialog
             this.card = item;
             this.dialog = true;
+          },
+          setClassColor(item,mode) {
+            if(mode==='class') return `${item.toLowerCase()}--text`
+            if(mode==='name')return `text-decoration-underline  font-weight-bold ${item.toLowerCase()}--text`
+            return primary
           },
           multiFilter(array, filters) {
             if (filters.class.length === 0) return [];
