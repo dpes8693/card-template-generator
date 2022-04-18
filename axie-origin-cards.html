@@ -33,10 +33,26 @@
         background: #303031;
         border-radius: 5px;
       }
+      .s-table tbody tr:nth-child(even) {
+        background-color: #86765e;
+        color: white;
+      }
+      .s-table tbody tr:nth-child(even):hover {
+        background-color: #86765e !important;
+      }
+      .s-table tbody tr:nth-child(odd):hover {
+        background-color: white !important;
+      }
+      .s-table tbody tr td:nth-child(odd) {
+        width: 25%;
+      }
       .flex-card {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+      }
+      .cursor-pointer {
+        cursor: pointer;
       }
       .absolute-card-img {
         position: absolute;
@@ -70,7 +86,7 @@
           <v-menu transition="scale-transition">
             <template v-slot:activator="{ on, attrs }">
               <v-btn icon v-bind="attrs" v-on="on">
-                <v-icon>mdi-dots-vertical</v-icon>
+                <v-icon v-cloak>mdi-dots-vertical</v-icon>
               </v-btn>
             </template>
             <v-list>
@@ -84,7 +100,7 @@
         <!-- main start -->
         <v-main class="secondary">
           <v-container>
-            <!-- select class start -->
+            <!-- select  start -->
             <v-row>
               <v-col cols="12">
                 <v-select
@@ -105,7 +121,7 @@
                 </v-select>
               </v-col>
             </v-row>
-            <!-- select class end  -->
+            <!-- select  end  -->
             <!-- table-card start -->
             <template>
               <v-card>
@@ -173,40 +189,16 @@
             <!-- dialog-card start -->
             <template>
               <v-dialog v-model="dialog" :width="dialogWidth" persistent>
-                <v-card :height="dialogHeight">
+                <v-card :height="dialogHeight" color="secondary">
                   <!-- close X -->
-                  <v-btn
-                    icon
-                    x-large
-                    @click="dialog = false"
-                    class="float-right"
-                  >
-                    <v-icon>mdi-close</v-icon>
-                  </v-btn>
-                  <v-card-title> {{card.title}} </v-card-title>
+                  <v-col class="d-flex justify-end">
+                    <v-btn icon x-large @click="dialog = false">
+                      <v-icon v-cloak>mdi-close</v-icon>
+                    </v-btn>
+                  </v-col>
                   <!-- card text start -->
                   <v-card-text>
                     <v-row class="flex-card">
-                      <!-- phone arrows -->
-                      <v-row v-if="dialogArrow">
-                        <v-btn
-                          icon
-                          color="primary"
-                          dark
-                          @click="changeCard(card,-1)"
-                        >
-                          <v-icon>mdi-arrow-left-drop-circle</v-icon>
-                        </v-btn>
-                        <!-- <v-spacer></v-spacer> -->
-                        <v-btn
-                          icon
-                          color="primary"
-                          dark
-                          @click="changeCard(card,1)"
-                        >
-                          <v-icon>mdi-arrow-right-drop-circle</v-icon>
-                        </v-btn>
-                      </v-row>
                       <!-- left arrow -->
                       <v-col cols="6" sm="1" v-if="!dialogArrow">
                         <v-btn
@@ -216,23 +208,113 @@
                           dark
                           @click="changeCard(card,-1)"
                         >
-                          <v-icon>mdi-arrow-left-drop-circle</v-icon>
+                          <v-icon v-cloak>mdi-arrow-left-drop-circle</v-icon>
                         </v-btn>
                       </v-col>
-                      <!-- content -->
-                      <v-col cols="12" sm="5">
-                        <v-img lazy-src="" :src="card.img"></v-img>
+                      <v-col cols="12" sm="4" class="align-self-start">
+                        <v-img :src="card.img"></v-img>
                       </v-col>
-                      <v-col cols="12" sm="5">
-                        <v-list-item>
-                          <v-list-item-content>
-                            <v-list-item-subtitle
-                              v-for="(item,i) in card"
-                              :key="item.name"
-                              >{{i}}: {{item}}</v-list-item-subtitle
+                      <!-- phone arrows -->
+                      <v-row v-if="dialogArrow">
+                        <v-col cols="2">
+                          <v-btn
+                            icon
+                            color="primary"
+                            dark
+                            @click="changeCard(card,-1)"
+                          >
+                            <v-icon v-cloak>mdi-arrow-left-drop-circle</v-icon>
+                          </v-btn>
+                        </v-col>
+                        <v-spacer></v-spacer>
+                        <v-col cols="2">
+                          <v-btn
+                            icon
+                            color="primary"
+                            dark
+                            @click="changeCard(card,1)"
+                          >
+                            <v-icon v-cloak>mdi-arrow-right-drop-circle</v-icon>
+                          </v-btn>
+                        </v-col>
+                      </v-row>
+                      <!-- phone arrows end -->
+                      <v-col cols="12" sm="5" class="align-self-start mr-5">
+                        <!-- content start-->
+                        <v-row class="flex-column">
+                          <v-col>
+                            <template>
+                              <v-simple-table dense class="mt-10 s-table">
+                                <template v-slot:default>
+                                  <thead>
+                                    <tr></tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>Name</td>
+                                      <td>{{ card.name }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Class</td>
+                                      <td>{{ card.class }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Part</td>
+                                      <td>{{ card.part }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Cost</td>
+                                      <td>{{ card.cost }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Attack</td>
+                                      <td>{{ card.attack }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Shield</td>
+                                      <td>{{ card.shield }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Shield</td>
+                                      <td>{{ card.shield }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Heal</td>
+                                      <td>{{ card.heal }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>CardEffect</td>
+                                      <td>{{ card.cardEffect }}</td>
+                                    </tr>
+                                  </tbody>
+                                </template>
+                              </v-simple-table>
+                            </template>
+                          </v-col>
+                          <v-spacer></v-spacer>
+                          <v-col class="d-flex text-decoration-underline">
+                            <h4
+                              class="ml-5 primary--text cursor-pointer"
+                              v-for="n in 3"
+                              @click="setReadCard()"
                             >
-                          </v-list-item-content>
-                        </v-list-item>
+                              Banish
+                            </h4>
+                          </v-col>
+                          <v-col>
+                            <v-card color="white" class="mt-1">
+                              <v-card-subtitle
+                                >Listen to your favorite artists and albums
+                                whenever and wherever, online and offline.Listen
+                                to your favorite artists and albums whenever and
+                                wherever, online and offline.Listen to your
+                                favorite artists and albums whenever and
+                                wherever, online and offline.</v-card-subtitle
+                              >
+                            </v-card>
+                          </v-col>
+                        </v-row>
+                        <!-- content end-->
                       </v-col>
                       <!-- right arrow -->
                       <v-col cols="6" sm="1" v-if="!dialogArrow">
@@ -243,7 +325,7 @@
                           dark
                           @click="changeCard(card,1)"
                         >
-                          <v-icon>mdi-arrow-right-drop-circle</v-icon>
+                          <v-icon v-cloak>mdi-arrow-right-drop-circle</v-icon>
                         </v-btn>
                       </v-col>
                     </v-row>
@@ -269,7 +351,7 @@
             @click="scrollWindow('up')"
             v-show="scrollY > 200"
           >
-            <v-icon>mdi-arrow-up-thick</v-icon>
+            <v-icon v-cloak>mdi-arrow-up-thick</v-icon>
           </v-btn>
           <v-btn
             middle
@@ -282,7 +364,7 @@
             small
             @click="scrollWindow('down')"
           >
-            <v-icon>mdi-arrow-down-thick</v-icon>
+            <v-icon v-cloak>mdi-arrow-down-thick</v-icon>
           </v-btn>
         </v-main>
         <!-- main end -->
@@ -409,6 +491,9 @@
             window.scrollTo(obj);
           },
           //content
+          setReadCard() {
+            console.log(123);
+          },
           tableFilter(filArr) {
             // in = import data
             let array = in_cards;
