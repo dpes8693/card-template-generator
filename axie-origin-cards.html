@@ -14,6 +14,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
     />
+    <link rel="icon" href="./icon-baby.png" type="image/x-icon" />
     <style>
       [v-cloak] {
         display: none;
@@ -62,7 +63,9 @@
       <v-app>
         <!-- header start -->
         <v-app-bar app color="primary" dense dark>
-          <v-toolbar-title v-cloak>{{webTitle}}</v-toolbar-title>
+          <!-- <img src="./icon-baby.png" alt=""> -->
+          <v-img :src="iconUrl" max-width="20px"></v-img>
+          <v-toolbar-title v-cloak class="ml-2">{{ webTitle }}</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-menu transition="scale-transition">
             <template v-slot:activator="{ on, attrs }">
@@ -97,14 +100,9 @@
                   clearable
                 >
                   <template #selection="{ item }">
-                    <v-chip
-                      color="primary"
-                      dark
-                      >{{ item }}</v-chip
-                    >
+                    <v-chip color="primary" dark>{{ item }}</v-chip>
                   </template>
-              </v-select>
-              </v-select>
+                </v-select>
               </v-col>
             </v-row>
             <!-- select class end  -->
@@ -142,9 +140,7 @@
                     <v-hover v-slot="{ hover }">
                       <div>
                         <v-edit-dialog @open="open(item)">
-                          <pre
-                            :class="setClassColor(item.class,'name')"
-                          >
+                          <pre :class="setClassColor(item.class,'name')">
 {{ item.name }}</pre
                           >
                         </v-edit-dialog>
@@ -157,8 +153,8 @@
                     </v-hover>
                   </template>
                   <template v-slot:item.class="{ item }">
-                    <v-col :class="setClassColor(item.class,'class')" >
-                        {{ item.class }}
+                    <v-col :class="setClassColor(item.class,'class')">
+                      {{ item.class }}
                     </v-col>
                   </template>
                   <template v-slot:item.part="{ item }">
@@ -264,16 +260,15 @@
         <!-- footer start-->
         <template>
           <v-footer padless>
-            <v-col
-              class="text-center"
-              cols="12"
-            >
-              
-              <h5><a href="mailto:dpes8693@gmail.com">dpes8693@gmail.com</a></h5>
-            <h6>{{ new Date().getFullYear() }} | All images are the property of Sky Mavis. They are displayed for broadcast and entertainment purposes only. |</h6>
+            <v-col class="text-center" cols="12">
+              <h5>
+                <a href="mailto:dpes8693@gmail.com">dpes8693@gmail.com</a>
+              </h5>
+              <h6>{{ new Date().getFullYear() }} {{footerText}}</h6>
             </v-col>
           </v-footer>
         </template>
+        <!-- footer end -->
       </v-app>
     </div>
     <script>
@@ -295,13 +290,15 @@
                 mech: "#565562",
                 dawn: "#3E4A7A",
                 dusk: "#195089",
-              }
-            }
+              },
+            },
           },
         }),
 
         data: () => ({
           card: {},
+          //
+          iconUrl: './icon-baby.png',
           //header
           webTitle: "Axie Infinity Origin Cards",
           menuList: ["Cards", "Tips"],
@@ -327,6 +324,9 @@
           windowWidth: null,
           tableHover: false,
           dialogArrow: false,
+          //footer
+          footerText:
+            "| All images are the property of Sky Mavis. They are displayed for broadcast and entertainment purposes only. |",
         }),
 
         watch: {
@@ -386,10 +386,11 @@
             this.card = item;
             this.dialog = true;
           },
-          setClassColor(item,mode) {
-            if(mode==='class') return `${item.toLowerCase()}--text`
-            if(mode==='name')return `text-decoration-underline  font-weight-bold ${item.toLowerCase()}--text`
-            return primary
+          setClassColor(item, mode) {
+            if (mode === "class") return `${item.toLowerCase()}--text`;
+            if (mode === "name")
+              return `text-decoration-underline  font-weight-bold ${item.toLowerCase()}--text`;
+            return primary;
           },
           multiFilter(array, filters) {
             if (filters.class.length === 0) return [];
