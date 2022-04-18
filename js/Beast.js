@@ -1,7 +1,7 @@
 //36張 2022/04/17 
 //5 not in 
-//39 o
-//2 x [Foxy e,Sparky]
+//41 o
+//0 x [Foxy e,Sparky]
 //41 all 
 let Beast = [
   {
@@ -500,7 +500,7 @@ let Beast = [
     cardEffect: " Target the furthest enemy.",
     class: "Beast",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id: 8,
   },
@@ -514,7 +514,7 @@ let Beast = [
     cardEffect: " Gain 4 Rage.",
     class: "Beast",
     tag: "Skill",
-    img: "x",
+    img: "o",
     keyword: "-",
     id: 2,
   },

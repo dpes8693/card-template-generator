@@ -1,8 +1,8 @@
 //35 2022/04/17
-//多3張
-//o 29
-//x 6 [Chemical Fang,Hidden Ears,Poison Tube,Punky Tiny Dino m ,Venom Nail]
-//null 0
+//39 o
+//0 x [Tiny Dino m] ok[Chemical Fang,Hidden Ears,Poison Tube,Punky,Venom Nail]
+//4 not in
+//39 all
 let Reptile = [
   {
     name: "Bone Sail",
@@ -59,7 +59,7 @@ let Reptile = [
     cardEffect: " Deal 2 bonus DMG per Poison stack on target.",
     class: "Reptile",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id: 12,
   },
@@ -108,21 +108,6 @@ let Reptile = [
     keyword: "-",
     id: 7,
   },
-  // {
-  //   name: "Gecko",
-  //   part: "Eyes",
-  //   cost: 0,
-  //   attack: "-",
-  //   shield: "-",
-  //   heal: 25,
-  //   cardEffect:
-  //     " This Axie loses 50 HP. heal and Cleanse 1 debuff on other allies.",
-  //   class: "Reptile",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  //   id: 1,
-  // },
   {
     name: "Gila",
     part: "Tail",
@@ -177,7 +162,7 @@ let Reptile = [
     cardEffect: " Innate.",
     class: "Reptile",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id: 6,
   },
@@ -264,7 +249,7 @@ let Reptile = [
       " Apply 3 Poison. Add a copy of this card to your discard pile when used.",
     class: "Reptile",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id: 17,
   },
@@ -278,7 +263,7 @@ let Reptile = [
     cardEffect: " Apply 2 Poison to all Enemies at the start of your turn.",
     class: "Reptile",
     tag: "Power",
-    img: "x",
+    img: "o",
     keyword: "-",
     id: 1,
   },
@@ -354,21 +339,6 @@ let Reptile = [
     keyword: "-",
     id: 2,
   },
-  // {
-  //   name: "Scarab",
-  //   part: "Eyes",
-  //   cost: 0,
-  //   attack: "-",
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect:
-  //     " Put 1 Reptile card from your draw pile into your hand. Banish.",
-  //   class: "Reptile",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  //   id: 1,
-  // },
   {
     name: "Sidebarb",
     part: "Ear",
@@ -442,21 +412,6 @@ let Reptile = [
     id: 32,
   },
   {
-    name: "Tiny Dino m",
-    part: "Mouth",
-    cost: 1,
-    attack: "-",
-    shield: "-",
-    heal: 60,
-    cardEffect:
-      " Retain. If Retained, add 1 copy of Pacu Card to your hand.Banish.",
-    class: "Reptile",
-    tag: "",
-    img: "x",
-    keyword: "-",
-    id: 13,
-  },
-  {
     name: "Tiny Turtle",
     part: "Mouth",
     cost: 1,
@@ -471,20 +426,6 @@ let Reptile = [
     keyword: "-",
     id: 16,
   },
-  // {
-  //   name: "Toothless Bite",
-  //   part: "Mouth",
-  //   cost: 1,
-  //   attack: 65,
-  //   shield: "-",
-  //   heal: "-",
-  //   cardEffect: " If Initial, this attack targets the furthest enemy.",
-  //   class: "Reptile",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  //   id: 1,
-  // },
   {
     name: "Topaz",
     part: "Eyes",
@@ -513,21 +454,6 @@ let Reptile = [
     keyword: "-",
     id: 25,
   },
-  // {
-  //   name: "Tricky",
-  //   part: "Eyes",
-  //   cost: 1,
-  //   attack: "-",
-  //   shield: "-",
-  //   heal: 50,
-  //   cardEffect:
-  //     " If Initial, swap this card with 1 selected Card in your Banish Pile.",
-  //   class: "Reptile",
-  //   tag: "",
-  //   img: "",
-  //   keyword: "-",
-  //   id: 1,
-  // },
   {
     name: "Unko",
     part: "Horn",
@@ -552,7 +478,7 @@ let Reptile = [
     cardEffect: " Retain. Double Target's Poison stacks.",
     class: "Reptile",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id: 4,
   },
@@ -569,5 +495,81 @@ let Reptile = [
     img: "o",
     keyword: "-",
     id: 30,
+  },
+  //x
+  {
+    name: "Tiny Dino m",
+    part: "Mouth",
+    cost: 1,
+    attack: "-",
+    shield: "-",
+    heal: 60,
+    cardEffect:
+      " Retain. If Retained, add 1 copy of Pacu Card to your hand.Banish.",
+    class: "Reptile",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id: 13,
+  },
+  // not in 360~390 x4
+  {
+    name: "Gecko",
+    part: "Eyes",
+    cost: 0,
+    attack: "-",
+    shield: "-",
+    heal: 25,
+    cardEffect:
+      " This Axie loses 50 HP. heal and Cleanse 1 debuff on other allies.",
+    class: "Reptile",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id: 360,
+  },
+  {
+    name: "Scar",
+    part: "Eyes",
+    cost: 0,
+    attack: "-",
+    shield: "-",
+    heal: "-",
+    cardEffect:
+      " Put 1 Reptile card from your draw pile into your hand. Banish.",
+    class: "Reptile",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id: 370,
+  },
+  {
+    name: "Toothless Bite",
+    part: "Mouth",
+    cost: 1,
+    attack: 65,
+    shield: "-",
+    heal: "-",
+    cardEffect: " If Initial, this attack targets the furthest enemy.",
+    class: "Reptile",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id: 380,
+  },
+  {
+    name: "Tricky",
+    part: "Eyes",
+    cost: 1,
+    attack: "-",
+    shield: "-",
+    heal: 50,
+    cardEffect:
+      " If Initial, swap this card with 1 selected Card in your Banish Pile.",
+    class: "Reptile",
+    tag: "",
+    img: "o",
+    keyword: "-",
+    id: 390,
   },
 ];

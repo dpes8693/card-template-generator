@@ -1,7 +1,7 @@
 //34張 2022/04/17
 //4 not in
-//37 o 
-//1 x [Ladybug Goggles]
+//38 o 
+//0 x [Ladybug Goggles]
 //38 all 
 let Bug = [
   {
@@ -490,7 +490,7 @@ let Bug = [
     cardEffect: " Each turn, if any Enemy has Shield,draw 2 additional Cards.",
     class: "Bug",
     tag: "Power",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:1,
   },

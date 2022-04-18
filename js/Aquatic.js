@@ -1,7 +1,7 @@
 //30張 2022/04/17
 //5 not in
-//31 o
-//4 x [Nimo t, Baby, Little Crab, Puff]
+//35 o
+//0 x [Nimo t, Baby, Little Crab, Puff]
 //35 all 
 let Aquatic = [
   {
@@ -381,7 +381,7 @@ let Aquatic = [
     cardEffect: " Attacks deal 33 bonus DMG if HP is above 66%",
     class: "Aquatic",
     tag: "Power",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:1
   },
@@ -395,7 +395,7 @@ let Aquatic = [
     cardEffect: " Ethereal",
     class: "Aquatic",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:6
   },
@@ -409,7 +409,7 @@ let Aquatic = [
     cardEffect: " Retain. Randomly deal X hits.",
     class: "Aquatic",
     tag: "",
-    img: "x",
+    img: "o",
     keyword: "-",
     id:26
   },
