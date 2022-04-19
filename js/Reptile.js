@@ -27,7 +27,7 @@ let Reptile = [
     shield: "-",
     heal: "-",
     cardEffect:
-      " Innate. Whenever you play a card this battle, this Axie gains 10 shield.",
+      " Innate. Whenever you play a card this battle, this Axie gains 10 Shield.",
     class: "Reptile",
     tag: "Power",
     img: "o",
@@ -101,7 +101,7 @@ let Reptile = [
     shield: "-",
     heal: 20,
     cardEffect:
-      " Randomly apply effect 4 times to your team. heal and apply 1 Damage Boost each time.",
+      " Randomly apply effect 4 times to your team. Heal and apply 1 Damage Boost each time.",
     class: "Reptile",
     tag: "",
     img: "o",
@@ -116,7 +116,7 @@ let Reptile = [
     shield: "-",
     heal: "-",
     cardEffect:
-      " attack all enemies. Deal 2 bonus DMG per Poison stack on Enemy.",
+      " Attack all enemies. Deal 2 bonus DMG per Poison stack on Enemy.",
     class: "Reptile",
     tag: "",
     img: "o",
@@ -145,7 +145,7 @@ let Reptile = [
     shield: "-",
     heal: "-",
     cardEffect:
-      " Apply 2 Poison x6 to random targets. heal this Axie for 20 HP.",
+      " Apply 2 Poison x6 to random targets. Heal this Axie for 20 HP.",
     class: "Reptile",
     tag: "",
     img: "o",
@@ -202,7 +202,7 @@ let Reptile = [
     shield: 60,
     heal: "-",
     cardEffect:
-      " Target any ally. Next turn, after the target is attacked, reflect 25% of shield lost.",
+      " Target any ally. Next turn, after the target is attacked, reflect 25% of Shield lost.",
     class: "Reptile",
     tag: "",
     img: "o",
@@ -274,7 +274,7 @@ let Reptile = [
     attack: 60,
     shield: "-",
     heal: "-",
-    cardEffect: " heal HP equal to 50% of unblocked DMG.",
+    cardEffect: " Heal HP equal to 50% of unblocked DMG.",
     class: "Reptile",
     tag: "",
     img: "o",
@@ -317,7 +317,7 @@ let Reptile = [
     shield: 60,
     heal: "-",
     cardEffect:
-      " Target any ally. Next turn, after the target is attacked, reflect 25% of shield lost.",
+      " Target any ally. Next turn, after the target is attacked, reflect 25% of Shield lost.",
     class: "Reptile",
     tag: "",
     img: "o",
@@ -360,7 +360,7 @@ let Reptile = [
     attack: "-",
     shield: "-",
     heal: "-",
-    cardEffect: " Aplpy 3 Poison to all Enemies. heal this Axie for 30 HP.",
+    cardEffect: " Aplpy 3 Poison to all Enemies. Heal this Axie for 30 HP.",
     class: "Reptile",
     tag: "",
     img: "o",
@@ -521,7 +521,7 @@ let Reptile = [
     shield: "-",
     heal: 25,
     cardEffect:
-      " This Axie loses 50 HP. heal and Cleanse 1 debuff on other allies.",
+      " This Axie loses 50 HP. Heal and Cleanse 1 debuff on other allies.",
     class: "Reptile",
     tag: "",
     img: "o",

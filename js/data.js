@@ -179,7 +179,7 @@ function getObjKeys(obj) {
   console.log(arr);
 }
 const cardType = ["Secret", "Attack", "Power", "Skill"];
-//1. tag 
+//1. tag
 const tagKeyword = [
   "Scry",
   "Cleanse",
@@ -223,6 +223,8 @@ const statusKeyword = [
   // "heal Block",
   // "silence",
 ];
-//3. other card
+//3. other addition cards
 //4. Summon
-const in_related = [...tagKeyword, ...statusKeyword]
+//5. my opinion
+// [draw,if,more DMG,team,cap,all enemies,random,is attacked,frontmost,furthest,restore,Apply,Multihit Attack,Attacker,gain,Remove,reflected,loss to]
+const in_related = [...tagKeyword, ...statusKeyword];

@@ -108,6 +108,7 @@
                         <v-text-field
                           v-model="search"
                           append-icon="mdi-magnify"
+                          clearable
                           single-line
                           hide-details
                           :placeholder="searchPlaceHolder"
@@ -528,8 +529,8 @@
           //table
           tableTitle: "Origin Cards",
           search: "",
-          searchPlaceHolder: "Name, Cost, Part, Keyword",
-          itemsPage: 15,
+          searchPlaceHolder: "Name, Part, Tag, Status, Keyword",
+          itemsPage: 10,
           noData: "No data available",
           //pop dialog,
           dialogWidth: null,
