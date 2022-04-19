@@ -136,7 +136,7 @@
                           </v-edit-dialog>
                           <img
                             class="absolute-card-img"
-                            v-if="hover && tableHover"
+                            v-show="hover && tableHover"
                             :src="item.img"
                           />
                         </div>
@@ -240,7 +240,7 @@
                                     <v-col cols="3">
                                       <v-img
                                         :src="getTagIcon(index)"
-                                        v-if="objKey===tagCheck"
+                                        v-show="objKey===tagCheck"
                                         min-width="10"
                                         max-width="16"
                                       ></v-img
@@ -295,6 +295,7 @@
                       </v-col>
                       <v-col cols="12" sm="4" class="align-self-start">
                         <v-img :src="card.img" max-width="320px"></v-img>
+                        <br><br><br><br><br>
                       </v-col>
                       <!-- phone arrows -->
                       <v-row v-if="dialogArrow">
@@ -383,23 +384,22 @@
                           <v-col class="d-flex text-decoration-underline">
                             <h4
                               class="ml-5 primary--text cursor-pointer"
-                              @click="setRelatedCard(1)"
+                              @click="setRelatedCard(item)"
                               v-for="(item,i) in relatedWordArr"
                               :key="i"
                             >
                               {{item}}
                             </h4>
                           </v-col>
-                          <v-col>
+                          <v-col v-show="!!wordDesc.des">
                             <v-card color="white" class="mt-1 mb-6">
-                              <v-card-subtitle
-                                >Listen to your favorite artists and albums
-                                whenever and wherever, online and offline.Listen
-                                to your favorite artists and albums whenever and
-                                wherever, online and offline.Listen to your
-                                favorite artists and albums whenever and
-                                wherever, online and offline.</v-card-subtitle
-                              >
+                              <!-- <v-card-subtitle>{{ wordDesc.des}}</v-card-subtitle> -->
+                              <v-row class="justify-center align-center">
+                                <!-- <v-col cols="3"
+                                  ><v-img :src="wordDesc.img"></v-img
+                                ></v-col> -->
+                                <v-col cols="10">{{ wordDesc.des}}</v-col>
+                              </v-row>
                             </v-card>
                           </v-col>
                         </v-row>
@@ -533,6 +533,7 @@
           dialogHeight: "100%",
           dialog: false,
           relatedWordArr: [],
+          wordDesc: {},
           //filter
           selectHeight: null,
           //tag
@@ -621,9 +622,6 @@
           getStatusIcon(t, name) {
             return `./img/en/status/${t}-${name}.png`;
           },
-          setRelatedCard(word) {
-            console.log(word);
-          },
           setIndex() {
             // [obj,obj...]
             this.cards = this.cards.map((items, index) => ({
@@ -644,12 +642,41 @@
             let targetIndex = (obj.index + move + len) % len;
             this.card = this.cards[targetIndex];
             this.searchCardEffect();
+            this.setRelatedCard(this.card.name);
           },
           open(item) {
             //open dialog set card
             this.card = item;
             this.dialog = true;
             this.searchCardEffect();
+          },
+          //dialog
+          getFlatObj() {
+            return {
+              ...in_statuses.buff,
+              ...in_statuses.debuff,
+              ...in_statuses.neutral,
+              ...in_tags.onTag,
+              ...in_tags.unTag,
+            };
+          },
+          setRelatedCard(word) {
+            let str = word[0].toLowerCase() + word.replaceAll(" ", "").slice(1);
+            let card = {
+              title: "",
+              img: "",
+              des: "",
+            };
+            this.wordDesc = card;
+            let obj = this.getFlatObj();
+            let arrKey = Object.keys(obj);
+            let flag = arrKey.includes(str);
+            console.log(arrKey, flag);
+            if (flag) {
+              card.des = obj[str];
+              // card.img = getTagIcon(str)
+              this.wordDesc = JSON.parse(JSON.stringify(card));
+            }
           },
           searchCardEffect() {
             this.relatedWordArr = [];
