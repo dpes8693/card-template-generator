@@ -37,23 +37,32 @@
     <script src="./js/Plant.js"></script>
     <script src="./js/Reptile.js"></script>
     <script src="./js/data.js"></script>
-    <div id="app">
+    <div id="app" v-cloak>
       <v-app>
         <!-- header start -->
         <v-app-bar app color="primary" dense dark>
           <!-- <img src="./icon-baby.png" alt=""> -->
           <v-img :src="iconUrl" max-width="20px"></v-img>
-          <v-toolbar-title v-cloak class="ml-2">{{ webTitle }}</v-toolbar-title>
+          <v-toolbar-title class="ml-2">{{ webTitle }}</v-toolbar-title>
           <v-spacer></v-spacer>
+          <a :href="aboutUrl" target="_blank" rel="noopener noreferrer">
+            <v-btn icon small>
+              <v-icon>mdi-comment-question-outline</v-icon>
+            </v-btn>
+          </a>
           <v-menu transition="scale-transition">
             <template v-slot:activator="{ on, attrs }">
               <v-btn icon v-bind="attrs" v-on="on">
-                <v-icon v-cloak>mdi-dots-vertical</v-icon>
+                <v-icon>mdi-dots-vertical</v-icon>
               </v-btn>
             </template>
             <v-list>
-              <v-list-item v-for="n in menuList" :key="n" @click="() => {}">
-                <v-list-item-title v-cloak>{{ n }}</v-list-item-title>
+              <v-list-item
+                v-for="item in menuList"
+                :key="item.id"
+                @click="menuActive(item.id)"
+              >
+                <v-list-item-title>{{ item.name }}</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
@@ -85,69 +94,138 @@
             </v-row>
             <!-- select  end  -->
             <!-- table-card start -->
-            <template>
-              <v-card>
-                <v-card-title>
-                  <v-row>
-                    <v-col cols="12" sm="6" class="primary--text">
-                      <h4>{{tableTitle}}</h4>
-                    </v-col>
-                    <v-spacer></v-spacer>
-                    <v-col cols="12" sm="4">
-                      <v-text-field
-                        v-model="search"
-                        append-icon="mdi-magnify"
-                        single-line
-                        hide-details
-                        :placeholder="searchPlaceHolder"
-                      ></v-text-field>
-                    </v-col>
-                  </v-row>
-                </v-card-title>
-                <v-data-table
-                  :headers="headers"
-                  :items="cards"
-                  :search="search"
-                  :items-per-page="itemsPage"
-                  :footer-props="{
+            <div id="table"></div>
+            <v-col>
+              <template>
+                <v-card>
+                  <v-card-title>
+                    <v-row>
+                      <v-col cols="12" sm="6" class="primary--text">
+                        <h4>{{tableTitle}}</h4>
+                      </v-col>
+                      <v-spacer></v-spacer>
+                      <v-col cols="12" sm="4">
+                        <v-text-field
+                          v-model="search"
+                          append-icon="mdi-magnify"
+                          single-line
+                          hide-details
+                          :placeholder="searchPlaceHolder"
+                        ></v-text-field>
+                      </v-col>
+                    </v-row>
+                  </v-card-title>
+                  <v-data-table
+                    :headers="headers"
+                    :items="cards"
+                    :search="search"
+                    :items-per-page="itemsPage"
+                    :footer-props="{
                     'items-per-page-text':' ',
                   }"
-                >
-                  <!-- click name start-->
-                  <template v-slot:item.name="{ item }">
-                    <v-hover v-slot="{ hover }">
-                      <div>
-                        <v-edit-dialog @open="open(item)">
-                          <pre :class="setClassColor(item.class,'name')">
+                  >
+                    <!-- click name start-->
+                    <template v-slot:item.name="{ item }">
+                      <v-hover v-slot="{ hover }">
+                        <div>
+                          <v-edit-dialog @open="open(item)">
+                            <pre :class="setClassColor(item.class,'name')">
 {{ item.name }}</pre
-                          >
-                        </v-edit-dialog>
-                        <img
-                          class="absolute-card-img"
-                          v-if="hover && tableHover"
-                          :src="item.img"
-                        />
-                      </div>
-                    </v-hover>
-                  </template>
-                  <template v-slot:item.class="{ item }">
-                    <v-col :class="setClassColor(item.class,'class')">
-                      {{ item.class }}
-                    </v-col>
-                  </template>
-                  <template v-slot:item.part="{ item }">
-                    <span class="d-none"></span>
-                  </template>
-                  <!-- click name end-->
-                  <!-- nodata start -->
-                  <template v-slot:no-data>
-                    <span class="primary--text" v-cloak>{{noData}}</span>
-                  </template>
-                  <!-- nodata end -->
-                </v-data-table>
-              </v-card>
-            </template>
+                            >
+                          </v-edit-dialog>
+                          <img
+                            class="absolute-card-img"
+                            v-if="hover && tableHover"
+                            :src="item.img"
+                          />
+                        </div>
+                      </v-hover>
+                    </template>
+                    <template v-slot:item.class="{ item }">
+                      <v-col :class="setClassColor(item.class,'class')">
+                        {{ item.class }}
+                      </v-col>
+                    </template>
+                    <template v-slot:item.part="{ item }">
+                      <span class="d-none"></span>
+                    </template>
+                    <!-- click name end-->
+                    <!-- nodata start -->
+                    <template v-slot:no-data>
+                      <span class="primary--text">{{noData}}</span>
+                    </template>
+                    <!-- nodata end -->
+                  </v-data-table>
+                </v-card>
+              </template>
+            </v-col>
             <!-- table-card end -->
+
+            <!-- status start -->
+            <div id="status"></div>
+            <v-col>
+              <v-expansion-panels accordion v-model="statusPanel" multiple>
+                <v-expansion-panel>
+                  <v-expansion-panel-header
+                    ><h4 class="primary--text">
+                      {{menuList[2].name}}
+                    </h4></v-expansion-panel-header
+                  >
+                  <v-expansion-panel-content>
+                    <v-col v-for="(status,k) in statuses" :key="k">
+                      <v-col class="d-flex justify-center align-center"
+                        >{{ k }}</v-col
+                      >
+                      <template>
+                        <v-simple-table dense class="my-2">
+                          <template v-slot:default>
+                            <tbody>
+                              <tr v-for="(item,index) in status" :key="index">
+                                <td>{{index}}</td>
+                                <td>{{item}}</td>
+                              </tr>
+                            </tbody>
+                          </template>
+                        </v-simple-table>
+                      </template>
+                    </v-col>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+              </v-expansion-panels>
+            </v-col>
+            <!-- status end -->
+            <!-- tag start -->
+            <div id="tag"></div>
+            <v-col>
+              <v-expansion-panels accordion v-model="tagPanel" multiple>
+                <v-expansion-panel>
+                  <v-expansion-panel-header
+                    ><h4 class="primary--text">
+                      {{menuList[1].name}}
+                    </h4></v-expansion-panel-header
+                  >
+                  <v-expansion-panel-content>
+                    <template>
+                      <v-simple-table dense class="">
+                        <template v-slot:default>
+                          <thead>
+                            <tr></tr>
+                          </thead>
+                          <tbody>
+                            <tr v-for="(item,index) in tags" :key="index">
+                              <td>{{index}}</td>
+                              <td>{{item}}</td>
+                            </tr>
+                          </tbody>
+                        </template>
+                      </v-simple-table>
+                    </template>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+              </v-expansion-panels>
+            </v-col>
+            <!-- tag end -->
+
             <!-- dialog-card start -->
             <template>
               <v-dialog
@@ -160,7 +238,7 @@
                   <!-- close X -->
                   <v-col class="d-flex justify-end">
                     <v-btn icon x-large @click="dialog = false">
-                      <v-icon v-cloak>mdi-close</v-icon>
+                      <v-icon>mdi-close</v-icon>
                     </v-btn>
                   </v-col>
                   <!-- card text start -->
@@ -175,7 +253,7 @@
                           dark
                           @click="changeCard(card,-1)"
                         >
-                          <v-icon v-cloak>mdi-arrow-left-drop-circle</v-icon>
+                          <v-icon>mdi-arrow-left-drop-circle</v-icon>
                         </v-btn>
                       </v-col>
                       <v-col cols="12" sm="4" class="align-self-start">
@@ -193,7 +271,7 @@
                             dark
                             @click="changeCard(card,-1)"
                           >
-                            <v-icon v-cloak>mdi-arrow-left-drop-circle</v-icon>
+                            <v-icon>mdi-arrow-left-drop-circle</v-icon>
                           </v-btn>
                         </v-col>
                         <v-spacer></v-spacer>
@@ -204,7 +282,7 @@
                             dark
                             @click="changeCard(card,1)"
                           >
-                            <v-icon v-cloak>mdi-arrow-right-drop-circle</v-icon>
+                            <v-icon>mdi-arrow-right-drop-circle</v-icon>
                           </v-btn>
                         </v-col>
                       </v-row>
@@ -214,7 +292,7 @@
                         <v-row class="flex-column">
                           <v-col>
                             <template>
-                              <v-simple-table dense class="mt-10 s-table min-h">
+                              <v-simple-table dense class="">
                                 <template v-slot:default>
                                   <thead>
                                     <tr></tr>
@@ -309,10 +387,19 @@
                 </v-card>
               </v-dialog>
             </template>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br />
             <!-- dialog-card end -->
-            <!-- back to top -->
+            <!-- logo -->
+            <v-row>
+              <v-col col="12" class="d-flex justify-center">
+                <img
+                  src="./img/origin.png"
+                  alt="axie-origin-logo"
+                  class="logo-img-w"
+                />
+              </v-col>
+            </v-row>
           </v-container>
+
           <!-- scroll to btn -->
           <v-btn
             middle
@@ -326,7 +413,7 @@
             @click="scrollWindow('up')"
             v-show="scrollY > 200"
           >
-            <v-icon v-cloak>mdi-arrow-up-thick</v-icon>
+            <v-icon>mdi-arrow-up-thick</v-icon>
           </v-btn>
           <v-btn
             middle
@@ -339,7 +426,7 @@
             small
             @click="scrollWindow('down')"
           >
-            <v-icon v-cloak>mdi-arrow-down-thick</v-icon>
+            <v-icon>mdi-arrow-down-thick</v-icon>
           </v-btn>
         </v-main>
         <!-- main end -->
@@ -383,12 +470,18 @@
         }),
 
         data: () => ({
+          aboutUrl:
+            "https://www.notion.so/dpes8693/About-2f4a7a6b65e14691a7e0167e0983b724",
           card: {},
           //
           iconUrl: "./icon-baby.png",
           //header
           webTitle: "Axie Infinity Origin Cards",
-          menuList: ["Cards", "Tips"],
+          menuList: [
+            { name: "Origin Cards", id: "table" },
+            { name: "Axie Status", id: "status" },
+            { name: "Card Tag", id: "tag" },
+          ],
           //import data
           headers: in_headers,
           cards: in_cards,
@@ -407,6 +500,12 @@
           cardClass: in_cardClass,
           value: in_cardClass,
           selectHeight: null,
+          //tag
+          tagPanel: [0],
+          tags: in_tags,
+          //status
+          statusPanel: [0],
+          statuses: in_statuses,
           //window
           windowWidth: null,
           tableHover: false,
@@ -464,6 +563,17 @@
             let windowHeight = document.body.scrollHeight; //全部高
             obj.top = mode === "down" ? windowHeight : 0;
             window.scrollTo(obj);
+          },
+          menuActive(id) {
+            if (id === "tag") this.tagPanel = [0];
+            if (id === "status") this.statusPanel = [0];
+            this.$nextTick(() => {
+              this.jump(id);
+            });
+          },
+          jump(id) {
+            let top = document.getElementById(id).offsetTop;
+            window.scrollTo(0, top);
           },
           //content
           setReadCard() {
