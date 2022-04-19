@@ -181,7 +181,19 @@
                           <template v-slot:default>
                             <tbody>
                               <tr v-for="(item,index) in status" :key="index">
-                                <td>{{index}}</td>
+                                <!-- <td>{{index}}</td> -->
+                                <td>
+                                  <v-row class="justify-center align-center">
+                                    <v-col cols="3">
+                                      <v-img
+                                        :src="getStatusIcon(k,index)"
+                                        min-width="16"
+                                        max-width="20"
+                                      ></v-img
+                                    ></v-col>
+                                    <v-col cols="9">{{index}}</v-col>
+                                  </v-row>
+                                </td>
                                 <td>{{item}}</td>
                               </tr>
                             </tbody>
@@ -221,7 +233,7 @@
                                         :src="getTagIcon(index)"
                                         v-if="k==='onTag'"
                                         min-width="10"
-                                        max-width="18"
+                                        max-width="16"
                                       ></v-img
                                     ></v-col>
                                     <v-col cols="9">{{index}}</v-col>
@@ -592,6 +604,9 @@
           //content
           getTagIcon(name) {
             return `./img/en/tag/i-${name}.png`;
+          },
+          getStatusIcon(t, name) {
+            return `./img/en/status/${t}-${name}.png`;
           },
           setReadCard() {
             console.log(123);
