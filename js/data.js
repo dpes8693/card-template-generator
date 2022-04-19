@@ -104,6 +104,11 @@ function iterator(arr) {
     el.id = el.name + el.id;
   });
 }
+function getKeyByValue(object, value) {
+  let keyArr = Object.keys(object);
+  return keyArr.find((key) => object[key] === value);
+}
+
 
 //
 const in_tags = {
