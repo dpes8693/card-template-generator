@@ -35,9 +35,9 @@ const in_cardClass = [
   "Bird",
   "Bug",
   "Reptile",
-  "Mech",
-  "Dawn",
-  "Dusk",
+  // "Mech",
+  // "Dawn",
+  // "Dusk",
 ];
 
 const in_headers = [
