@@ -17,8 +17,7 @@
   color: white;
 }
 .v-data-table__wrapper{
-    border-radius: 2px !important;
-    border: 0.5px solid #86765e !important;
+    border-radius: 1px !important;
 }
 .s-table tbody tr:nth-child(odd):hover {
   background-color: #86765e !important;
