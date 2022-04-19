@@ -167,16 +167,16 @@
               <v-expansion-panels accordion v-model="statusPanel" multiple>
                 <v-expansion-panel>
                   <v-expansion-panel-header
-                    ><h4 class="primary--text">
+                    ><h3 class="primary--text">
                       {{menuList[1].name}}
-                    </h4></v-expansion-panel-header
+                    </h3></v-expansion-panel-header
                   >
                   <v-expansion-panel-content>
                     <v-col v-for="(status,objKey) in statuses" :key="objKey">
                       <v-col class="d-flex justify-center align-center"
-                        ><h3 class="primary--text">
+                        ><h4 class="primary--text">
                           {{ firstCharUpper(objKey) }}
-                        </h3></v-col
+                        </h4></v-col
                       >
                       <template>
                         <v-simple-table class="my-2 s-table">
@@ -215,16 +215,16 @@
               <v-expansion-panels accordion v-model="tagPanel" multiple>
                 <v-expansion-panel>
                   <v-expansion-panel-header
-                    ><h4 class="primary--text">
+                    ><h3 class="primary--text">
                       {{menuList[2].name}}
-                    </h4></v-expansion-panel-header
+                    </h3></v-expansion-panel-header
                   >
                   <v-expansion-panel-content>
                     <v-col v-for="(tag,objKey) in tags" :key="objKey">
                       <v-col class="d-flex justify-center align-center"
-                        ><h3 class="primary--text">
+                        ><h4 class="primary--text">
                           {{ firstCharUpper(objKey) }}
-                        </h3></v-col
+                        </h4></v-col
                       >
                       <template>
                         <v-simple-table class="my-2 s-table">
