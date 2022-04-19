@@ -731,7 +731,7 @@ let Bird = [
     shield: "-",
     heal: "-",
     cardEffect:
-      " Innate. Randomly deal 2 hits. Discard 1 copy of Feather Dagger per Enemy hit.",
+      " Innate. Randomly deal 2 hits. Discard 1 copy of FEATHER-DAGGER per Enemy hit.",
     class: "Bird",
     tag: "attack,innate",
     img: "o",

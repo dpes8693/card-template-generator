@@ -99,6 +99,7 @@ const in_tags = {
     innate: "Start each battle with this Card in your hand.",
   },
   unTag: {
+    initial: "The first card played in a turn.",
     scry: "Look at the top Cards of your draw pile. You may discard any of them.",
     cleanse: "Remove debuffs from target, up to 5 stacks.",
     dispel: "Remove 1 buff from target, up to 5 stacks.",
@@ -167,6 +168,7 @@ const tagKeyword = [
   "Ethereal",
   // "unplayable",
   "Innate",
+  "Initial"
 ];
 //2. status
 const statusKeyword = [
@@ -199,7 +201,19 @@ const statusKeyword = [
   // "silence",
 ];
 //3. other addition cards
+let aditonCard = [
+  "Blackmail",
+  "Pure Water",
+  "Strawberry",
+  "Mandarines",
+  "Lumber Shield",
+  "Pacu",
+  "FEATHER-DAGGER",
+  "Lil Bro"
+]
 //4. Summon
+let summon = []
+
 //5. my opinion
-// [draw,if,more DMG,team,cap,all enemies,random,is attacked,frontmost,furthest,restore,Apply,Multihit Attack,Attacker,gain,Remove,reflected,loss to]
+// [shuffle,Take,draw,if,more DMG,team,cap,all enemies,random,is attacked,frontmost,furthest,restore,Apply,Multihit Attack,Attacker,gain,Remove,reflected,loss to]
 const in_related = [...tagKeyword, ...statusKeyword];
