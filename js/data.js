@@ -1,30 +1,3 @@
-const template = {
-  img: [],
-  keyword: [],
-  tag: [
-    "attack",
-    "Skill",
-    "Sevret",
-    "Power",
-    "Banish",
-    "Ethereal",
-    "Innate",
-    "Retain",
-  ],
-  keyword: [],
-  part: ["Eyes", "Mouth", "Ears", "Horn", "Back", "Tail"],
-  class: [
-    "Beast",
-    "Bug",
-    "Bird",
-    "Plant",
-    "Aquatic",
-    "Reptile",
-    "Mech",
-    "Dawn",
-    "Dusk",
-  ],
-};
 const baseUrl = "./img/en/cards";
 const format = ".png";
 
@@ -50,50 +23,50 @@ const in_headers = [
     width: "15%",
     align: "",
   },
+  //Card Tag
+  {
+    text: "",
+    value: "tag",
+    filterable: true,
+    width: "0",
+    align: "",
+    sortable: false,
+  },
+  //part
+  {
+    text: "",
+    value: "part",
+    filterable: true,
+    sortable: false,
+    width: "0",
+    align: "",
+  },
   {
     text: "Effect",
     value: "cardEffect",
     filterable: true,
-    width: "35%",
+    width: "34%",
     align: "",
   },
-  { text: "Cost", value: "cost", filterable: true, width: "10%", align: "" },
+  { text: "Cost", value: "cost", filterable: false, width: "10%", align: "center" },
   {
     text: "Attack",
     value: "attack",
     filterable: false,
     width: "9%",
-    align: "",
+    align: "center",
   },
   {
     text: "Shield",
     value: "shield",
     filterable: false,
     width: "9%",
-    align: "",
+    align: "center",
   },
   { text: "Heal", value: "heal", filterable: false, width: "9%", align: "" },
-  // { text: "Card Tag", value: "tag", filterable: true },
-  { text: "Class", value: "class", filterable: true, width: "11%", align: "" },
-  {
-    text: "",
-    value: "part",
-    filterable: true,
-    sortable: false,
-    width: "1%",
-    align: "",
-  },
+  { text: "Class", value: "class", filterable: true, width: "12%", align: "center" },
 ];
-
-iterator(Aquatic);
-iterator(Beast);
-iterator(Bird);
-iterator(Bug);
-iterator(Plant);
-iterator(Reptile);
-
-let in_cards = [...Beast, ...Aquatic, ...Plant, ...Bird, ...Bug, ...Reptile];
-
+//一定要 否則沒img
 function iterator(arr) {
   arr.forEach((el) => {
     if (el.img[0] === "x") {
@@ -104,11 +77,13 @@ function iterator(arr) {
     el.id = el.name + el.id;
   });
 }
-function getKeyByValue(object, value) {
-  let keyArr = Object.keys(object);
-  return keyArr.find((key) => object[key] === value);
-}
-
+iterator(Aquatic);
+iterator(Beast);
+iterator(Bird);
+iterator(Bug);
+iterator(Plant);
+iterator(Reptile);
+let in_cards = [...Beast, ...Aquatic, ...Plant, ...Bird, ...Bug, ...Reptile];
 
 //
 const in_tags = {
@@ -133,7 +108,6 @@ const in_tags = {
       "Increase ATK/Heal/Shield of abilities if used by an axie of the same class.",
   },
 };
-
 const in_statuses = {
   buff: {
     bubble:
@@ -179,10 +153,6 @@ const in_statuses = {
   },
 };
 
-function getObjKeys(obj) {
-  let arr = Object.keys(obj);
-  console.log(arr);
-}
 const cardType = ["Secret", "Attack", "Power", "Skill"];
 //1. tag
 const tagKeyword = [

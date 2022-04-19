@@ -147,15 +147,16 @@
                         {{ item.class }}
                       </v-col>
                     </template>
+                    <template v-slot:item.tag="{ item }">
+                      <span class="d-none"></span>
+                    </template>
                     <template v-slot:item.part="{ item }">
                       <span class="d-none"></span>
                     </template>
                     <!-- click name end-->
-                    <!-- nodata start -->
                     <template v-slot:no-data>
                       <span class="primary--text">{{noData}}</span>
                     </template>
-                    <!-- nodata end -->
                   </v-data-table>
                 </v-card>
               </template>
@@ -294,9 +295,6 @@
                       </v-col>
                       <v-col cols="12" sm="4" class="align-self-start">
                         <v-img :src="card.img" max-width="320px"></v-img>
-                        <!-- <div style="width: 360px;">
-                          <img :src="card.img" :alt="card.name" style="max-width: 360px;">
-                        </div> -->
                       </v-col>
                       <!-- phone arrows -->
                       <v-row v-if="dialogArrow">
@@ -374,9 +372,6 @@
                                       <td>CardEffect</td>
                                       <td class="tr-min justify-center">
                                         {{ card.cardEffect }}
-                                        <!-- <v-col class="tr-min justify-center " >
-                                          {{ card.cardEffect }}
-                                        </v-col> -->
                                       </td>
                                     </tr>
                                   </tbody>
@@ -471,8 +466,6 @@
           </v-btn>
         </v-main>
         <!-- main end -->
-
-        <!-- footer start-->
         <template>
           <v-footer padless>
             <v-col class="text-center" cols="12">
@@ -483,7 +476,6 @@
             </v-col>
           </v-footer>
         </template>
-        <!-- footer end -->
       </v-app>
     </div>
     <script>
@@ -590,7 +582,6 @@
           },
           setPhoneWindow(now, targetWidth) {
             //table
-            // this.headers = now <= targetWidth ? [in_headers[0]] : in_headers;
             this.tableHover = now <= targetWidth ? false : true;
             //dialog
             this.dialogArrow = now <= targetWidth ? true : false;
@@ -606,7 +597,7 @@
           },
           scrollWindow(mode) {
             let obj = { top: 0, left: 0, behavior: "smooth" };
-            let windowHeight = document.body.scrollHeight; //全部高
+            let windowHeight = document.body.scrollHeight;
             obj.top = mode === "down" ? windowHeight : 0;
             window.scrollTo(obj);
           },
