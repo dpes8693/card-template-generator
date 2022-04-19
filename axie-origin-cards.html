@@ -172,26 +172,29 @@
                     </h4></v-expansion-panel-header
                   >
                   <v-expansion-panel-content>
-                    <v-col v-for="(status,k) in statuses" :key="k">
+                    <v-col v-for="(status,objKey) in statuses" :key="objKey">
                       <v-col class="d-flex justify-center align-center"
-                        ><h3 class="primary--text">{{ k }}</h3></v-col
+                        ><h3 class="primary--text">
+                          {{ firstCharUpper(objKey) }}
+                        </h3></v-col
                       >
                       <template>
                         <v-simple-table class="my-2 s-table">
                           <template v-slot:default>
                             <tbody>
                               <tr v-for="(item,index) in status" :key="index">
-                                <!-- <td>{{index}}</td> -->
                                 <td>
                                   <v-row class="justify-center align-center">
                                     <v-col cols="3">
                                       <v-img
-                                        :src="getStatusIcon(k,index)"
+                                        :src="getStatusIcon(objKey,index)"
                                         min-width="16"
                                         max-width="20"
                                       ></v-img
                                     ></v-col>
-                                    <v-col cols="9">{{index}}</v-col>
+                                    <v-col cols="9"
+                                      >{{ firstCharUpper(index)}}</v-col
+                                    >
                                   </v-row>
                                 </td>
                                 <td>{{item}}</td>
@@ -217,9 +220,11 @@
                     </h4></v-expansion-panel-header
                   >
                   <v-expansion-panel-content>
-                    <v-col v-for="(tag,k) in tags" :key="k">
+                    <v-col v-for="(tag,objKey) in tags" :key="objKey">
                       <v-col class="d-flex justify-center align-center"
-                        ><h3 class="primary--text">{{ k }}</h3></v-col
+                        ><h3 class="primary--text">
+                          {{ firstCharUpper(objKey) }}
+                        </h3></v-col
                       >
                       <template>
                         <v-simple-table class="my-2 s-table">
@@ -231,12 +236,14 @@
                                     <v-col cols="3">
                                       <v-img
                                         :src="getTagIcon(index)"
-                                        v-if="k==='onTag'"
+                                        v-if="objKey===tagCheck"
                                         min-width="10"
                                         max-width="16"
                                       ></v-img
                                     ></v-col>
-                                    <v-col cols="9">{{index}}</v-col>
+                                    <v-col cols="9"
+                                      >{{firstCharUpper(index)}}</v-col
+                                    >
                                   </v-row>
                                 </td>
                                 <td>{{item}}</td>
@@ -529,6 +536,7 @@
           //tag
           tagPanel: [0],
           tags: in_tags,
+          tagCheck: "onTag",
           //status
           statusPanel: [0],
           statuses: in_statuses,
@@ -602,6 +610,10 @@
             window.scrollTo(0, top);
           },
           //content
+          firstCharUpper(v) {
+            let str = v[0].toUpperCase() + v.slice(1);
+            return str;
+          },
           getTagIcon(name) {
             return `./img/en/tag/i-${name}.png`;
           },
