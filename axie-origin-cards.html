@@ -383,10 +383,11 @@
                           <v-col class="d-flex text-decoration-underline">
                             <h4
                               class="ml-5 primary--text cursor-pointer"
-                              v-for="n in 3"
-                              @click="setReadCard()"
+                              @click="setRelatedCard(word)"
+                              v-for="(item,i) in relatedWordArr"
+                              :key="i"
                             >
-                              Banish
+                              {{item}}
                             </h4>
                           </v-col>
                           <v-col>
@@ -520,6 +521,9 @@
           //import data
           headers: in_headers,
           cards: in_cards,
+          cardClass: in_cardClass,
+          value: in_cardClass,
+          related: in_related,
           cardsNum: 0,
           //table
           tableTitle: "Origin Cards",
@@ -531,9 +535,8 @@
           dialogWidth: null,
           dialogHeight: "100%",
           dialog: false,
+          relatedWordArr: [],
           //filter
-          cardClass: in_cardClass,
-          value: in_cardClass,
           selectHeight: null,
           //tag
           tagPanel: [0],
@@ -622,17 +625,8 @@
           getStatusIcon(t, name) {
             return `./img/en/status/${t}-${name}.png`;
           },
-          setReadCard() {
-            console.log(123);
-          },
-          tableFilter(filArr) {
-            // in = import data
-            let array = in_cards;
-            let filters = {
-              class: filArr,
-            };
-            this.cards = this.multiFilter(array, filters);
-            this.setIndex();
+          setRelatedCard(word) {
+            console.log(word);
           },
           setIndex() {
             // [obj,obj...]
@@ -641,16 +635,37 @@
               index: index,
             }));
           },
+          tableFilter(filArr) {
+            let array = in_cards;
+            let filters = {
+              class: filArr,
+            };
+            this.cards = this.multiFilter(array, filters);
+            this.setIndex();
+          },
           changeCard(obj, move) {
             let len = this.cards.length;
             let targetIndex = (obj.index + move + len) % len;
             this.card = this.cards[targetIndex];
+            this.searchCardEffect();
           },
           open(item) {
-            //open dialog
+            //open dialog set card
             this.card = item;
             this.dialog = true;
-            // console.log(window.scrollY)
+            this.searchCardEffect();
+          },
+          searchCardEffect() {
+            this.relatedWordArr = [];
+            // search card effect
+            let arr = this.related;
+            let len = arr.length;
+            for (let i = 0; i < len; i++) {
+              let flag = this.card.cardEffect.includes(arr[i]);
+              if (flag) {
+                this.relatedWordArr.push(arr[i]);
+              }
+            }
           },
           setClassColor(item, mode) {
             if (mode === "class") return `${item.toLowerCase()}--text`;

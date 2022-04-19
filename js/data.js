@@ -173,3 +173,56 @@ const in_statuses = {
     taunt: "The target: is always targeted by the enemy's attack abilities.",
   },
 };
+
+function getObjKeys(obj) {
+  let arr = Object.keys(obj);
+  console.log(arr);
+}
+const cardType = ["Secret", "Attack", "Power", "Skill"];
+//1. tag 
+const tagKeyword = [
+  "Scry",
+  "Cleanse",
+  "Dispel",
+  "Steal",
+  // "Solo",
+  // "bonus",
+  "Retain",
+  "Banish",
+  "Ethereal",
+  // "unplayable",
+  "Innate",
+];
+//2. status
+const statusKeyword = [
+  "Taunt",
+  "Damage Boost",
+  "healing Boost",
+  "shield Boost",
+  // "bubble Bomb",
+  // "fury",
+  "Bubble",
+  "Cleanser",
+  "Meditate",
+  "Feather",
+  "Leaf",
+  "Rage",
+  "Stealth",
+  "Bleed",
+  "Disarmed",
+  "Fear",
+  "Poison",
+  "Sleep",
+  "Vulnerable",
+  "Death Mark",
+  "Doubt",
+  "Fragile",
+  "Hex",
+  "Stunned",
+  "Weak",
+  // "heal Block",
+  // "silence",
+];
+//3. other card
+//4. Summon
+const in_related = [...tagKeyword, ...statusKeyword]
