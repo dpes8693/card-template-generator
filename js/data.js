@@ -107,17 +107,26 @@ function iterator(arr) {
 
 //
 const in_tags = {
-  scry: "Look at the top cards of your draw pile. You may discard any of them.",
-  innate: "Start each battle with this card in your hand.",
-  cleanse: "Remove debuffs from target, up to 5 stacks.",
-  dispel: "Remove 1 buff from target, up to 5 stacks.",
-  steal: "Deal pure DMG and gain HP.",
-  retain: "Do not discard this card at the end of your turn.",
-  unplayable: "This card can not be play.",
-  ethereal: "banish after the turn.",
-  // solo: "Only 1 axie per team can have this effect active.",
-  classBonus:
-    "Increase ATK/Heal/Shield of abilities if used by an axie of the same class.",
+  onTag: {
+    skill: "This is a utility Card.",
+    attack: "This Card does damage.",
+    power: "Enhance this Axie's abilities in future rounds.",
+    secret: "This Card adds an effect that comes into play next turn.",
+    retain: "Do not discard this Card at the end of your turn.",
+    banish: "Remove the Card from your deck until the end.",
+    ethereal: "Banish after the turn.",
+    unplayable: "This Card can not be played.",
+    innate: "Start each battle with this Card in your hand.",
+  },
+  unTag: {
+    scry: "Look at the top Cards of your draw pile. You may discard any of them.",
+    cleanse: "Remove debuffs from target, up to 5 stacks.",
+    dispel: "Remove 1 buff from target, up to 5 stacks.",
+    steal: "Deal pure DMG and gain HP.",
+    solo: "Only 1 axie per team can have this effect active.",
+    classBonus:
+      "Increase ATK/Heal/Shield of abilities if used by an axie of the same class.",
+  },
 };
 
 const in_statuses = {

@@ -168,16 +168,16 @@
                 <v-expansion-panel>
                   <v-expansion-panel-header
                     ><h4 class="primary--text">
-                      {{menuList[2].name}}
+                      {{menuList[1].name}}
                     </h4></v-expansion-panel-header
                   >
                   <v-expansion-panel-content>
                     <v-col v-for="(status,k) in statuses" :key="k">
                       <v-col class="d-flex justify-center align-center"
-                        >{{ k }}</v-col
+                        ><h3 class="primary--text">{{ k }}</h3></v-col
                       >
                       <template>
-                        <v-simple-table dense class="my-2">
+                        <v-simple-table class="my-2 s-table">
                           <template v-slot:default>
                             <tbody>
                               <tr v-for="(item,index) in status" :key="index">
@@ -201,25 +201,39 @@
                 <v-expansion-panel>
                   <v-expansion-panel-header
                     ><h4 class="primary--text">
-                      {{menuList[1].name}}
+                      {{menuList[2].name}}
                     </h4></v-expansion-panel-header
                   >
                   <v-expansion-panel-content>
-                    <template>
-                      <v-simple-table dense class="">
-                        <template v-slot:default>
-                          <thead>
-                            <tr></tr>
-                          </thead>
-                          <tbody>
-                            <tr v-for="(item,index) in tags" :key="index">
-                              <td>{{index}}</td>
-                              <td>{{item}}</td>
-                            </tr>
-                          </tbody>
-                        </template>
-                      </v-simple-table>
-                    </template>
+                    <v-col v-for="(tag,k) in tags" :key="k">
+                      <v-col class="d-flex justify-center align-center"
+                        ><h3 class="primary--text">{{ k }}</h3></v-col
+                      >
+                      <template>
+                        <v-simple-table class="my-2 s-table">
+                          <template v-slot:default>
+                            <tbody>
+                              <tr v-for="(item,index) in tag" :key="index">
+                                <td>
+                                  <v-row class="justify-center align-center">
+                                    <v-col cols="3">
+                                      <v-img
+                                        :src="getTagIcon(index)"
+                                        v-if="k==='onTag'"
+                                        min-width="10"
+                                        max-width="18"
+                                      ></v-img
+                                    ></v-col>
+                                    <v-col cols="9">{{index}}</v-col>
+                                  </v-row>
+                                </td>
+                                <td>{{item}}</td>
+                              </tr>
+                            </tbody>
+                          </template>
+                        </v-simple-table>
+                      </template>
+                    </v-col>
                   </v-expansion-panel-content>
                 </v-expansion-panel>
               </v-expansion-panels>
@@ -292,7 +306,7 @@
                         <v-row class="flex-column">
                           <v-col>
                             <template>
-                              <v-simple-table dense class="">
+                              <v-simple-table dense class="mt-10 s-table">
                                 <template v-slot:default>
                                   <thead>
                                     <tr></tr>
@@ -529,6 +543,8 @@
           window.addEventListener("scroll", this.handleScroll);
         },
 
+        computed: {},
+
         methods: {
           //window
           getWindowWidth() {
@@ -565,8 +581,6 @@
             window.scrollTo(obj);
           },
           menuActive(id) {
-            if (id === "tag") this.tagPanel = [0];
-            if (id === "status") this.statusPanel = [0];
             this.$nextTick(() => {
               this.jump(id);
             });
@@ -576,6 +590,9 @@
             window.scrollTo(0, top);
           },
           //content
+          getTagIcon(name) {
+            return `./img/en/tag/i-${name}.png`;
+          },
           setReadCard() {
             console.log(123);
           },
