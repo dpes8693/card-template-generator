@@ -148,10 +148,10 @@
                       </v-col>
                     </template>
                     <template v-slot:item.tag="{ item }">
-                      <span class="d-none"></span>
+                      <span class="hideClass"></span>
                     </template>
                     <template v-slot:item.part="{ item }">
-                      <span class="d-none"></span>
+                      <span class="hideClass"></span>
                     </template>
                     <!-- click name end-->
                     <template v-slot:no-data>
@@ -185,17 +185,17 @@
                         <v-simple-table class="my-2 s-table">
                           <template v-slot:default>
                             <tbody>
-                              <tr v-for="(item,index) in status" :key="index">
+                              <tr v-for="(item,index) in status" :key="index" >
                                 <td>
                                   <v-row class="justify-center align-center">
-                                    <v-col cols="3">
+                                    <v-col cols="12" sm="3">
                                       <v-img
                                         :src="getStatusIcon(objKey,index)"
                                         min-width="16"
                                         max-width="20"
                                       ></v-img
                                     ></v-col>
-                                    <v-col cols="9"
+                                    <v-col cols="12" sm="9"
                                       >{{ firstCharUpper(index)}}</v-col
                                     >
                                   </v-row>
@@ -524,6 +524,7 @@
           searchPlaceHolder: "Name, Part, Tag, Status, Keyword",
           itemsPage: 10,
           noData: "No data available",
+          hideClass: "d-none",
           //pop dialog,
           dialogWidth: null,
           dialogHeight: "100%",
@@ -565,6 +566,9 @@
         computed: {},
 
         methods: {
+          setHeader(mode) {
+            this.headers = mode === "phone" ? in_headersPhone : in_headers;
+          },
           //window
           getWindowWidth() {
             this.windowWidth = window.innerWidth;
@@ -578,6 +582,9 @@
             this.dialogWidth = now <= targetWidth ? fixed : per;
           },
           setPhoneWindow(now, targetWidth) {
+            //data table header
+            let mode = now <= targetWidth ? "phone" : "pc";
+            this.setHeader(mode);
             //table
             this.tableHover = now <= targetWidth ? false : true;
             //dialog

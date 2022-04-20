@@ -66,6 +66,59 @@ const in_headers = [
   { text: "Heal", value: "heal", filterable: false, width: "9%", align: "" },
   { text: "Class", value: "class", filterable: true, width: "12%", align: "center" },
 ];
+const in_headersPhone = [
+  {
+    text: "Card Name",
+    align: "start",
+    sortable: true,
+    value: "name",
+    filterable: true,
+    width: "15%",
+    align: "",
+  },
+  {
+    text: "Effect",
+    value: "cardEffect",
+    filterable: true,
+    width: "34%",
+    align: "",
+  },
+  { text: "Cost", value: "cost", filterable: false, width: "10%", align: "center" },
+  {
+    text: "Attack",
+    value: "attack",
+    filterable: false,
+    width: "9%",
+    align: "center",
+  },
+  {
+    text: "Shield",
+    value: "shield",
+    filterable: false,
+    width: "9%",
+    align: "center",
+  },
+  { text: "Heal", value: "heal", filterable: false, width: "9%", align: "" },
+  { text: "Class", value: "class", filterable: true, width: "12%", align: "center" },
+  //Card Tag
+  {
+    text: "",
+    value: "tag",
+    filterable: true,
+    width: "0",
+    align: "",
+    sortable: false,
+  },
+  //part
+  {
+    text: "",
+    value: "part",
+    filterable: true,
+    sortable: false,
+    width: "0",
+    align: "",
+  },
+];
 //一定要 否則沒img
 function iterator(arr) {
   arr.forEach((el) => {
