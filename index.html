@@ -281,7 +281,6 @@
                   <!-- card text start -->
                   <v-card-text>
                     <v-row class="flex-card">
-                      <!-- left arrow -->
                       <v-col cols="6" sm="1" v-if="!dialogArrow">
                         <v-btn
                           icon
@@ -295,7 +294,6 @@
                       </v-col>
                       <v-col cols="12" sm="4" class="align-self-start">
                         <v-img :src="card.img" max-width="320px"></v-img>
-                        <br><br><br><br><br>
                       </v-col>
                       <!-- phone arrows -->
                       <v-row v-if="dialogArrow">
@@ -321,9 +319,8 @@
                           </v-btn>
                         </v-col>
                       </v-row>
-                      <!-- phone arrows end -->
+                      <!-- content start-->
                       <v-col cols="12" sm="5" class="align-self-start mr-5">
-                        <!-- content start-->
                         <v-row class="flex-column">
                           <v-col>
                             <template>
@@ -402,10 +399,10 @@
                               </v-row>
                             </v-card>
                           </v-col>
+                          <br /><br /><br /><br /><br />
                         </v-row>
                         <!-- content end-->
                       </v-col>
-                      <!-- right arrow -->
                       <v-col cols="6" sm="1" v-if="!dialogArrow">
                         <v-btn
                           icon
