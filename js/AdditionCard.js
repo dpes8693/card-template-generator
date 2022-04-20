@@ -103,7 +103,7 @@ const AdditionCard = [
   },
   //tool
   {
-    name: "Lumbershield",
+    name: "Lumber Shield",
     part: "-",
     cost: 0,
     attack: "-",

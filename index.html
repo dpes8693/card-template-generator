@@ -274,7 +274,7 @@
                 <v-card :height="dialogHeight" color="secondary">
                   <!-- close X -->
                   <v-col class="d-flex justify-end">
-                    <v-btn icon x-large @click="close()">
+                    <v-btn icon x-large @click="dialog = false">
                       <v-icon>mdi-close</v-icon>
                     </v-btn>
                   </v-col>
@@ -388,16 +388,20 @@
                               {{item}}
                             </h4>
                           </v-col>
-                          <v-col v-show="wordDesc.des">
-                            <v-card color="white" class="mt-1 mb-6">
+                          <v-col>
+                            <v-card
+                              color="white"
+                              class="mt-1 mb-6"
+                              v-show="wordDesc.des"
+                            >
                               <!-- <v-card-subtitle>{{ wordDesc.des}}</v-card-subtitle> -->
                               <v-row class="justify-center align-center">
-                                <!-- <v-col cols="3"
-                                  ><v-img :src="wordDesc.img"></v-img
-                                ></v-col> -->
                                 <v-col cols="10">{{ wordDesc.des}}</v-col>
                               </v-row>
                             </v-card>
+                            <v-col cols="10" v-show="wordDesc.img"
+                              ><v-img :src="wordDesc.img" max-width="200"></v-img
+                            ></v-col>
                           </v-col>
                           <br /><br /><br /><br />
                         </v-row>
@@ -518,6 +522,7 @@
           cardClass: in_cardClass,
           value: in_cardClass,
           related: in_related,
+          additionCard: in_additionCard,
           cardsNum: 0,
           //table
           tableTitle: "Origin Cards",
@@ -557,6 +562,11 @@
             this.setDialogWidth(value, 800);
             this.setPhoneWindow(value, 603);
           },
+          dialog(v){
+            if(v===false){
+              this.close()
+            }
+          }
         },
         mounted() {
           this.getWindowWidth();
@@ -668,7 +678,7 @@
             this.wordDesc = { des: "" };
           },
           close() {
-            this.dialog = false;
+            // this.dialog = false;
             this.resetCard();
           },
           setRelatedCard(word) {
@@ -686,20 +696,20 @@
             if (flag) {
               card.des = obj[str];
               // card.img = getTagIcon(str)
-              this.wordDesc = JSON.parse(JSON.stringify(card));
             }
+            this.additionCard.forEach((el) => {
+              if (word === el.name) card.img = el.img;
+            });
+            this.wordDesc = JSON.parse(JSON.stringify(card));
           },
           searchCardEffect() {
             this.relatedWordArr = [];
-            // search card effect
-            let arr = this.related;
-            let len = arr.length;
-            for (let i = 0; i < len; i++) {
-              let flag = this.card.cardEffect.includes(arr[i]);
+            this.related.forEach((el) => {
+              let flag = this.card.cardEffect.includes(el);
               if (flag) {
-                this.relatedWordArr.push(arr[i]);
+                this.relatedWordArr.push(el);
               }
-            }
+            });
           },
           setClassColor(item, mode) {
             if (mode === "class") return `${item.toLowerCase()}--text`;

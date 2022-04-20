@@ -1,6 +1,6 @@
 const baseUrl = "./img/en/cards";
 const format = ".png";
-
+let cardType = ["Secret", "Attack", "Power", "Skill"];
 const in_cardClass = [
   "Beast",
   "Aquatic",
@@ -173,7 +173,7 @@ iterator(Bug);
 iterator(Plant);
 iterator(Reptile);
 iterator(AdditionCard);
-let in_cards = [
+const in_cards = [
   ...Beast,
   ...Aquatic,
   ...Plant,
@@ -183,7 +183,7 @@ let in_cards = [
   ...AdditionCard,
 ];
 
-//
+//description
 const in_tags = {
   onTag: {
     skill: "This is a utility Card.",
@@ -251,10 +251,14 @@ const in_statuses = {
     taunt: "The target: is always targeted by the enemy's attack abilities.",
   },
 };
-const cardType = ["Secret", "Attack", "Power", "Skill"];
+
+const in_additionCard = AdditionCard.map((x) => {
+  return { name: x.name, img: x.img };
+});
+
 /////Related System
 //1. tag
-const tagKeyword = [
+let tagKeyword = [
   "Scry",
   "Cleanse",
   "Dispel",
@@ -269,7 +273,7 @@ const tagKeyword = [
   "Initial",
 ];
 //2. status
-const statusKeyword = [
+let statusKeyword = [
   "Taunt",
   "Damage Boost",
   "healing Boost",
@@ -299,14 +303,25 @@ const statusKeyword = [
   // "silence",
 ];
 //3. other addition cards
-//aditonCard
-// let aditon = [
-//   "Lumber Shield",
-//   "Pacu",
-//   "FEATHER-DAGGER",
-//   "Lil Bro",
-// ];
-
+//addition
+let additionCardName = [
+  "Pacu",
+  "Feather Dagger",
+  "Lil Bro",
+  //curse
+  "Jinx",
+  "Daze",
+  "Confused",
+  "Goo",
+  "Void",
+  "Burn",
+  "Blackmail",
+  //tool
+  "Lumber Shield",
+  "Strawberry",
+  "Pure Water",
+  "Mandarine",
+];
 //4. Summon
 let summon = [
   {
@@ -330,4 +345,4 @@ let summon = [
 
 //5. my opinion
 // [shuffle,Take,draw,if,more DMG,team,cap,all enemies,random,is attacked,frontmost,furthest,restore,Apply,Multihit Attack,Attacker,gain,Remove,reflected,loss to]
-const in_related = [...tagKeyword, ...statusKeyword];
+const in_related = [...tagKeyword, ...statusKeyword, ...additionCardName];
