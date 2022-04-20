@@ -268,13 +268,12 @@
               <v-dialog
                 v-model="dialog"
                 :width="dialogWidth"
-                persistent
                 style="min-width: 360px"
               >
                 <v-card :height="dialogHeight" color="secondary">
                   <!-- close X -->
                   <v-col class="d-flex justify-end">
-                    <v-btn icon x-large @click="dialog = false">
+                    <v-btn icon x-large @click="close()">
                       <v-icon>mdi-close</v-icon>
                     </v-btn>
                   </v-col>
@@ -321,7 +320,7 @@
                       </v-row>
                       <!-- content start-->
                       <v-col cols="12" sm="5" class="align-self-start mr-5">
-                        <v-row class="flex-column">
+                        <v-row class="flex-column min-h-c">
                           <v-col>
                             <template>
                               <v-simple-table dense class="mt-10 s-table">
@@ -377,10 +376,10 @@
                               </v-simple-table>
                             </template>
                           </v-col>
-                          <v-spacer></v-spacer>
-                          <v-col class="d-flex text-decoration-underline">
+                          <!-- <v-spacer></v-spacer> -->
+                          <v-col class="d-flex">
                             <h4
-                              class="ml-5 primary--text cursor-pointer"
+                              class="ml-5 primary--text cursor-pointer text-decoration-underline"
                               @click="setRelatedCard(item)"
                               v-for="(item,i) in relatedWordArr"
                               :key="i"
@@ -388,7 +387,7 @@
                               {{item}}
                             </h4>
                           </v-col>
-                          <v-col v-show="!!wordDesc.des">
+                          <v-col v-show="wordDesc.des">
                             <v-card color="white" class="mt-1 mb-6">
                               <!-- <v-card-subtitle>{{ wordDesc.des}}</v-card-subtitle> -->
                               <v-row class="justify-center align-center">
@@ -399,7 +398,7 @@
                               </v-row>
                             </v-card>
                           </v-col>
-                          <br /><br /><br /><br /><br />
+                          <br /><br /><br /><br />
                         </v-row>
                         <!-- content end-->
                       </v-col>
@@ -657,6 +656,13 @@
               ...in_tags.unTag,
             };
           },
+          resetCard() {
+            this.wordDesc = { des: "" };
+          },
+          close() {
+            this.dialog = false;
+            this.resetCard();
+          },
           setRelatedCard(word) {
             let str = word[0].toLowerCase() + word.replaceAll(" ", "").slice(1);
             let card = {
@@ -664,11 +670,11 @@
               img: "",
               des: "",
             };
-            this.wordDesc = card;
             let obj = this.getFlatObj();
             let arrKey = Object.keys(obj);
             let flag = arrKey.includes(str);
-            console.log(arrKey, flag);
+
+            this.resetCard();
             if (flag) {
               card.des = obj[str];
               // card.img = getTagIcon(str)

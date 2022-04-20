@@ -45,7 +45,9 @@
 .min-h {
   min-height: 300px;
 }
-
+.min-h-c{
+  min-height: 600px;
+}
 .logo-img-w {
   width: 120px;
 }
