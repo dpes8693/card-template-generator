@@ -11,6 +11,8 @@ const in_cardClass = [
   // "Mech",
   // "Dawn",
   // "Dusk",
+  "tool",
+  "curse",
 ];
 
 const in_headers = [
@@ -48,7 +50,13 @@ const in_headers = [
     width: "34%",
     align: "",
   },
-  { text: "Cost", value: "cost", filterable: false, width: "10%", align: "center" },
+  {
+    text: "Cost",
+    value: "cost",
+    filterable: false,
+    width: "10%",
+    align: "center",
+  },
   {
     text: "Attack",
     value: "attack",
@@ -64,7 +72,13 @@ const in_headers = [
     align: "center",
   },
   { text: "Heal", value: "heal", filterable: false, width: "9%", align: "" },
-  { text: "Class", value: "class", filterable: true, width: "12%", align: "center" },
+  {
+    text: "Class",
+    value: "class",
+    filterable: true,
+    width: "12%",
+    align: "center",
+  },
 ];
 const in_headersPhone = [
   {
@@ -83,7 +97,13 @@ const in_headersPhone = [
     width: "34%",
     align: "",
   },
-  { text: "Cost", value: "cost", filterable: false, width: "10%", align: "center" },
+  {
+    text: "Cost",
+    value: "cost",
+    filterable: false,
+    width: "10%",
+    align: "center",
+  },
   {
     text: "Attack",
     value: "attack",
@@ -99,7 +119,13 @@ const in_headersPhone = [
     align: "center",
   },
   { text: "Heal", value: "heal", filterable: false, width: "9%", align: "" },
-  { text: "Class", value: "class", filterable: true, width: "12%", align: "center" },
+  {
+    text: "Class",
+    value: "class",
+    filterable: true,
+    width: "12%",
+    align: "center",
+  },
   //Card Tag
   {
     text: "",
@@ -122,10 +148,20 @@ const in_headersPhone = [
 //一定要 否則沒img
 function iterator(arr) {
   arr.forEach((el) => {
-    if (el.img[0] === "x") {
-      el.img = `${baseUrl}/no card${format}`;
-    } else {
-      el.img = `${baseUrl}/${el.class.toLowerCase()}/${el.name.toLowerCase()}${format}`;
+    let lowClass = el.class.toLowerCase();
+    let lowName = el.name.toLowerCase();
+    switch (el.img) {
+      case "xx":
+        el.img = `${baseUrl}/${lowClass}/curse-${lowName}${format}`;
+        break;
+      case "oo":
+        el.img = `${baseUrl}/${lowClass}/tool-${lowName}${format}`;
+        break;
+      case "x":
+        el.img = `${baseUrl}/no card${format}`;
+        break;
+      default:
+        el.img = `${baseUrl}/${lowClass}/${lowName}${format}`;
     }
     el.id = el.name + el.id;
   });
@@ -136,7 +172,16 @@ iterator(Bird);
 iterator(Bug);
 iterator(Plant);
 iterator(Reptile);
-let in_cards = [...Beast, ...Aquatic, ...Plant, ...Bird, ...Bug, ...Reptile];
+iterator(AdditionCard);
+let in_cards = [
+  ...Beast,
+  ...Aquatic,
+  ...Plant,
+  ...Bird,
+  ...Bug,
+  ...Reptile,
+  ...AdditionCard,
+];
 
 //
 const in_tags = {
@@ -206,8 +251,8 @@ const in_statuses = {
     taunt: "The target: is always targeted by the enemy's attack abilities.",
   },
 };
-
 const cardType = ["Secret", "Attack", "Power", "Skill"];
+/////Related System
 //1. tag
 const tagKeyword = [
   "Scry",
@@ -219,9 +264,9 @@ const tagKeyword = [
   "Retain",
   "Banish",
   "Ethereal",
-  // "unplayable",
+  "Unplayable",
   "Innate",
-  "Initial"
+  "Initial",
 ];
 //2. status
 const statusKeyword = [
@@ -254,18 +299,34 @@ const statusKeyword = [
   // "silence",
 ];
 //3. other addition cards
-let aditonCard = [
-  "Blackmail",
-  "Pure Water",
-  "Strawberry",
-  "Mandarines",
-  "Lumber Shield",
-  "Pacu",
-  "FEATHER-DAGGER",
-  "Lil Bro"
-]
+//aditonCard
+// let aditon = [
+//   "Lumber Shield",
+//   "Pacu",
+//   "FEATHER-DAGGER",
+//   "Lil Bro",
+// ];
+
 //4. Summon
-let summon = []
+let summon = [
+  {
+    name: "Clover",
+    des: "Plant | 35 HP | When your turn starts, randomly grant 1~2 Leafs to your Axies. Clover disappears after 4 leafs are granted.",
+  },
+  { name: "Trunk ", des: "Plant | 75 HP | Taunt" },
+  {
+    name: "Little Robin",
+    des: "Bird | 18 HP | Teammates deal 16 more DMG. Lose 8 HP when your turn ends.",
+  },
+  {
+    name: "Mavis",
+    des: "Bird | 18 HP | When your turn starts (after card drawing), Mavis reduces 1 Energy of a random Attack card. Lose 8 HP when your turn ends.",
+  },
+  {
+    name: "Mushroom ",
+    des: "Plant | 18 HP | When your turn ends, this Mushroom restores 24 HP to your most injured ally and loses 8 HP.",
+  },
+];
 
 //5. my opinion
 // [shuffle,Take,draw,if,more DMG,team,cap,all enemies,random,is attacked,frontmost,furthest,restore,Apply,Multihit Attack,Attacker,gain,Remove,reflected,loss to]
