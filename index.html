@@ -122,6 +122,7 @@
                     :items="cards"
                     :search="search"
                     :items-per-page="itemsPage"
+                    @current-items="setCurrentItems"
                     :footer-props="{
                     'items-per-page-text':' ',
                   }"
@@ -263,7 +264,6 @@
               </v-expansion-panels>
             </v-col>
             <!-- tag end -->
-
             <!-- dialog-card start -->
             <template>
               <v-dialog
@@ -400,7 +400,10 @@
                               </v-row>
                             </v-card>
                             <v-col cols="10" v-show="wordDesc.img"
-                              ><v-img :src="wordDesc.img" max-width="200"></v-img
+                              ><v-img
+                                :src="wordDesc.img"
+                                max-width="200"
+                              ></v-img
                             ></v-col>
                           </v-col>
                           <br /><br /><br /><br />
@@ -562,11 +565,12 @@
             this.setDialogWidth(value, 800);
             this.setPhoneWindow(value, 603);
           },
-          dialog(v){
-            if(v===false){
-              this.close()
+          dialog(v) {
+            if (v === false) {
+              this.close();
             }
-          }
+          },
+          // cards(v) {},
         },
         mounted() {
           this.getWindowWidth();
@@ -626,6 +630,10 @@
             window.scrollTo(0, top);
           },
           //content
+          setCurrentItems(v) {
+            this.currentItems = JSON.parse(JSON.stringify(v));
+            // console.log(v)
+          },
           firstCharUpper(v) {
             let str = v[0].toUpperCase() + v.slice(1);
             return str;
@@ -652,15 +660,32 @@
             this.setIndex();
           },
           changeCard(obj, move) {
-            let len = this.cards.length;
-            let targetIndex = (obj.index + move + len) % len;
-            this.card = this.cards[targetIndex];
+            let cardsLen = this.cards.length;
+            // let currLen = this.currentItems.length;
+            // console.log(cardsLen,currLen)
+            let targetIndex = -1;
+            targetIndex = (obj.index + move + cardsLen) % cardsLen;
+            // if (currLen === cardsLen) {
+            //   targetIndex = (obj.index + move + cardsLen) % cardsLen;
+            // } else {
+            //   let index = -1
+            //   this.currentItems.forEach((el,i,a) => {
+            //     if (el.name === obj.name) {
+            //       index = i
+            //     }
+            //   });
+            //   targetIndex = (index + move + currLen) % currLen;
+            // }
+            this.setCard(this.cards[targetIndex]);
             this.searchCardEffect();
             this.setRelatedCard(this.card.name);
           },
+          setCard(obj) {
+            this.card = obj;
+          },
           open(item) {
             //open dialog set card
-            this.card = item;
+            this.setCard(item);
             this.dialog = true;
             this.searchCardEffect();
           },

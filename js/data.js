@@ -305,9 +305,10 @@ let statusKeyword = [
 //3. other addition cards
 //addition
 let additionCardName = [
-  "Pacu",
-  "Feather Dagger",
-  "Lil Bro",
+  // "Pacu",
+  // "Feather Dagger",
+  // "Lil Bro",
+
   //curse
   "Jinx",
   "Daze",
