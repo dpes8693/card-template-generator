@@ -287,7 +287,7 @@
                           x-large
                           color="primary"
                           dark
-                          @click="changeCard(card,-1)"
+                          @click="changeCard(card,-1,true)"
                         >
                           <v-icon>mdi-arrow-left-drop-circle</v-icon>
                         </v-btn>
@@ -302,7 +302,7 @@
                             icon
                             color="primary"
                             dark
-                            @click="changeCard(card,-1)"
+                            @click="changeCard(card,-1,true)"
                           >
                             <v-icon>mdi-arrow-left-drop-circle</v-icon>
                           </v-btn>
@@ -313,7 +313,7 @@
                             icon
                             color="primary"
                             dark
-                            @click="changeCard(card,1)"
+                            @click="changeCard(card,1,true)"
                           >
                             <v-icon>mdi-arrow-right-drop-circle</v-icon>
                           </v-btn>
@@ -399,7 +399,7 @@
                                 <v-col cols="10">{{ wordDesc.des}}</v-col>
                               </v-row>
                             </v-card>
-                            <v-col cols="10" v-show="wordDesc.img"
+                            <v-col cols="10" v-show="wordDesc.img && card.class!=='tool' && card.class!=='curse'"
                               ><v-img
                                 :src="wordDesc.img"
                                 max-width="200"
@@ -416,7 +416,7 @@
                           x-large
                           color="primary"
                           dark
-                          @click="changeCard(card,1)"
+                          @click="changeCard(card,1,true)"
                         >
                           <v-icon v-cloak>mdi-arrow-right-drop-circle</v-icon>
                         </v-btn>
@@ -570,7 +570,10 @@
               this.close();
             }
           },
-          // cards(v) {},
+          search(val) {
+            let temp = this.itemsPage;
+            this.itemsPage = !!val ? -1 : temp;
+          },
         },
         mounted() {
           this.getWindowWidth();
@@ -631,8 +634,8 @@
           },
           //content
           setCurrentItems(v) {
+            //search->watch->setCurrentItems()
             this.currentItems = JSON.parse(JSON.stringify(v));
-            // console.log(v)
           },
           firstCharUpper(v) {
             let str = v[0].toUpperCase() + v.slice(1);
@@ -661,22 +664,24 @@
           },
           changeCard(obj, move) {
             let cardsLen = this.cards.length;
-            // let currLen = this.currentItems.length;
-            // console.log(cardsLen,currLen)
+            let currLen = this.currentItems.length;
             let targetIndex = -1;
-            targetIndex = (obj.index + move + cardsLen) % cardsLen;
-            // if (currLen === cardsLen) {
-            //   targetIndex = (obj.index + move + cardsLen) % cardsLen;
-            // } else {
-            //   let index = -1
-            //   this.currentItems.forEach((el,i,a) => {
-            //     if (el.name === obj.name) {
-            //       index = i
-            //     }
-            //   });
-            //   targetIndex = (index + move + currLen) % currLen;
-            // }
-            this.setCard(this.cards[targetIndex]);
+            if (!this.search) {
+              targetIndex = (obj.index + move + cardsLen) % cardsLen;
+              this.setCard(this.cards[targetIndex]);
+            } else {
+              let index = -1;
+              for (let i = 0; i < currLen; i++) {
+                let el = this.currentItems[i];
+                if (el.name === obj.name) {
+                  index = i;
+                  break;
+                }
+              }
+              targetIndex = (index + move + currLen) % currLen;
+              let targetObj = this.currentItems[targetIndex];
+              this.setCard(targetObj);
+            }
             this.searchCardEffect();
             this.setRelatedCard(this.card.name);
           },
