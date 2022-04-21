@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- import vuetify-css + font -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
-      rel="stylesheet"
-    />
-    <!-- https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css -->
-    <link href="./css/vuetify.min.css" rel="stylesheet" />
-    <!-- own -->
-    <link rel="stylesheet" type="text/css" href="./css/main.css" />
-    <link rel="icon" href="./icon-baby.png" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
     />
+    <title>Axie Infinity Origin Cards</title>
+    <meta name="description" content="axie origin cards list" />
+    <meta itemprop="name" content="Axie Infinity Origin Cards | dpes8693">
+    <meta itemprop="description" content="axie origin cards list">
+    <meta itemprop="image" content="https://dpes8693.github.io/card-template-generator/icon-baby.png">
+    <meta property="og:title" content="Axie Infinity Origin Cards | dpes8693" />
+    <meta property="og:description" content="axie origin cards list" />
+    <meta property="og:image" content="https://dpes8693.github.io/card-template-generator/icon-baby.png" />
+    <meta property="og:site_name" content="Axie Infinity Origin Cards">
+    <meta property="og:type" content="article" />
+        <!-- import vuetify-css + font -->
+        <link
+        href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+        rel="stylesheet"
+      />
+      <!-- https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css -->
+      <link href="./css/vuetify.min.css" rel="stylesheet" />
+      <!-- own -->
+      <link rel="stylesheet" type="text/css" href="./css/main.css" />
+      <link rel="icon" href="./icon-baby.png" type="image/x-icon" />
     <style>
       [v-cloak] {
         display: none;
@@ -399,7 +409,9 @@
                                 <v-col cols="10">{{ wordDesc.des}}</v-col>
                               </v-row>
                             </v-card>
-                            <v-col cols="10" v-show="wordDesc.img && card.class!=='tool' && card.class!=='curse'"
+                            <v-col
+                              cols="10"
+                              v-show="wordDesc.img && card.class!=='tool' && card.class!=='curse'"
                               ><v-img
                                 :src="wordDesc.img"
                                 max-width="200"
@@ -571,8 +583,7 @@
             }
           },
           search(val) {
-            let temp = this.itemsPage;
-            this.itemsPage = !!val ? -1 : temp;
+            this.debounce(this.setItemsPage(val));
           },
         },
         mounted() {
@@ -586,6 +597,22 @@
         methods: {
           setHeader(mode) {
             this.headers = mode === "phone" ? in_headersPhone : in_headers;
+          },
+          setItemsPage(val) {
+            let temp = this.itemsPage;
+            this.itemsPage = !!val ? -1 : temp;
+          },
+          debounce(func, delay = 250) {
+            let timer = null;
+            return () => {
+              let context = this;
+              let args = arguments;
+
+              clearTimeout(timer);
+              timer = setTimeout(() => {
+                func.apply(context, args);
+              }, delay);
+            };
           },
           //window
           getWindowWidth() {
