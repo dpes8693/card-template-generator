@@ -550,4 +550,18 @@ let Bug = [
     keyword: "-",
     id: 380,
   },
+  {
+    name: "Pacu",
+    part: "-",
+    cost: 0,
+    attack: "-",
+    shield: "-",
+    heal: "-",
+    cardEffect: " Retain. Target any enemy Deal 5 DMG. Deal 10 bonus DMG against Bleeding enemy. Banish.",
+    class: "Bug",
+    tag: "skill,retain,banish",
+    img: "o",
+    keyword: "-",
+    id: 3000,
+  },
 ];

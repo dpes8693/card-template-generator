@@ -255,6 +255,12 @@ const in_statuses = {
 const in_additionCard = AdditionCard.map((x) => {
   return { name: x.name, img: x.img };
 });
+const in_additionCard2 = [
+  {name: "Lil Bro", img: `${baseUrl}/bird/lil bro${format}`},
+  {name: "Pacu", img: `${baseUrl}/bug/pacu${format}`},
+  {name: "Feather-Dagger", img: `${baseUrl}/bird/feather dagger${format}`},
+]
+
 
 /////Related System
 //1. tag
@@ -305,9 +311,9 @@ let statusKeyword = [
 //3. other addition cards
 //addition
 let additionCardName = [
-  // "Pacu",
-  // "Feather Dagger",
-  // "Lil Bro",
+  "Pacu",
+  "Feather-Dagger",
+  "Lil Bro",
 
   //curse
   "Jinx",

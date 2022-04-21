@@ -9,24 +9,30 @@
     />
     <title>Axie Infinity Origin Cards</title>
     <meta name="description" content="axie origin cards list" />
-    <meta itemprop="name" content="Axie Infinity Origin Cards | dpes8693">
-    <meta itemprop="description" content="axie origin cards list">
-    <meta itemprop="image" content="https://dpes8693.github.io/card-template-generator/icon-baby.png">
+    <meta itemprop="name" content="Axie Infinity Origin Cards | dpes8693" />
+    <meta itemprop="description" content="axie origin cards list" />
+    <meta
+      itemprop="image"
+      content="https://dpes8693.github.io/card-template-generator/icon-baby.png"
+    />
     <meta property="og:title" content="Axie Infinity Origin Cards | dpes8693" />
     <meta property="og:description" content="axie origin cards list" />
-    <meta property="og:image" content="https://dpes8693.github.io/card-template-generator/icon-baby.png" />
-    <meta property="og:site_name" content="Axie Infinity Origin Cards">
+    <meta
+      property="og:image"
+      content="https://dpes8693.github.io/card-template-generator/icon-baby.png"
+    />
+    <meta property="og:site_name" content="Axie Infinity Origin Cards" />
     <meta property="og:type" content="article" />
-        <!-- import vuetify-css + font -->
-        <link
-        href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
-        rel="stylesheet"
-      />
-      <!-- https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css -->
-      <link href="./css/vuetify.min.css" rel="stylesheet" />
-      <!-- own -->
-      <link rel="stylesheet" type="text/css" href="./css/main.css" />
-      <link rel="icon" href="./icon-baby.png" type="image/x-icon" />
+    <!-- import vuetify-css + font -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css -->
+    <link href="./css/vuetify.min.css" rel="stylesheet" />
+    <!-- own -->
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="icon" href="./icon-baby.png" type="image/x-icon" />
     <style>
       [v-cloak] {
         display: none;
@@ -54,8 +60,12 @@
         <v-app-bar app color="primary" dense dark>
           <!-- <img src="./icon-baby.png" alt=""> -->
           <v-img :src="iconUrl" max-width="20px"></v-img>
-          <v-toolbar-title class="ml-2">Axie Infinity Origin Cards</v-toolbar-title>
-          <p v-if="false">this website suply people to easly sort (filter) Axie Origin Cards</p>
+          <v-toolbar-title class="ml-2"
+            >Axie Infinity Origin Cards</v-toolbar-title
+          >
+          <p v-if="false">
+            this website suply people to easly sort (filter) Axie Origin Cards
+          </p>
           <v-spacer></v-spacer>
           <a :href="aboutUrl" target="_blank" rel="noopener noreferrer">
             <v-btn icon small>
@@ -72,7 +82,7 @@
               <v-list-item
                 v-for="item in menuList"
                 :key="item.id"
-                @click="menuActive(item.id)"
+                @click="jump(item.id)"
               >
                 <v-list-item-title>{{ item.name }}</v-list-item-title>
               </v-list-item>
@@ -330,7 +340,7 @@
                           </v-btn>
                         </v-col>
                       </v-row>
-                      <!-- content start-->
+                      <!-- dialog-content start-->
                       <v-col cols="12" sm="5" class="align-self-start mr-5">
                         <v-row class="flex-column min-h-c">
                           <v-col>
@@ -388,11 +398,10 @@
                               </v-simple-table>
                             </template>
                           </v-col>
-                          <!-- <v-spacer></v-spacer> -->
                           <v-col class="d-flex">
                             <h4
                               class="ml-5 primary--text cursor-pointer text-decoration-underline"
-                              @click="setRelatedCard(item)"
+                              @click="setRelatedCard(item,1)"
                               v-for="(item,i) in relatedWordArr"
                               :key="i"
                             >
@@ -405,14 +414,11 @@
                               class="mt-1 mb-6"
                               v-show="wordDesc.des"
                             >
-                              <!-- <v-card-subtitle>{{ wordDesc.des}}</v-card-subtitle> -->
                               <v-row class="justify-center align-center">
                                 <v-col cols="10">{{ wordDesc.des}}</v-col>
                               </v-row>
                             </v-card>
-                            <v-col
-                              cols="10"
-                              v-show="wordDesc.img && card.class!=='tool' && card.class!=='curse'"
+                            <v-col cols="10" v-show="cardFlag"
                               ><v-img
                                 :src="wordDesc.img"
                                 max-width="200"
@@ -421,7 +427,7 @@
                           </v-col>
                           <br /><br /><br /><br />
                         </v-row>
-                        <!-- content end-->
+                        <!-- dialog-content end-->
                       </v-col>
                       <v-col cols="6" sm="1" v-if="!dialogArrow">
                         <v-btn
@@ -539,6 +545,7 @@
           value: in_cardClass,
           related: in_related,
           additionCard: in_additionCard,
+          additionCard2: in_additionCard2,
           cardsNum: 0,
           //table
           tableTitle: "Origin Cards",
@@ -553,6 +560,7 @@
           dialog: false,
           relatedWordArr: [],
           wordDesc: {},
+          cardFlag: false,
           //filter
           selectHeight: null,
           //tag
@@ -580,7 +588,7 @@
           },
           dialog(v) {
             if (v === false) {
-              this.close();
+              this.resetCard();
             }
           },
           search(val) {
@@ -593,15 +601,15 @@
           window.addEventListener("scroll", this.handleScroll);
         },
 
-        computed: {},
-
         methods: {
-          setHeader(mode) {
-            this.headers = mode === "phone" ? in_headersPhone : in_headers;
+          //public
+          jump(id) {
+            let top = document.getElementById(id).offsetTop;
+            window.scrollTo(0, top);
           },
-          setItemsPage(val) {
-            let temp = this.itemsPage;
-            this.itemsPage = !!val ? -1 : temp;
+          firstCharUpper(v) {
+            let str = v[0].toUpperCase() + v.slice(1);
+            return str;
           },
           debounce(func, delay = 250) {
             let timer = null;
@@ -614,6 +622,44 @@
                 func.apply(context, args);
               }, delay);
             };
+          },
+          multiFilter(array, filters) {
+            if (filters.class.length === 0) return [];
+            const filterKeys = Object.keys(filters);
+            // filters all elements passing the criteria
+            return array.filter((item) => {
+              // dynamically validate all filter criteria
+              return filterKeys.every((key) => {
+                //ignore when the filter is empty Anne
+                if (!filters[key].length) return true;
+                return !!~filters[key].indexOf(item[key]);
+              });
+            });
+          },
+          //Viewer
+          setClassColor(item, mode) {
+            if (mode === "class") return `${item.toLowerCase()}--text`;
+            if (mode === "name")
+              return `text-decoration-underline  font-weight-bold ${item.toLowerCase()}--text`;
+            return primary;
+          },
+          getTagIcon(name) {
+            return `./img/en/tag/i-${name}.png`;
+          },
+          getStatusIcon(t, name) {
+            return `./img/en/status/${t}-${name}.png`;
+          },
+          //table
+          setCurrentItems(v) {
+            //search->watch->setCurrentItems()
+            this.currentItems = JSON.parse(JSON.stringify(v));
+          },
+          setHeader(mode) {
+            this.headers = mode === "phone" ? in_headersPhone : in_headers;
+          },
+          setItemsPage(val) {
+            let temp = this.itemsPage;
+            this.itemsPage = !!val ? -1 : temp;
           },
           //window
           getWindowWidth() {
@@ -651,32 +697,8 @@
             obj.top = mode === "down" ? windowHeight : 0;
             window.scrollTo(obj);
           },
-          menuActive(id) {
-            this.$nextTick(() => {
-              this.jump(id);
-            });
-          },
-          jump(id) {
-            let top = document.getElementById(id).offsetTop;
-            window.scrollTo(0, top);
-          },
-          //content
-          setCurrentItems(v) {
-            //search->watch->setCurrentItems()
-            this.currentItems = JSON.parse(JSON.stringify(v));
-          },
-          firstCharUpper(v) {
-            let str = v[0].toUpperCase() + v.slice(1);
-            return str;
-          },
-          getTagIcon(name) {
-            return `./img/en/tag/i-${name}.png`;
-          },
-          getStatusIcon(t, name) {
-            return `./img/en/status/${t}-${name}.png`;
-          },
+          //Cards filter
           setIndex() {
-            // [obj,obj...]
             this.cards = this.cards.map((items, index) => ({
               ...items,
               index: index,
@@ -716,12 +738,6 @@
           setCard(obj) {
             this.card = obj;
           },
-          open(item) {
-            //open dialog set card
-            this.setCard(item);
-            this.dialog = true;
-            this.searchCardEffect();
-          },
           //dialog
           getFlatObj() {
             return {
@@ -734,12 +750,10 @@
           },
           resetCard() {
             this.wordDesc = { des: "" };
+            this.cardFlag = false;
           },
-          close() {
-            // this.dialog = false;
+          setRelatedCard(word, click) {
             this.resetCard();
-          },
-          setRelatedCard(word) {
             let str = word[0].toLowerCase() + word.replaceAll(" ", "").slice(1);
             let card = {
               title: "",
@@ -747,18 +761,34 @@
               des: "",
             };
             let obj = this.getFlatObj();
-            let arrKey = Object.keys(obj);
-            let flag = arrKey.includes(str);
-
-            this.resetCard();
-            if (flag) {
+            let tagStatusflag = Object.keys(obj).includes(str);
+            if (tagStatusflag) {
               card.des = obj[str];
-              // card.img = getTagIcon(str)
+              this.wordDesc = JSON.parse(JSON.stringify(card));
+              return;
             }
-            this.additionCard.forEach((el) => {
-              if (word === el.name) card.img = el.img;
-            });
+            let checker = this.checkAdditionCard(this.additionCard, word);
+            if (checker && click) {
+              this.setAddCard(card, checker);
+              return;
+            }
+            checker = this.checkAdditionCard(this.additionCard2, word);
+            if (checker && click) {
+              this.setAddCard(card, checker);
+            }
+          },
+          setAddCard(card, checker) {
+            card.img = checker.img;
+            this.cardFlag = true;
             this.wordDesc = JSON.parse(JSON.stringify(card));
+          },
+          checkAdditionCard(array, word) {
+            return array.find(function (item, index, array) {
+              return item.name === word; // 取得陣列 like === '蘿蔔泥'
+            });
+          },
+          closeRelatedCard() {
+            this.cardFlag = false;
           },
           searchCardEffect() {
             this.relatedWordArr = [];
@@ -769,25 +799,11 @@
               }
             });
           },
-          setClassColor(item, mode) {
-            if (mode === "class") return `${item.toLowerCase()}--text`;
-            if (mode === "name")
-              return `text-decoration-underline  font-weight-bold ${item.toLowerCase()}--text`;
-            return primary;
-          },
-
-          multiFilter(array, filters) {
-            if (filters.class.length === 0) return [];
-            const filterKeys = Object.keys(filters);
-            // filters all elements passing the criteria
-            return array.filter((item) => {
-              // dynamically validate all filter criteria
-              return filterKeys.every((key) => {
-                //ignore when the filter is empty Anne
-                if (!filters[key].length) return true;
-                return !!~filters[key].indexOf(item[key]);
-              });
-            });
+          open(item) {
+            //open dialog set card
+            this.setCard(item);
+            this.dialog = true;
+            this.searchCardEffect();
           },
         },
       }).$mount("#app");
