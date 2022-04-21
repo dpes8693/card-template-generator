@@ -256,11 +256,10 @@ const in_additionCard = AdditionCard.map((x) => {
   return { name: x.name, img: x.img };
 });
 const in_additionCard2 = [
-  {name: "Lil Bro", img: `${baseUrl}/bird/lil bro${format}`},
-  {name: "Pacu", img: `${baseUrl}/bug/pacu${format}`},
-  {name: "Feather-Dagger", img: `${baseUrl}/bird/feather dagger${format}`},
-]
-
+  { name: "Lil Bro", img: `${baseUrl}/bird/lil bro${format}` },
+  { name: "Pacu", img: `${baseUrl}/bug/pacu${format}` },
+  { name: "Feather-Dagger", img: `${baseUrl}/bird/feather dagger${format}` },
+];
 
 /////Related System
 //1. tag
@@ -330,26 +329,35 @@ let additionCardName = [
   "Mandarine",
 ];
 //4. Summon
-let summon = [
+const summonUrl = "./img/en/summon";
+let in_summon = [
   {
     name: "Clover",
     des: "Plant | 35 HP | When your turn starts, randomly grant 1~2 Leafs to your Axies. Clover disappears after 4 leafs are granted.",
+    img: `${summonUrl}/Clover${format}`
   },
-  { name: "Trunk ", des: "Plant | 75 HP | Taunt" },
+  {
+    name: "Trunk",
+    des: "Plant | 75 HP | Taunt",
+    img: `${summonUrl}/Trunk${format}`
+  },
   {
     name: "Little Robin",
     des: "Bird | 18 HP | Teammates deal 16 more DMG. Lose 8 HP when your turn ends.",
+    img: `${summonUrl}/Little Robin${format}`
   },
   {
     name: "Mavis",
     des: "Bird | 18 HP | When your turn starts (after card drawing), Mavis reduces 1 Energy of a random Attack card. Lose 8 HP when your turn ends.",
+    img: `${summonUrl}/Mavis${format}`
   },
   {
-    name: "Mushroom ",
+    name: "Mushroom",
     des: "Plant | 18 HP | When your turn ends, this Mushroom restores 24 HP to your most injured ally and loses 8 HP.",
+    img: `${summonUrl}/Mushroom${format}`
   },
 ];
-
+const summonName = in_summon.map(x => x.name)
 //5. my opinion
 // [shuffle,Take,draw,if,more DMG,team,cap,all enemies,random,is attacked,frontmost,furthest,restore,Apply,Multihit Attack,Attacker,gain,Remove,reflected,loss to]
-const in_related = [...tagKeyword, ...statusKeyword, ...additionCardName];
+const in_related = [...tagKeyword, ...statusKeyword, ...additionCardName, ...summonName];

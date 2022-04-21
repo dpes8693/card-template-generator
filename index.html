@@ -418,12 +418,13 @@
                                 <v-col cols="10">{{ wordDesc.des}}</v-col>
                               </v-row>
                             </v-card>
-                            <v-col cols="10" v-show="cardFlag"
-                              ><v-img
+                            <v-col cols="6" v-show="cardFlag">
+                              <!-- <v-img
                                 :src="wordDesc.img"
                                 max-width="200"
-                              ></v-img
-                            ></v-col>
+                              ></v-img -->
+                              <img :src="wordDesc.img" alt="img" class="max-w">
+                            </v-col>
                           </v-col>
                           <br /><br /><br /><br />
                         </v-row>
@@ -546,6 +547,7 @@
           related: in_related,
           additionCard: in_additionCard,
           additionCard2: in_additionCard2,
+          summon: in_summon,
           cardsNum: 0,
           //table
           tableTitle: "Origin Cards",
@@ -767,6 +769,7 @@
               this.wordDesc = JSON.parse(JSON.stringify(card));
               return;
             }
+            //bad
             let checker = this.checkAdditionCard(this.additionCard, word);
             if (checker && click) {
               this.setAddCard(card, checker);
@@ -775,6 +778,13 @@
             checker = this.checkAdditionCard(this.additionCard2, word);
             if (checker && click) {
               this.setAddCard(card, checker);
+              return;
+            }
+            checker = this.checkAdditionCard(this.summon, word);
+            if (checker && click) {
+              card.des = checker.des
+              this.setAddCard(card, checker);
+              return;
             }
           },
           setAddCard(card, checker) {
