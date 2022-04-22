@@ -1,4 +1,4 @@
-//32張 2022/04/17
+//32張 2022/04/17 => 31 04/22 => +eggshell -doubletalk -kestrel
 //null 7
 //o 39
 //x 0 [Concentrate,Passion,Feather Dagger,Big Sister,Paper Wing,Rubber Duckling,Lil Bro]
@@ -77,20 +77,7 @@ let Bird = [
     keyword: "-",
     id: 5,
   },
-  {
-    name: "Doubletalk",
-    part: "Mouth",
-    cost: 1,
-    attack: 65,
-    shield: "-",
-    heal: "-",
-    cardEffect: " if Initial, apply Sleep for 4 turns.",
-    class: "Bird",
-    tag: "attack",
-    img: "o",
-    keyword: "-",
-    id: 6,
-  },
+
   {
     name: "Feather Fan",
     part: "Tail",
@@ -133,20 +120,6 @@ let Bird = [
     img: "o",
     keyword: "-",
     id: 9,
-  },
-  {
-    name: "Kestrel",
-    part: "Horn",
-    cost: 1,
-    attack: 50,
-    shield: "-",
-    heal: "-",
-    cardEffect: " Apply Disarmed for 4 turns.",
-    class: "Bird",
-    tag: "attack",
-    img: "o",
-    keyword: "-",
-    id: 10,
   },
   {
     name: "Kingfisher",
@@ -487,7 +460,8 @@ let Bird = [
     tag: "attack",
     img: "o",
     keyword: "-",
-    id: 340,
+    // id: 340,
+    id: 6,
   },
   {
     name: "Hungry Bird",
@@ -558,5 +532,35 @@ let Bird = [
     img: "o",
     keyword: "-",
     id: 390,
+  },
+  {
+    name: "Kestrel",
+    part: "Horn",
+    cost: 1,
+    attack: 50,
+    shield: "-",
+    heal: "-",
+    cardEffect: " Apply Disarmed for 4 turns.",
+    class: "Bird",
+    tag: "attack",
+    img: "o",
+    keyword: "-",
+    // id: 10,
+    id: 400,
+  },
+  {
+    name: "Doubletalk",
+    part: "Mouth",
+    cost: 1,
+    attack: 65,
+    shield: "-",
+    heal: "-",
+    cardEffect: " if Initial, apply Sleep for 4 turns.",
+    class: "Bird",
+    tag: "attack",
+    img: "o",
+    keyword: "-",
+    // id: 6,
+    id: 340,
   },
 ];

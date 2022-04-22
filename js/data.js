@@ -210,10 +210,13 @@ const in_tags = {
 const in_statuses = {
   buff: {
     bubble:
-      "Block 5 DMG/stack. Max: 3 stack. Turn into Bubble Bomb upon reaching 3 stacks.",
+      // "Block 5 DMG/stack. Max: 3 stack. Turn into Bubble Bomb upon reaching 3 stacks.",
+      `Block 4 DMG per stack against non-multihit attacks. Block 2 DMG per stack
+      against multihit attacks. Max: 3 stack. Turn into Bubble Bomb upon reaching 3 stacks.`,
     cleanser: "Each stack negates 1 debuff applied on the target.",
     feather:
-      "When Axie does an attack, consume all Feather stacks to deal 2 bonus DMG per stack and heal 2 HP per stack. Max: 10 stack.",
+      // "When Axie does an attack, consume all Feather stacks to deal 2 bonus DMG per stack and heal 2 HP per stack. Max: 10 stack.",
+      "When Axie does an attack, consume all Feather stacks to deal 3 bonus DMG per stack and heal 1 HP per stack. Max: 10 stack.",
     healingBoost:
       "Increase healing card effects to this unit by 1 HP per stack.",
     meditate:
@@ -223,8 +226,12 @@ const in_statuses = {
     bubbleBomb:
       "Next attack explodes Bubble Bomb and deals 20 DMG to all Enemies.",
     damageBoost: "The target has Attack DMG increased by 1 per stack.",
-    fury: "Gain 1 Energy when transforms. Deal double damage and last for 1 turn.",
-    leaf: "Regen 5 HP at the end of your turn. Max stack: 5.",
+    fury:
+      // "Gain 1 Energy when transforms. Deal double damage and last for 1 turn.",
+      "Gain 1 Energy when transforms. Deal 75% more damage. Last for 1 turn.",
+    leaf:
+      // "Regen 5 HP at the end of your turn. Max stack: 5.",
+      "Regen 4 HP at the end of your turn. Max stack: 5.",
     rage: "DMG is increased by 2 per Rage stack. Transform into Fury Form when reaches 10 Rage stack.",
     stealth:
       "Stealth\tThe target cannot be targeted directly. If it uses a card, remove Stealth.",
@@ -240,7 +247,9 @@ const in_statuses = {
     vulnerable: "The target receives 20% more attack damage.",
     deathMark:
       "Whenever the opponent plays an Attack Card, the target take 13 DMG per Energy spent.",
-    doubt: "The target gains 20% less HP from Healing.",
+    doubt:
+      // "The target gains 20% less HP from Healing.",
+      "The target gains 50% less HP from Healing.",
     fragile: "The target gains 20% less Shield from cards.",
     hex: "Whenever the target uses a non-Attack card, shuffle a Confused into its draw pile.",
     silence: "The target cannot use non-Attack cards.",
@@ -334,30 +343,35 @@ let in_summon = [
   {
     name: "Clover",
     des: "Plant | 35 HP | When your turn starts, randomly grant 1~2 Leafs to your Axies. Clover disappears after 4 leafs are granted.",
-    img: `${summonUrl}/Clover${format}`
+    img: `${summonUrl}/Clover${format}`,
   },
   {
     name: "Trunk",
     des: "Plant | 75 HP | Taunt",
-    img: `${summonUrl}/Trunk${format}`
+    img: `${summonUrl}/Trunk${format}`,
   },
   {
     name: "Little Robin",
     des: "Bird | 18 HP | Teammates deal 16 more DMG. Lose 8 HP when your turn ends.",
-    img: `${summonUrl}/Little Robin${format}`
+    img: `${summonUrl}/Little Robin${format}`,
   },
   {
     name: "Mavis",
     des: "Bird | 18 HP | When your turn starts (after card drawing), Mavis reduces 1 Energy of a random Attack card. Lose 8 HP when your turn ends.",
-    img: `${summonUrl}/Mavis${format}`
+    img: `${summonUrl}/Mavis${format}`,
   },
   {
     name: "Mushroom",
     des: "Plant | 18 HP | When your turn ends, this Mushroom restores 24 HP to your most injured ally and loses 8 HP.",
-    img: `${summonUrl}/Mushroom${format}`
+    img: `${summonUrl}/Mushroom${format}`,
   },
 ];
-const summonName = in_summon.map(x => x.name)
+const summonName = in_summon.map((x) => x.name);
 //5. my opinion
 // [shuffle,Take,draw,if,more DMG,team,cap,all enemies,random,is attacked,frontmost,furthest,restore,Apply,Multihit Attack,Attacker,gain,Remove,reflected,loss to]
-const in_related = [...tagKeyword, ...statusKeyword, ...additionCardName, ...summonName];
+const in_related = [
+  ...tagKeyword,
+  ...statusKeyword,
+  ...additionCardName,
+  ...summonName,
+];

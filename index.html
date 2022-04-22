@@ -68,7 +68,7 @@
           </p>
           <v-spacer></v-spacer>
           <a :href="aboutUrl" target="_blank" rel="noopener noreferrer">
-            <v-btn icon small>
+            <v-btn icon small dark>
               <v-icon>mdi-comment-question-outline</v-icon>
             </v-btn>
           </a>
@@ -95,7 +95,7 @@
           <v-container>
             <!-- select  start -->
             <v-row>
-              <v-col cols="12">
+              <v-col cols="10" sm="10">
                 <v-select
                   v-model="value"
                   :items="cardClass"
@@ -112,6 +112,14 @@
                     <v-chip color="primary" dark>{{ item }}</v-chip>
                   </template>
                 </v-select>
+              </v-col>
+              <v-spacer></v-spacer>
+              <v-col cols="2" sm="1" class="align-center d-flex">
+                <a :href="updateUrl" target="_blank" rel="noopener noreferrer">
+                  <v-btn icon large>
+                    <v-icon>mdi-new-box</v-icon>
+                  </v-btn>
+                </a>
               </v-col>
             </v-row>
             <!-- select  end  -->
@@ -423,7 +431,11 @@
                                 :src="wordDesc.img"
                                 max-width="200"
                               ></v-img -->
-                              <img :src="wordDesc.img" alt="img" class="max-w">
+                              <img
+                                :src="wordDesc.img"
+                                alt="img"
+                                class="max-w"
+                              />
                             </v-col>
                           </v-col>
                           <br /><br /><br /><br />
@@ -527,6 +539,7 @@
         }),
 
         data: () => ({
+          updateUrl:"https://docs.google.com/spreadsheets/d/1cV8sQ0vztJJKbcn51hjpQBsWfB39S0UqTO8BZtQdCgg/edit#gid=581346017",
           aboutUrl:
             "https://www.notion.so/dpes8693/About-2f4a7a6b65e14691a7e0167e0983b724",
           card: {},
@@ -782,7 +795,7 @@
             }
             checker = this.checkAdditionCard(this.summon, word);
             if (checker && click) {
-              card.des = checker.des
+              card.des = checker.des;
               this.setAddCard(card, checker);
               return;
             }
