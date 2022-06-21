@@ -6,14 +6,9 @@
       rel="stylesheet"
     />
     <link
-      rel="preload"
-      as="style"
-      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
-    />
-    <!-- <link
       href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
       rel="stylesheet"
-    /> -->
+    />
 
     <meta
       name="viewport"
@@ -52,6 +47,7 @@
               class="elevation-1"
             >
             </v-data-table>
+            
           </v-container>
         </v-main>
         <!-- main end -->
@@ -63,6 +59,7 @@
     <script src="./js/vuetify.js"></script>
     <script src="./js/data.js"></script>
     <script>
+      
       new Vue({
         el: "#app",
         vuetify: new Vuetify(),
@@ -82,7 +79,9 @@
 
         watch: {},
 
-        methods: {},
+        methods: {
+
+        },
       }).$mount("#app");
       // new Vue()
     </script>
